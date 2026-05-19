@@ -1,7 +1,6 @@
 (() => {
   const root = document.documentElement;
   const body = document.body;
-  const themeButtons = document.querySelectorAll('[data-theme-option]');
   const scrollLinks = document.querySelectorAll('a[href^="#"]');
   const form = document.getElementById('notifyForm');
   const nameInput = document.getElementById('name');
@@ -31,8 +30,6 @@
   const navToggle = document.getElementById('navToggle');
   const mobileMenu = document.getElementById('mobileMenu');
   const mobileMenuLinks = document.querySelectorAll('.mobile-nav-links a, .mobile-menu-actions a');
-  const isTestHost = /^test\./i.test(window.location.hostname) || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  const defaultTheme = 'executive-dark';
   const estimatorCarryStorageKey = 'mmit-estimator-carry-v1';
   const scheduleStorageKey = 'mmit-schedule-intake-v1';
   const carryStorageTtlMs = 1000 * 60 * 60 * 4;
@@ -110,22 +107,7 @@
     return snapshot;
   }
 
-  if (isTestHost) {
-    body.classList.add('is-test-host');
-  }
-
-  const storedTheme = localStorage.getItem('mmit-public-theme-v2');
-  const initialTheme = storedTheme && ['executive-dark', 'balanced-slate', 'soft-light'].includes(storedTheme)
-    ? storedTheme
-    : defaultTheme;
-  root.setAttribute('data-theme', initialTheme);
-
-  function syncThemeButtons() {
-    const activeTheme = root.getAttribute('data-theme') || defaultTheme;
-    themeButtons.forEach((button) => {
-      button.classList.toggle('is-active', button.dataset.themeOption === activeTheme);
-    });
-  }
+  root.setAttribute('data-theme', 'executive-dark');
 
   function setNotifyStatus(message, type) {
     if (!formStatus) return;
@@ -150,15 +132,6 @@
     body.classList.remove('is-menu-open');
     navToggle.setAttribute('aria-expanded', 'false');
   }
-
-  themeButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const nextTheme = button.dataset.themeOption;
-      root.setAttribute('data-theme', nextTheme);
-      localStorage.setItem('mmit-public-theme-v2', nextTheme);
-      syncThemeButtons();
-    });
-  });
 
   if (navToggle && mobileMenu) {
     navToggle.addEventListener('click', () => {
@@ -540,7 +513,6 @@
     saveScheduleSnapshot();
   }
 
-  syncThemeButtons();
   resetCaptcha();
   prefillScheduleFromParams();
 
