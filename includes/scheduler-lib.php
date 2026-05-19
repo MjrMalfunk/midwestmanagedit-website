@@ -17,6 +17,43 @@ function scheduler_require_method(string $method): void
     }
 }
 
+function scheduler_client_ip(): string
+{
+    $forwarded = trim((string)($_SERVER['HTTP_X_FORWARDED_FOR'] ?? ''));
+    if ($forwarded !== '') {
+        $parts = explode(',', $forwarded);
+        $first = trim((string)($parts[0] ?? ''));
+        if ($first !== '') {
+            return $first;
+        }
+    }
+    return trim((string)($_SERVER['REMOTE_ADDR'] ?? 'unknown'));
+}
+
+function scheduler_rate_limit_guard(string $scope, int $maxRequests, int $windowSeconds): bool
+{
+    $key = hash('sha256', $scope . '|' . scheduler_client_ip());
+    $file = sys_get_temp_dir() . '/mmit-rate-' . $key . '.json';
+    $now = time();
+    $state = ['window_start' => $now, 'count' => 0];
+
+    if (is_file($file)) {
+        $decoded = json_decode((string)file_get_contents($file), true);
+        if (is_array($decoded) && isset($decoded['window_start'], $decoded['count'])) {
+            $state = $decoded;
+        }
+    }
+
+    if (($now - (int)$state['window_start']) >= $windowSeconds) {
+        $state = ['window_start' => $now, 'count' => 0];
+    }
+
+    $state['count'] = (int)$state['count'] + 1;
+    @file_put_contents($file, json_encode($state), LOCK_EX);
+
+    return (int)$state['count'] <= $maxRequests;
+}
+
 function scheduler_load_config(): ?array
 {
     $candidates = [];

@@ -1,17 +1,48 @@
 <?php
-header('Content-Type: application/json');
+header('Content-Type: application/json; charset=utf-8');
+
+function json_response(int $status, string $message, array $extra = []): void {
+    http_response_code($status);
+    echo json_encode(array_merge(['ok' => $status < 400, 'message' => $message], $extra), JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+function client_ip_address(): string {
+    $forwarded = trim((string)($_SERVER['HTTP_X_FORWARDED_FOR'] ?? ''));
+    if ($forwarded !== '') {
+        $parts = explode(',', $forwarded);
+        $first = trim((string)($parts[0] ?? ''));
+        if ($first !== '') return $first;
+    }
+    return trim((string)($_SERVER['REMOTE_ADDR'] ?? 'unknown'));
+}
+
+function rate_limit_guard(string $scope, int $maxRequests, int $windowSeconds): bool {
+    $key = hash('sha256', $scope . '|' . client_ip_address());
+    $file = sys_get_temp_dir() . '/mmit-rate-' . $key . '.json';
+    $now = time();
+    $state = ['window_start' => $now, 'count' => 0];
+    if (is_file($file)) {
+        $decoded = json_decode((string)file_get_contents($file), true);
+        if (is_array($decoded) && isset($decoded['window_start'], $decoded['count'])) $state = $decoded;
+    }
+    if (($now - (int)$state['window_start']) >= $windowSeconds) $state = ['window_start' => $now, 'count' => 0];
+    $state['count'] = (int)$state['count'] + 1;
+    @file_put_contents($file, json_encode($state), LOCK_EX);
+    return (int)$state['count'] <= $maxRequests;
+}
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
-    http_response_code(405);
-    echo json_encode(['message' => 'Method not allowed.']);
-    exit;
+    json_response(405, 'Method not allowed.');
+}
+
+if (!rate_limit_guard('estimate-request', 20, 300)) {
+    json_response(429, 'Too many requests. Please wait and try again.');
 }
 
 $secretsPath = '/home/mjrmstlj/private/mmit-secrets.php';
 if (!is_file($secretsPath)) {
-    http_response_code(500);
-    echo json_encode(['message' => 'Server configuration is missing.']);
-    exit;
+    json_response(500, 'Server configuration is missing.');
 }
 
 $secrets = require $secretsPath;
@@ -22,18 +53,14 @@ $listId = $estimateListId > 0 ? $estimateListId : $pendingListId;
 $attributeMap = $secrets['brevo']['estimate_attribute_map'] ?? [];
 
 if ($apiKey === '' || $listId <= 0) {
-    http_response_code(500);
-    echo json_encode(['message' => 'Brevo estimate configuration is incomplete.']);
-    exit;
+    json_response(500, 'Service configuration is incomplete.');
 }
 
 $rawInput = file_get_contents('php://input');
 $data = json_decode($rawInput, true);
 
 if (!is_array($data)) {
-    http_response_code(400);
-    echo json_encode(['message' => 'Invalid request body.']);
-    exit;
+    json_response(400, 'Invalid request body.');
 }
 
 $name = trim((string)($data['name'] ?? ''));
@@ -260,15 +287,11 @@ function mmit_business_profile(int $servers, int $cloudUsers): string {
 [$firstName, $lastName] = splitContactName($name);
 
 if ($name === '' || $email === '' || $company === '') {
-    http_response_code(400);
-    echo json_encode(['message' => 'Name, email, and company are required.']);
-    exit;
+    json_response(400, 'Name, email, and company are required.');
 }
 
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    http_response_code(400);
-    echo json_encode(['message' => 'Please provide a valid email address.']);
-    exit;
+    json_response(400, 'Please provide a valid email address.');
 }
 
 $serverEstimate = calculate_private_estimate_fields($data);
@@ -458,9 +481,7 @@ $curlError = curl_error($ch);
 curl_close($ch);
 
 if ($curlError) {
-    http_response_code(500);
-    echo json_encode(['message' => 'Server could not reach Brevo.']);
-    exit;
+    json_response(500, 'Service is temporarily unavailable. Please try again.');
 }
 
 $brevoResponse = json_decode($response, true);
@@ -475,38 +496,27 @@ if ($httpCode >= 200 && $httpCode < 300) {
         $message = sprintf('Thanks. We captured your %s planning range of %s and someone will follow up by email.', $finalLane, $finalRange);
     }
 
-    echo json_encode([
-        'message' => $message,
+    json_response(200, $message, [
         'estimate_lane' => $finalLane,
         'estimate_range' => $finalRange,
         'estimate_summary' => $finalSummary,
         'schedule_link' => $scheduleLink,
         'server_calculated' => !empty($calculatedFields),
     ]);
-    exit;
 }
 
 if (!empty($brevoResponse['message'])) {
     $message = $brevoResponse['message'];
     if (stripos($message, 'duplicate') !== false || stripos($message, 'already') !== false) {
-        http_response_code(200);
-        echo json_encode(['message' => 'This contact is already in the estimate follow-up path. We can still follow up by email from the existing record.']);
-        exit;
+        json_response(200, 'This contact is already in the estimate follow-up path. We can still follow up by email from the existing record.');
     }
 
     if (stripos($message, 'blacklist') !== false || stripos($message, 'blocked') !== false) {
-        http_response_code(400);
-        echo json_encode(['message' => 'That email address is blocked in Brevo. Please use another address or unblock it in Brevo first.']);
-        exit;
+        json_response(400, 'That email address is blocked. Please use another address.');
     }
 
-    http_response_code(500);
-    echo json_encode(['message' => $message, 'brevo_status' => $httpCode]);
-    exit;
+    error_log('MMIT estimate provider response: ' . $message . ' (HTTP ' . $httpCode . ')');
+    json_response(500, 'Estimate request was not accepted. Please try again.');
 }
 
-http_response_code(500);
-echo json_encode([
-    'message' => 'Brevo rejected the estimate request.',
-    'brevo_status' => $httpCode,
-]);
+json_response(500, 'Estimate request was not accepted. Please try again.');
