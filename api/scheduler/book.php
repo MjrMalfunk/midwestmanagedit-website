@@ -3,6 +3,9 @@ declare(strict_types=1);
 require dirname(__DIR__, 2) . '/includes/scheduler-lib.php';
 
 scheduler_require_method('POST');
+if (!scheduler_rate_limit_guard('scheduler-book', 20, 300)) {
+    scheduler_json_response(['ok' => false, 'message' => 'Too many requests. Please wait and try again.'], 429);
+}
 
 
 function mmit_mark_estimate_scheduled(array $data): void
@@ -112,5 +115,6 @@ try {
         'joinUrl' => (string)($result['onlineMeeting']['joinUrl'] ?? ''),
     ]);
 } catch (Throwable $e) {
-    scheduler_json_response(['ok' => false, 'message' => $e->getMessage()], 500);
+    error_log('MMIT scheduler booking error: ' . $e->getMessage());
+    scheduler_json_response(['ok' => false, 'message' => 'Scheduler is temporarily unavailable. Please try again shortly.'], 500);
 }
