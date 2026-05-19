@@ -1,50 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-<url>
-<loc>https://midwestmanagedit.com/</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/services.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/plans.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/who-we-help.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/getting-started.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/faq.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/about.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/managed-it.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/cybersecurity.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/microsoft-365.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/backup-recovery.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/contact.html</loc>
-</url>
-<url>
-<loc>https://midwestmanagedit.com/thanks.html</loc>
-</url>
-<url><loc>https://midwestmanagedit.com/help-desk-support.html</loc></url>
-<url><loc>https://midwestmanagedit.com/technology-guidance.html</loc></url>
-<url><loc>https://midwestmanagedit.com/resources.html</loc></url><url><loc>https://midwestmanagedit.com/managed-vs-reactive-support.html</loc></url><url><loc>https://midwestmanagedit.com/microsoft-365-hygiene.html</loc></url><url><loc>https://midwestmanagedit.com/backup-recovery-readiness.html</loc></url>  <url>
-    <loc>https://midwestmanagedit.com/quick-answers.html</loc>
-  </url>
+  <url><loc>https://midwestmanagedit.com/</loc></url>
+  <url><loc>https://midwestmanagedit.com/about.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/services.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/plans.html</loc></url>
   <url><loc>https://midwestmanagedit.com/pricing-estimator.html</loc></url>
-  <url><loc>https://midwestmanagedit.com/terms.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/who-we-help.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/getting-started.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/contact.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/schedule.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/help-desk-support.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/managed-it.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/cybersecurity.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/microsoft-365.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/backup-recovery.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/technology-guidance.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/resources.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/quick-answers.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/faq.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/managed-vs-reactive-support.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/microsoft-365-hygiene.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/backup-recovery-readiness.html</loc></url>
   <url><loc>https://midwestmanagedit.com/privacy.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/terms.html</loc></url>
+  <url><loc>https://midwestmanagedit.com/thanks.html</loc></url>
 </urlset>
