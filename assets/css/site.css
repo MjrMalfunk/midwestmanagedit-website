@@ -680,6 +680,11 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   transition:border-color var(--transition), box-shadow var(--transition), transform var(--transition), background var(--transition);
 }
 .field textarea{resize:vertical;min-height:132px}
+.field select option{
+  background:#ffffff;
+  color:#111827;
+}
+
 .field input:focus,
 .field select:focus,
 .field textarea:focus{

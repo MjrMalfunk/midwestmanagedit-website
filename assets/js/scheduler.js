@@ -111,7 +111,7 @@
     picker.dataset.schedulerReady = state.days.length ? 'true' : 'false';
     if (timezoneLabel) timezoneLabel.textContent = tzLabel(data);
     if (!state.days.length) {
-      daysWrap.innerHTML = '<p class="muted">No bookable windows are listed right now. Use the simple email path below and suggest a few times.</p>';
+      daysWrap.innerHTML = '<p class="muted">No available windows are listed right now. Send the form and we'll follow up directly with next steps.</p>';
       setSummary('No time selected yet.', false);
       return;
     }
@@ -119,7 +119,7 @@
     setSummary(state.sourceMode === 'live' ? 'Choose a live opening to book instantly.' : 'Choose a preferred slot to include with your intake.', false);
   }).catch(() => {
     picker.dataset.schedulerReady = 'false';
-    daysWrap.innerHTML = '<p class="muted">The scheduler could not load right now. You can still use the simple email path below.</p>';
+    daysWrap.innerHTML = '<p class="muted">Available times could not load right now. Send the form and we'll follow up directly.</p>';
     setSummary('No time selected yet.', false);
   });
 })();
