@@ -124,7 +124,7 @@
 <div class="card card-pad consult-card">
 <div class="eyebrow">Chat request intake</div>
 <h2>Tell us what is getting in the way.</h2>
-<p class="muted">This intake is designed to make the first conversation more useful. When the live Microsoft 365 calendar connection is configured, this form can book a real opening immediately and send the request straight onto the booking calendar. Until then, it gracefully falls back to the email-based path.</p>
+<p class="muted">This intake is designed to make the first conversation more useful. Choose a time or send the request, and we’ll confirm the next step. If a time is not available, send the form and we’ll follow up directly.</p>
 <form class="intake-form" data-booking-endpoint="api/scheduler/book.php" id="scheduleForm" novalidate="">
 <div class="input-grid two-up">
 <label class="field">
@@ -219,7 +219,7 @@
 <textarea id="scheduleAvailability" name="availability" placeholder="Share anything else that would help us prepare, including alternate times or context for the first conversation." rows="3"></textarea>
 </label>
 <div class="intake-note">
-<strong>Booking behavior:</strong> if the live calendar connection is active, choosing a slot and submitting the form books it immediately. If the live connection is not active yet, the same intake can still fall back to the email path.
+<strong>Booking behavior:</strong> choose an available time and submit the form to request it. If a time is not available, send the form and we’ll follow up directly.
           </div>
 <div class="submit-row consult-submit-row">
 <button class="btn btn-primary" type="submit">Book Selected Time</button>
@@ -233,7 +233,7 @@
 <div class="card card-pad rail-card scheduler-card">
 <div class="eyebrow">Choose a time window</div>
 <h3>Book a real opening from the calendar.</h3>
-<p class="muted">This panel is wired to support live Microsoft 365 availability. If the live connection is not configured yet, it falls back to the preferred-slot layer so the page still works cleanly during setup.</p>
+<p class="muted">Use this panel to pick a time that works for you. If a time is not available, send the form and we’ll follow up directly.</p>
 <div class="scheduler-config-row">
 <span class="scheduler-config-label">Time zone</span>
 <strong class="scheduler-config-value" id="schedulerTimezoneLabel">Eastern Time</strong>
@@ -247,14 +247,14 @@
 <input id="scheduleRequestedSlot" name="requested_slot" type="hidden"/>
 <input id="scheduleRequestedSlotIso" name="requested_slot_iso" type="hidden"/>
 <div class="scheduler-selection-summary" id="schedulerSelectionSummary">No time selected yet.</div>
-<div class="scheduler-microcopy">Launch target: live availability, blackout handling, automatic calendar event creation, and a clean confirmation flow against your Midwest Managed IT Microsoft 365 calendar.</div>
+<div class="scheduler-microcopy">Share what is going on and we’ll route the conversation from there, including the best next scheduling step.</div>
 </div>
 <div class="card card-pad rail-card">
 <div class="eyebrow">What this launch version should handle</div>
 <ul class="stack-list rail-stack">
 <li><span aria-hidden="true" class="check"></span><div><strong>Live openings</strong><p class="muted">Working hours, blackout dates, minimum notice, and buffers between meetings.</p></div></li>
 <li><span aria-hidden="true" class="check"></span><div><strong>Automatic booking</strong><p class="muted">Create the appointment directly on the Microsoft 365 calendar instead of bouncing through manual email scheduling.</p></div></li>
-<li><span aria-hidden="true" class="check"></span><div><strong>Graceful fallback</strong><p class="muted">If the live connection is not configured yet, the page can still fall back to the email-based intake path.</p></div></li>
+<li><span aria-hidden="true" class="check"></span><div><strong>Graceful fallback</strong><p class="muted">If a time is not available, send the form and we’ll follow up directly.</p></div></li>
 <li><span aria-hidden="true" class="check"></span><div><strong>Future growth</strong><p class="muted">Later phases can add confirmations, reschedules, cancellation links, and OPS-side admin controls without redesigning this page.</p></div></li>
 </ul>
 </div>
