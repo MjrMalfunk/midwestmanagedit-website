@@ -1,0 +1,173 @@
+{
+  "currency": "USD",
+  "lanes": {
+    "manage": {
+      "label": "Manage IT",
+      "workstation_rate": 85,
+      "server_rate": 100,
+      "high_pad": 0.08,
+      "summary": "Foundational managed support for businesses that want steadier operations, proactive maintenance, and cleaner day-to-day support.",
+      "included": [
+        "Managed endpoint support baseline with monitoring, maintenance, and ticket flow",
+        "Core endpoint management, patching, and support structure",
+        "Flexible add-ons for DNS filtering, endpoint backup, server backup, and Microsoft 365 or Google Workspace licensing"
+      ]
+    },
+    "protect": {
+      "label": "Protect IT",
+      "workstation_rate": 145,
+      "server_rate": 160,
+      "high_pad": 0.12,
+      "summary": "Security-forward managed support with EDR, DNS filtering, workstation backup, and starter cloud productivity licensing built into the lane.",
+      "included": [
+        "Manage IT baseline plus Huntress EDR coverage",
+        "DNS filtering included",
+        "Workstation backup allowance up to 250GB per workstation",
+        "Cloud user backup planning included",
+        "Microsoft 365 Business Basic or Google Workspace Starter included, with upgrade options available"
+      ]
+    },
+    "govern": {
+      "label": "Govern IT",
+      "workstation_rate": 215,
+      "server_rate": 230,
+      "high_pad": 0.15,
+      "summary": "Governance-focused managed support with premium cloud productivity licensing, EDR, ITDR, SAT, DNS filtering, workstation backup, and stronger oversight built into the lane.",
+      "included": [
+        "Protect IT footing plus broader governance and administrative oversight",
+        "Huntress EDR, ITDR, and security awareness training included",
+        "DNS filtering included",
+        "Workstation backup allowance up to 250GB per workstation",
+        "Microsoft 365 Premium or Google Workspace Plus included at no additional charge"
+      ]
+    }
+  },
+  "addons": {
+    "dns_filtering": {
+      "label": "DNS filtering",
+      "rate": 4,
+      "basis": "managed_device",
+      "lanes": [
+        "manage"
+      ],
+      "note": "Included with Protect IT and Govern IT; optional for Manage IT."
+    },
+    "endpoint_backup": {
+      "label": "Endpoint backup up to 250GB",
+      "rate": 20,
+      "basis": "workstation",
+      "lanes": [
+        "manage"
+      ],
+      "note": "Included with Protect IT and Govern IT for workstations."
+    },
+    "server_backup": {
+      "label": "Server backup up to 500GB",
+      "rate": 59,
+      "basis": "server",
+      "lanes": [
+        "manage",
+        "protect",
+        "govern"
+      ],
+      "note": "Server backup allowance up to 500GB per server. Additional pools are reviewed after scoping."
+    },
+    "m365_basic": {
+      "label": "Microsoft 365 Business Basic",
+      "rate": 10,
+      "basis": "user",
+      "lanes": [
+        "manage"
+      ],
+      "note": "Included with Protect IT as the Microsoft starter option."
+    },
+    "m365_standard": {
+      "label": "Microsoft 365 Business Standard",
+      "rate": 18,
+      "basis": "user",
+      "lanes": [
+        "manage"
+      ],
+      "note": "Full Microsoft 365 Standard pricing for Manage IT."
+    },
+    "m365_premium": {
+      "label": "Microsoft 365 Business Premium",
+      "rate": 30,
+      "basis": "user",
+      "lanes": [
+        "manage"
+      ],
+      "note": "Included with Govern IT as the Microsoft premium option."
+    },
+    "google_starter": {
+      "label": "Google Workspace Starter",
+      "rate": 12,
+      "basis": "user",
+      "lanes": [
+        "manage"
+      ],
+      "note": "Included with Protect IT as the Google starter option."
+    },
+    "google_standard": {
+      "label": "Google Workspace Standard",
+      "rate": 20,
+      "basis": "user",
+      "lanes": [
+        "manage"
+      ],
+      "note": "Full Google Workspace Standard pricing for Manage IT."
+    },
+    "google_plus": {
+      "label": "Google Workspace Plus",
+      "rate": 30,
+      "basis": "user",
+      "lanes": [
+        "manage"
+      ],
+      "note": "Included with Govern IT as the Google premium option."
+    },
+    "protect_m365_standard_upgrade": {
+      "label": "Upgrade included Microsoft 365 Basic to Standard",
+      "rate": 8,
+      "basis": "user",
+      "lanes": [
+        "protect"
+      ],
+      "note": "Upgrade difference from included Microsoft 365 Business Basic."
+    },
+    "protect_m365_premium_upgrade": {
+      "label": "Upgrade included Microsoft 365 Basic to Premium",
+      "rate": 20,
+      "basis": "user",
+      "lanes": [
+        "protect"
+      ],
+      "note": "Upgrade difference from included Microsoft 365 Business Basic."
+    },
+    "protect_google_standard_upgrade": {
+      "label": "Upgrade included Google Starter to Standard",
+      "rate": 8,
+      "basis": "user",
+      "lanes": [
+        "protect"
+      ],
+      "note": "Upgrade difference from included Google Workspace Starter."
+    },
+    "protect_google_plus_upgrade": {
+      "label": "Upgrade included Google Starter to Plus",
+      "rate": 18,
+      "basis": "user",
+      "lanes": [
+        "protect"
+      ],
+      "note": "Upgrade difference from included Google Workspace Starter."
+    }
+  },
+  "quoted_separately": [
+    "Backup storage pools beyond 250GB per workstation or 500GB per server",
+    "Specialty recovery requirements or unusual retention needs",
+    "Project work, migrations, cleanup, and remediation projects",
+    "Complex compliance or environment-specific requirements",
+    "License mixes outside the common Microsoft 365 / Google Workspace options shown here"
+  ]
+}

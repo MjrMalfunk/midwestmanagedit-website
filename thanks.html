@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>You’re Confirmed | Midwest Managed IT</title>
+<meta content="Thanks for confirming your email or booking time with Midwest Managed IT." name="description"/>
+<style>
+:root{
+  --bg:#0f1a2a;
+  --bg-2:#16304a;
+  --surface:rgba(255,255,255,.07);
+  --surface-2:rgba(255,255,255,.03);
+  --border:rgba(255,255,255,.11);
+  --text:#f2f7fd;
+  --muted:#d0dced;
+  --brand:#5b9eff;
+  --accent:#72efd7;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  min-height:100vh;
+  font-family:Inter, Arial, Helvetica, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(circle at 15% 10%, rgba(91,158,255,.18), transparent 30%),
+    radial-gradient(circle at 85% 15%, rgba(114,239,215,.10), transparent 24%),
+    linear-gradient(180deg, var(--bg) 0%, var(--bg-2) 100%);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:32px 16px;
+}
+.card{
+  position:relative;
+  width:min(760px,100%);
+  text-align:center;
+  padding:56px 34px;
+  border-radius:30px;
+  background:linear-gradient(180deg, var(--surface), var(--surface-2));
+  border:1px solid var(--border);
+  box-shadow:0 28px 70px rgba(8,18,34,.24);
+  overflow:hidden;
+}
+.card::before{
+  content:"";
+  position:absolute;
+  top:-120px;
+  right:-40px;
+  width:240px;
+  height:240px;
+  background:radial-gradient(circle, rgba(91,158,255,.18), transparent 66%);
+  pointer-events:none;
+}
+.eyebrow{
+  display:inline-block;
+  margin-bottom:16px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  font-size:.82rem;
+  font-weight:800;
+  color:#bed6f5;
+}
+h1{
+  font-size:clamp(2.2rem,4vw,3.5rem);
+  line-height:1.05;
+  letter-spacing:-.03em;
+  margin-bottom:14px;
+}
+p{
+  color:var(--muted);
+  font-size:1.06rem;
+  max-width:580px;
+  margin:0 auto 12px;
+}
+.meta{
+  margin:22px auto 0;
+  max-width:620px;
+  padding:16px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(146,195,255,.14);
+  color:#d8e7f9;
+}
+.actions{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;margin-top:24px}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  padding:14px 24px;
+  border-radius:999px;
+  text-decoration:none;
+  font-weight:800;
+  border:1px solid transparent;
+}
+.btn-primary{
+  color:#fff;
+  background:linear-gradient(135deg, var(--brand), #255fcc);
+  box-shadow:0 14px 30px rgba(37,95,204,.24);
+}
+.btn-secondary{
+  color:var(--text);
+  background:rgba(255,255,255,.05);
+  border-color:var(--border);
+}
+</style>
+</head>
+<body>
+<main class="card">
+<div class="eyebrow" id="eyebrow">Subscription Confirmed</div>
+<h1 id="headline">You’re on the list 🎉</h1>
+<p id="leadOne">Thanks for confirming your email with Midwest Managed IT.</p>
+<p id="leadTwo">We’ll keep you posted as the public site and service experience continue to take shape.</p>
+<div class="meta" id="meta">You are now on the early access list and will be among the first to hear when new updates and launch details are ready.</div>
+<div class="actions" id="actions">
+<a class="btn btn-primary" href="index.html" id="primaryAction">Back to Home</a>
+<a class="btn btn-secondary" href="mailto:info@midwestmanagedit.com" id="secondaryAction">Contact Us</a>
+</div>
+</main>
+<script>
+(() => {
+  const estimatorCarryStorageKey = 'mmit-estimator-carry-v1';
+  const carryStorageTtlMs = 1000 * 60 * 60 * 4;
+  const params = new URLSearchParams(window.location.search);
+  const mode = params.get('mode');
+
+  function readEstimatorCarry() {
+    try {
+      const raw = window.sessionStorage.getItem(estimatorCarryStorageKey);
+      if (!raw) return null;
+      const snapshot = JSON.parse(raw);
+      if (!snapshot || !snapshot.savedAt || Date.now() - Number(snapshot.savedAt) > carryStorageTtlMs) {
+        window.sessionStorage.removeItem(estimatorCarryStorageKey);
+        return null;
+      }
+      return snapshot;
+    } catch (error) {
+      return null;
+    }
+  }
+  if (!mode) return;
+
+  if (mode === 'booking') {
+    const slot = params.get('slot') || 'your selected time';
+    const company = params.get('company') || 'your team';
+    const join = params.get('join');
+    const calendar = params.get('calendar');
+
+    document.title = 'Booking Confirmed | Midwest Managed IT';
+    document.getElementById('eyebrow').textContent = 'Booking Confirmed';
+    document.getElementById('headline').textContent = 'You’re booked ✅';
+    document.getElementById('leadOne').textContent = `${slot} has been reserved for ${company}.`;
+    document.getElementById('leadTwo').textContent = join
+      ? 'Your booking was added to the calendar and a meeting link is ready below.'
+      : 'Your booking was added to the calendar. We will follow up if anything else is needed before the conversation.';
+    document.getElementById('meta').textContent = join
+      ? 'Next step: open the meeting link or check your calendar invite. If you need to adjust anything, reply to the event invite or reach out directly.'
+      : 'Next step: check your calendar invite. If you need to adjust anything, reach out directly and we can help move it cleanly.';
+
+    const actions = document.getElementById('actions');
+    actions.innerHTML = '';
+
+    const primary = document.createElement('a');
+    primary.className = 'btn btn-primary';
+    primary.href = join || calendar || 'index.html';
+    primary.textContent = join ? 'Open Meeting Link' : (calendar ? 'View Calendar Event' : 'Back to Home');
+    actions.appendChild(primary);
+
+    const secondary = document.createElement('a');
+    secondary.className = 'btn btn-secondary';
+    secondary.href = 'contact.html#schedule-intake';
+    secondary.textContent = 'Back to Scheduler';
+    actions.appendChild(secondary);
+    return;
+  }
+
+  if (mode === 'estimate-email') {
+    const carrySnapshot = readEstimatorCarry();
+    const savedParams = carrySnapshot && carrySnapshot.params ? carrySnapshot.params : {};
+    const company = params.get('company') || savedParams.company || 'your team';
+    const range = params.get('range') || params.get('estimate_range') || savedParams.estimate_range || 'the planning range you saw on the estimator';
+    const lane = params.get('lane') || savedParams.plan_fit || 'your selected lane';
+    const carryParams = new URLSearchParams();
+
+    Object.entries(savedParams).forEach(([key, value]) => {
+      if (value) carryParams.set(key, value);
+    });
+    params.forEach((value, key) => {
+      if (!['mode', 'range', 'lane'].includes(key) && value) carryParams.set(key, value);
+    });
+
+    document.title = 'Estimate Request Received | Midwest Managed IT';
+    document.getElementById('eyebrow').textContent = 'Estimate Request Received';
+    document.getElementById('headline').textContent = 'Thanks, we’ve got it ✉️';
+    document.getElementById('leadOne').textContent = `Your ${lane} estimate request for ${company} has been sent into the email-first follow-up path.`;
+    document.getElementById('leadTwo').textContent = 'Someone from Midwest Managed IT will follow up by email. If you decide you would rather talk sooner, you can still schedule a chat below.';
+    document.getElementById('meta').textContent = `Planning range captured: ${range}. This is still a planning number, not a contractual quote.`;
+
+    const actions = document.getElementById('actions');
+    actions.innerHTML = '';
+
+    const primary = document.createElement('a');
+    primary.className = 'btn btn-primary';
+    primary.href = carryParams.toString() ? `contact.html?${carryParams.toString()}#schedule-intake` : 'contact.html#schedule-intake';
+    primary.textContent = 'Schedule a Chat Instead';
+    actions.appendChild(primary);
+
+    const secondary = document.createElement('a');
+    secondary.className = 'btn btn-secondary';
+    secondary.href = 'pricing-estimator.html';
+    secondary.textContent = 'Back to Estimator';
+    actions.appendChild(secondary);
+  }
+})();
+</script>
+</body>
+</html>

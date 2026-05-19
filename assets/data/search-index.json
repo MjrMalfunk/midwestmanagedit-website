@@ -1,0 +1,341 @@
+[
+  {
+    "title": "Managed IT Services overview",
+    "url": "services.html",
+    "category": "services",
+    "summary": "Get the clean map of MMIT's six service areas and how they support calmer operations.",
+    "keywords": [
+      "services",
+      "managed it",
+      "cybersecurity",
+      "microsoft 365",
+      "backup",
+      "help desk",
+      "technology guidance",
+      "support"
+    ]
+  },
+  {
+    "title": "Manage IT, Protect IT, or Govern IT",
+    "url": "plans.html",
+    "category": "plans",
+    "summary": "Compare the three relationship lanes and see which support model fits your environment.",
+    "keywords": [
+      "plans",
+      "manage it",
+      "protect it",
+      "govern it",
+      "compare",
+      "service levels",
+      "relationship lane"
+    ]
+  },
+  {
+    "title": "Who Midwest Managed IT helps best",
+    "url": "who-we-help.html",
+    "category": "fit",
+    "summary": "See the business profiles, friction points, and operating patterns that usually line up best.",
+    "keywords": [
+      "fit",
+      "ideal client",
+      "small business",
+      "growing businesses",
+      "no internal IT",
+      "office manager"
+    ]
+  },
+  {
+    "title": "Getting started and the first 30 days",
+    "url": "getting-started.html",
+    "category": "process",
+    "summary": "Understand what the first conversation, first month, and first operational cleanup usually look like.",
+    "keywords": [
+      "getting started",
+      "first 30 days",
+      "onboarding",
+      "process",
+      "assessment",
+      "first call"
+    ]
+  },
+  {
+    "title": "Quick answers to common questions",
+    "url": "faq.html",
+    "category": "faq",
+    "summary": "Answers on remote support, existing environments, break-fix, Microsoft 365 help, and backup planning.",
+    "keywords": [
+      "faq",
+      "questions",
+      "remote support",
+      "onsite",
+      "existing environment",
+      "break fix",
+      "microsoft 365",
+      "backup"
+    ]
+  },
+  {
+    "title": "Resource hub and helpful reads",
+    "url": "resources.html",
+    "category": "guides",
+    "summary": "Browse short practical guides for buyers who want a clearer version before they reach out.",
+    "keywords": [
+      "resources",
+      "guides",
+      "helpful reads",
+      "knowledge base",
+      "articles",
+      "learn"
+    ]
+  },
+  {
+    "title": "Managed IT that reduces drag and restores calm",
+    "url": "managed-it.html",
+    "category": "services",
+    "summary": "See how monitoring, patching, maintenance, and responsive support create steadier operations.",
+    "keywords": [
+      "managed it",
+      "monitoring",
+      "patching",
+      "maintenance",
+      "operations",
+      "support",
+      "workstation",
+      "server"
+    ]
+  },
+  {
+    "title": "Cybersecurity without enterprise fog machines",
+    "url": "cybersecurity.html",
+    "category": "services",
+    "summary": "Learn how layered protection, safer defaults, hardening, and risk reduction fit into the relationship.",
+    "keywords": [
+      "cybersecurity",
+      "security",
+      "endpoint protection",
+      "hardening",
+      "defender",
+      "huntress",
+      "risk reduction"
+    ]
+  },
+  {
+    "title": "Microsoft 365 and cloud administration",
+    "url": "microsoft-365.html",
+    "category": "services",
+    "summary": "User lifecycle work, tenant hygiene, licensing, and admin cleanup for calmer cloud operations.",
+    "keywords": [
+      "microsoft 365",
+      "office 365",
+      "cloud",
+      "tenant",
+      "licenses",
+      "onboarding",
+      "offboarding",
+      "admin"
+    ]
+  },
+  {
+    "title": "Backup and recovery readiness",
+    "url": "backup-recovery.html",
+    "category": "services",
+    "summary": "See how backup oversight, recovery planning, and business continuity fit into ongoing support.",
+    "keywords": [
+      "backup",
+      "recovery",
+      "disaster recovery",
+      "continuity",
+      "cove",
+      "restore",
+      "data protection"
+    ]
+  },
+  {
+    "title": "Help desk and remote support",
+    "url": "help-desk-support.html",
+    "category": "services",
+    "summary": "Understand the remote-first support model and how day-to-day issues get handled without chaos.",
+    "keywords": [
+      "help desk",
+      "remote support",
+      "support tickets",
+      "onsite",
+      "troubleshooting",
+      "issues",
+      "user support"
+    ]
+  },
+  {
+    "title": "Technology guidance for next-step decisions",
+    "url": "technology-guidance.html",
+    "category": "services",
+    "summary": "Practical advice on upgrades, lifecycle planning, tool choices, and cleaner technology decisions.",
+    "keywords": [
+      "technology guidance",
+      "consulting",
+      "lifecycle planning",
+      "upgrades",
+      "recommendations",
+      "tools"
+    ]
+  },
+  {
+    "title": "Managed support vs reactive support",
+    "url": "managed-vs-reactive-support.html",
+    "category": "guides",
+    "summary": "Why prevention, ownership, and steadier support usually beat emergency-only repair relationships.",
+    "keywords": [
+      "managed support",
+      "reactive support",
+      "break fix",
+      "prevention",
+      "support model",
+      "cost"
+    ]
+  },
+  {
+    "title": "Microsoft 365 hygiene for growing businesses",
+    "url": "microsoft-365-hygiene.html",
+    "category": "guides",
+    "summary": "Signs the tenant has become a junk drawer and what cleaner administration should look like.",
+    "keywords": [
+      "microsoft 365 hygiene",
+      "tenant cleanup",
+      "users",
+      "licenses",
+      "groups",
+      "sharing",
+      "admin drift"
+    ]
+  },
+  {
+    "title": "Backup recovery readiness without hand-waving",
+    "url": "backup-recovery-readiness.html",
+    "category": "guides",
+    "summary": "A plain-English look at backup health, coverage, recoverability, and business continuity.",
+    "keywords": [
+      "backup readiness",
+      "recoverability",
+      "restore confidence",
+      "coverage",
+      "business continuity",
+      "readiness"
+    ]
+  },
+  {
+    "title": "Why Midwest Managed IT",
+    "url": "about.html",
+    "category": "about",
+    "summary": "Read the operating principles behind the business and the calm, practical support model it is built around.",
+    "keywords": [
+      "about",
+      "why mmit",
+      "support model",
+      "midwest managed it",
+      "remote first",
+      "local onsite"
+    ]
+  },
+  {
+    "title": "Schedule a chat and intake",
+    "url": "contact.html#schedule-intake",
+    "category": "contact",
+    "summary": "Use the intake path to describe friction points, support needs, business profile, and timing.",
+    "keywords": [
+      "contact",
+      "schedule a chat",
+      "intake",
+      "book",
+      "talk",
+      "consultation",
+      "email"
+    ]
+  },
+  {
+    "title": "Remote-first support with local onsite when needed",
+    "url": "faq.html",
+    "category": "faq",
+    "summary": "MMIT works remote-first for speed and coverage, with local onsite support available when it truly makes sense.",
+    "keywords": [
+      "remote first",
+      "onsite",
+      "local support",
+      "indiana",
+      "truck roll",
+      "field support"
+    ]
+  },
+  {
+    "title": "Schedule a chat and book a time",
+    "url": "contact.html#schedule-intake",
+    "category": "process",
+    "summary": "Use the booking intake to choose a live opening, share context, and request your first conversation.",
+    "keywords": [
+      "schedule a chat",
+      "booking",
+      "calendar",
+      "appointment",
+      "time slot",
+      "contact",
+      "microsoft 365 calendar"
+    ]
+  },
+  {
+    "title": "See your configuration pricing",
+    "url": "pricing-estimator.html",
+    "category": "plans",
+    "summary": "Build a transparent monthly planning range around your lane, workstation count, server count, and common add-ons.",
+    "keywords": [
+      "pricing",
+      "estimate",
+      "estimator",
+      "configuration pricing",
+      "cost",
+      "monthly",
+      "manage it",
+      "protect it",
+      "govern it"
+    ]
+  },
+  {
+    "title": "Terms of Service",
+    "url": "terms.html",
+    "category": "process",
+    "summary": "Review the legal terms for using the site, booking tools, and pricing estimator.",
+    "keywords": [
+      "terms",
+      "terms of service",
+      "legal",
+      "estimator terms",
+      "booking terms"
+    ]
+  },
+  {
+    "title": "Privacy Policy",
+    "url": "privacy.html",
+    "category": "process",
+    "summary": "See how contact, scheduling, and estimator information is handled on the site.",
+    "keywords": [
+      "privacy",
+      "privacy policy",
+      "data",
+      "scheduling",
+      "forms",
+      "contact"
+    ]
+  },
+  {
+    "title": "Configuration pricing follow-up",
+    "url": "pricing-estimator.html",
+    "category": "Plans",
+    "summary": "Build a planning estimate, then either schedule a chat about it or send the estimate into the email-first follow-up path.",
+    "keywords": [
+      "estimate",
+      "pricing",
+      "schedule a chat about this estimate",
+      "email me this estimate",
+      "brevo",
+      "follow-up"
+    ]
+  }
+]

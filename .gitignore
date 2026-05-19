@@ -1,0 +1,55 @@
+# Secrets
+*.secrets.php
+.env
+.env.*
+secrets.php
+credentials.php
+config.local.php
+local.config.php
+private/
+
+# Logs
+*.log
+error_log
+logs/
+
+# Backups / archives / database dumps
+*.zip
+*.tar
+*.tar.gz
+*.sql
+*.sqlite
+*.bak
+backups/
+backup/
+old/
+archive/
+
+# Large/static folders already hosted elsewhere
+Videos/
+videos/
+Docs/
+docs/
+
+# OS/editor junk
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+# cPanel / server junk
+tmp/
+*/tmp/
+awstats/
+*/awstats/
+pma_template*
+.pma*
+.cache/
+cache/
+sessions/
+session/
+mail/
+ssl/
+etc/
+public_ftp/
+softaculous_backups/
+subscribe.from-vault.php
