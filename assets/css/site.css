@@ -246,6 +246,7 @@ body.is-test-host .theme-lab{display:flex}
 }
 .hero-media-layer{
   position:absolute;
+  background:linear-gradient(115deg, rgba(8,18,32,.34), rgba(10,22,40,.2)), url("../media/hero-poster.svg") center/cover no-repeat;
   inset:0;
   z-index:0;
   pointer-events:none;
@@ -533,6 +534,28 @@ body.is-test-host .theme-lab{display:flex}
   font-weight:700;
 }
 .operations-confidence-section{padding-top:14px}
+
+.operations-confidence-band{
+  position:relative;
+  overflow:hidden;
+}
+.operations-confidence-band::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("../media/cybersecurity-abstract.svg") center/cover no-repeat;
+  opacity:.12;
+  pointer-events:none;
+}
+.operations-confidence-band > *{position:relative;z-index:1;}
+
+.service-lane-icon{
+  width:48px;
+  height:48px;
+  margin:2px 0 10px;
+  display:block;
+}
+
 .operations-confidence-band{
   border:1px solid var(--border);
   border-radius:20px;

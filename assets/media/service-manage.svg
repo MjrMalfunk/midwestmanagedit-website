@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Manage IT icon">
+  <defs><linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b9eff"/><stop offset="1" stop-color="#72efd7"/></linearGradient></defs>
+  <rect x="10" y="14" width="100" height="92" rx="22" fill="#16263b" stroke="#92c3ff" stroke-opacity="0.45"/>
+  <rect x="24" y="32" width="72" height="10" rx="5" fill="#dce9ff" fill-opacity="0.35"/>
+  <rect x="24" y="50" width="50" height="8" rx="4" fill="#dce9ff" fill-opacity="0.28"/>
+  <rect x="24" y="66" width="64" height="8" rx="4" fill="#dce9ff" fill-opacity="0.2"/>
+  <circle cx="84" cy="84" r="11" fill="url(#m)"/>
+</svg>
