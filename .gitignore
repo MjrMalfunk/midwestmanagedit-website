@@ -2,11 +2,14 @@
 *.secrets.php
 .env
 .env.*
+*.env
 secrets.php
 credentials.php
 config.local.php
 local.config.php
 private/
+api/scheduler/config.php
+api/scheduler/config.local.php
 
 # Logs
 *.log
