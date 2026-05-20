@@ -472,7 +472,7 @@
       const mailto = `mailto:info@midwestmanagedit.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
       window.location.href = mailto;
       saveScheduleSnapshot();
-      setScheduleStatus('Live booking is not configured yet, so the page fell back to your email app with the selected slot and intake details prefilled.', 'success');
+      setScheduleStatus('We could not reserve that time automatically, so your email app opened with the details prefilled. Send it over and we’ll follow up directly.', 'success');
     });
 
     scheduleForm.addEventListener('input', saveScheduleSnapshot);
