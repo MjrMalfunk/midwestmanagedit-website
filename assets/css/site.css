@@ -1512,6 +1512,15 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
   text-decoration:underline;
   text-underline-offset:3px;
 }
+.cadence-card{margin-top:14px}
+.cadence-steps{list-style:none;display:grid;gap:10px;margin-top:12px}
+.cadence-steps li{display:grid;grid-template-columns:10px auto;column-gap:10px;row-gap:2px;align-items:start}
+.cadence-steps li span{width:10px;height:10px;border-radius:50%;margin-top:7px;background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow:0 0 0 4px rgba(114,239,215,.12)}
+.cadence-steps small{color:var(--muted);display:block}
+.support-dots-card{margin-top:14px}
+.dot-list{list-style:none;display:grid;gap:10px;margin-top:8px}
+.dot-list li{display:flex;gap:10px;align-items:flex-start;color:var(--muted)}
+.dot-list li span{width:9px;height:9px;border-radius:50%;margin-top:8px;flex:none;background:linear-gradient(135deg,var(--brand),var(--accent))}
 @media (max-width:960px){
   .estimator-grid,.estimate-helper-grid,.estimator-addon-grid{grid-template-columns:1fr}
 }

@@ -1,8 +1,15 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Manage IT icon">
-  <defs><linearGradient id="m" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5b9eff"/><stop offset="1" stop-color="#72efd7"/></linearGradient></defs>
-  <rect x="10" y="14" width="100" height="92" rx="22" fill="#16263b" stroke="#92c3ff" stroke-opacity="0.45"/>
-  <rect x="24" y="32" width="72" height="10" rx="5" fill="#dce9ff" fill-opacity="0.35"/>
-  <rect x="24" y="50" width="50" height="8" rx="4" fill="#dce9ff" fill-opacity="0.28"/>
-  <rect x="24" y="66" width="64" height="8" rx="4" fill="#dce9ff" fill-opacity="0.2"/>
-  <circle cx="84" cy="84" r="11" fill="url(#m)"/>
+  <defs>
+    <linearGradient id="manageAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#5b9eff"/>
+      <stop offset="1" stop-color="#72efd7"/>
+    </linearGradient>
+  </defs>
+  <rect x="10" y="12" width="100" height="96" rx="24" fill="#16263b" stroke="#92c3ff" stroke-opacity="0.45"/>
+  <path d="M25 76h22c5 0 8 4 8 8v2H35c-7 0-10-2-10-8v-2Z" fill="#dce9ff" fill-opacity="0.18"/>
+  <path d="M54 88h24c6 0 12-4 13-10l1-6c1-4-1-7-5-7h-15" fill="none" stroke="#dce9ff" stroke-opacity="0.62" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M66 70a12 12 0 1 0 0.01 0" fill="none" stroke="url(#manageAccent)" stroke-width="4"/>
+  <path d="M66 54v5M66 81v5M52 67h5M75 67h5M56 58l4 4M72 72l4 4M56 76l4-4M72 62l4-4" stroke="#89c0ff" stroke-width="3" stroke-linecap="round"/>
+  <path d="m61 68 4 4 7-8" fill="none" stroke="#72efd7" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="87" cy="38" r="5" fill="url(#manageAccent)"/>
 </svg>
