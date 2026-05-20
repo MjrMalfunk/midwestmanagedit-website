@@ -113,6 +113,23 @@ body::after{
   pointer-events:none;
   z-index:-1;
 }
+main{
+  position:relative;
+  isolation:isolate;
+}
+main::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 18% 14%, rgba(145,198,255,.11), transparent 34%),
+    radial-gradient(circle at 82% 22%, rgba(114,239,215,.08), transparent 30%),
+    radial-gradient(circle at 74% 72%, rgba(91,158,255,.09), transparent 36%),
+    url("../media/site-ambient.svg") center/560px 560px repeat;
+  opacity:.3;
+  pointer-events:none;
+  z-index:-1;
+}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button,input,textarea{font:inherit}
@@ -247,7 +264,7 @@ body.is-test-host .theme-lab{display:flex}
 .hero-media-layer{
   position:absolute;
   background:
-    linear-gradient(115deg, rgba(8,18,32,.30), rgba(10,22,40,.16)),
+    linear-gradient(115deg, rgba(8,18,32,.48), rgba(10,22,40,.24)),
     url("../media/hero-poster.svg") center/cover no-repeat;
   inset:0;
   z-index:0;
@@ -259,16 +276,16 @@ body.is-test-host .theme-lab{display:flex}
   position:absolute;
   inset:0;
   background:
-    radial-gradient(circle at 78% 18%, rgba(114,239,215,.14), transparent 32%),
-    radial-gradient(circle at 14% 74%, rgba(91,158,255,.22), transparent 34%),
+    radial-gradient(circle at 82% 16%, rgba(114,239,215,.16), transparent 30%),
+    radial-gradient(circle at 12% 80%, rgba(91,158,255,.16), transparent 28%),
     repeating-linear-gradient(120deg, rgba(255,255,255,.04) 0 1px, transparent 1px 22px);
-  opacity:.8;
+  opacity:.46;
 }
 .hero-media-layer::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(96deg, rgba(8,18,32,.84) 0%, rgba(10,22,40,.44) 45%, rgba(10,22,40,.66) 100%);
+  background:linear-gradient(96deg, rgba(8,18,32,.92) 0%, rgba(10,22,40,.62) 47%, rgba(10,22,40,.56) 100%);
 }
 .hero-media-video{
   width:100%;
@@ -363,6 +380,16 @@ body.is-test-host .theme-lab{display:flex}
   align-content:start;
   position:relative;
   z-index:1;
+}
+.hero-side::before{
+  content:"";
+  position:absolute;
+  inset:-20px -18px;
+  background:linear-gradient(180deg, rgba(9,19,34,.42), rgba(9,19,34,.16));
+  border:1px solid rgba(255,255,255,.06);
+  border-radius:30px;
+  pointer-events:none;
+  z-index:-1;
 }
 .card{
   background:linear-gradient(180deg, var(--surface-2), var(--surface-4));
@@ -477,6 +504,18 @@ body.is-test-host .theme-lab{display:flex}
   transition:opacity var(--transition);
   pointer-events:none;
 }
+.info-card::after{
+  content:"";
+  position:absolute;
+  top:-42px;
+  right:-40px;
+  width:122px;
+  height:122px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(146,195,255,.2), transparent 68%);
+  opacity:.44;
+  pointer-events:none;
+}
 .info-card:hover{
   transform:translateY(-3px);
   border-color:var(--border-strong);
@@ -545,22 +584,43 @@ body.is-test-host .theme-lab{display:flex}
   content:"";
   position:absolute;
   inset:0;
-  background:url("../media/cybersecurity-abstract.svg") center/cover no-repeat;
-  opacity:.2;
+  background:
+    linear-gradient(90deg, rgba(8,18,32,.06) 0 56%, rgba(8,18,32,0) 82%),
+    url("../media/cybersecurity-abstract.svg") right center/cover no-repeat;
+  opacity:.16;
   pointer-events:none;
 }
 .operations-confidence-band > *{position:relative;z-index:1;}
 
 .service-lane-icon{
-  width:56px;
-  height:56px;
-  margin:0 0 12px;
-  padding:10px;
-  border-radius:14px;
+  width:72px;
+  height:72px;
+  margin:4px auto 16px;
+  padding:14px;
+  border-radius:20px;
   background:linear-gradient(145deg, rgba(91,158,255,.16), rgba(114,239,215,.1));
   border:1px solid rgba(146,195,255,.22);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 14px 24px rgba(8,20,36,.24);
   display:block;
+}
+.package-card{text-align:center}
+.package-card ul,
+.package-card p{text-align:left}
+.package-card .tag{margin-bottom:14px}
+.package-card h3{margin-bottom:12px}
+
+section + .section-lg,
+section + .section{position:relative}
+section + .section-lg::before,
+section + .section::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:1px;
+  background:linear-gradient(90deg, transparent 0, rgba(146,195,255,.2) 20%, rgba(114,239,215,.18) 50%, rgba(146,195,255,.2) 80%, transparent 100%);
+  pointer-events:none;
 }
 
 .operations-confidence-band{
@@ -717,6 +777,17 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   .theme-lab button{flex:1}
   .trust-grid,.service-grid,.feature-grid,.process-grid,.faq-grid,.value-grid,.stats-grid,.notify-form,.audience-grid,.package-grid,.outcome-grid{grid-template-columns:1fr}
   .cta-band,.story-panel,.info-card,.card-pad{padding:22px}
+  .hero-side::before{inset:-8px}
+  main::before{
+    background-size:460px 460px;
+    opacity:.2;
+  }
+  .service-lane-icon{
+    width:66px;
+    height:66px;
+    margin:2px auto 14px;
+    padding:12px;
+  }
 }
 
 
@@ -1266,10 +1337,10 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
   .accent-grid{grid-template-columns:1fr}
   .operations-confidence-list{grid-template-columns:1fr}
   .service-lane-icon{
-    width:52px;
-    height:52px;
-    padding:9px;
-    margin:0 0 10px;
+    width:62px;
+    height:62px;
+    padding:11px;
+    margin:2px auto 12px;
   }
 }
 .estimator-grid{
