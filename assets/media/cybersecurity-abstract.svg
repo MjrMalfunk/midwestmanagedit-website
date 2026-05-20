@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760" role="img" aria-label="Abstract cybersecurity operations visual">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101d2f"/>
+      <stop offset="1" stop-color="#16283d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="760" fill="url(#bg2)" rx="28"/>
+  <g stroke="#92c3ff" stroke-opacity="0.23" fill="none">
+    <path d="M80 620h1040"/>
+    <path d="M80 560h980"/>
+    <path d="M80 500h860"/>
+    <path d="M80 440h760"/>
+  </g>
+  <g fill="#dce9ff" fill-opacity="0.08" stroke="#92c3ff" stroke-opacity="0.24">
+    <rect x="110" y="130" width="290" height="220" rx="22"/>
+    <rect x="455" y="200" width="285" height="245" rx="22"/>
+    <rect x="790" y="150" width="300" height="230" rx="22"/>
+  </g>
+  <g>
+    <circle cx="260" cy="238" r="28" fill="#72efd7" fill-opacity="0.45"/>
+    <circle cx="600" cy="292" r="34" fill="#5b9eff" fill-opacity="0.4"/>
+    <circle cx="938" cy="240" r="30" fill="#72efd7" fill-opacity="0.4"/>
+  </g>
+</svg>

@@ -246,6 +246,7 @@ body.is-test-host .theme-lab{display:flex}
 }
 .hero-media-layer{
   position:absolute;
+  background:linear-gradient(115deg, rgba(8,18,32,.34), rgba(10,22,40,.2)), url("../media/hero-poster.svg") center/cover no-repeat;
   inset:0;
   z-index:0;
   pointer-events:none;
@@ -259,19 +260,21 @@ body.is-test-host .theme-lab{display:flex}
     radial-gradient(circle at 78% 18%, rgba(114,239,215,.14), transparent 32%),
     radial-gradient(circle at 14% 74%, rgba(91,158,255,.22), transparent 34%),
     repeating-linear-gradient(120deg, rgba(255,255,255,.04) 0 1px, transparent 1px 22px);
-  opacity:.8;
+  opacity:.9;
 }
 .hero-media-layer::after{
   content:"";
   position:absolute;
   inset:0;
-  background:linear-gradient(96deg, rgba(8,18,32,.82) 0%, rgba(10,22,40,.56) 45%, rgba(10,22,40,.72) 100%);
+  background:
+    linear-gradient(96deg, rgba(8,18,32,.9) 0%, rgba(9,20,36,.7) 36%, rgba(10,22,40,.38) 64%, rgba(10,22,40,.24) 100%),
+    linear-gradient(180deg, rgba(7,15,27,.16), rgba(7,15,27,.22));
 }
 .hero-media-video{
   width:100%;
   height:100%;
   object-fit:cover;
-  opacity:.24;
+  opacity:.36;
 }
 .hero-shell::before{
   content:"";
@@ -360,6 +363,22 @@ body.is-test-host .theme-lab{display:flex}
   align-content:start;
   position:relative;
   z-index:1;
+}
+.hero-side::before{
+  content:"";
+  position:absolute;
+  top:-8px;
+  left:-18px;
+  right:-24px;
+  height:240px;
+  border-radius:24px;
+  border:1px solid rgba(146,195,255,.34);
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.08), rgba(255,255,255,.02)),
+    url("../media/hero-poster.svg") center/cover no-repeat;
+  box-shadow:0 20px 44px rgba(10,22,42,.3);
+  opacity:.72;
+  pointer-events:none;
 }
 .card{
   background:linear-gradient(180deg, var(--surface-2), var(--surface-4));
@@ -533,6 +552,33 @@ body.is-test-host .theme-lab{display:flex}
   font-weight:700;
 }
 .operations-confidence-section{padding-top:14px}
+
+.operations-confidence-band{
+  position:relative;
+  overflow:hidden;
+}
+.operations-confidence-band::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:url("../media/cybersecurity-abstract.svg") center/cover no-repeat;
+  opacity:.22;
+  pointer-events:none;
+}
+.operations-confidence-band > *{position:relative;z-index:1;}
+
+.service-lane-icon{
+  width:56px;
+  height:56px;
+  margin:2px 0 12px;
+  padding:8px;
+  border-radius:14px;
+  border:1px solid rgba(146,195,255,.34);
+  background:linear-gradient(145deg, rgba(255,255,255,.09), rgba(255,255,255,.02));
+  box-shadow:0 8px 24px rgba(11,27,53,.2);
+  display:block;
+}
+
 .operations-confidence-band{
   border:1px solid var(--border);
   border-radius:20px;
@@ -682,6 +728,13 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   .nav{padding:14px 0;align-items:flex-start;flex-direction:column}
   .nav-links{gap:12px}
   .hero-grid{padding:22px;grid-template-columns:1fr}
+  .hero-side::before{
+    left:-6px;
+    right:-6px;
+    top:-4px;
+    height:170px;
+    opacity:.52;
+  }
   .hero h1{max-width:none}
   .theme-lab{width:100%;justify-content:space-between}
   .theme-lab button{flex:1}
