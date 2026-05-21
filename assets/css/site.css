@@ -327,6 +327,13 @@ body.is-test-host .theme-lab{display:flex}
   flex-direction:column;
   min-height:100%;
 }
+.hero-rhythm-slot{
+  flex:1;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-height:0;
+}
 .kicker{
   display:inline-flex;
   align-items:center;
@@ -389,7 +396,7 @@ body.is-test-host .theme-lab{display:flex}
 
 
 .hero-rhythm-visual{
-  margin:24px 0 -14px;
+  margin:24px 0 0;
   padding:5px;
   border-radius:28px;
   background:
@@ -832,6 +839,10 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
     width:100%;
     max-width:520px;
     padding:6px;
+  }
+  .hero-rhythm-slot{
+    flex:none;
+    display:block;
   }
   .hero-rhythm-image{
     height:auto;
