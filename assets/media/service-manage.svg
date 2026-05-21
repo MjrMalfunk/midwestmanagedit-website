@@ -6,10 +6,8 @@
     </linearGradient>
   </defs>
   <rect x="10" y="12" width="100" height="96" rx="24" fill="#16263b" stroke="#92c3ff" stroke-opacity="0.45"/>
-  <path d="M25 76h22c5 0 8 4 8 8v2H35c-7 0-10-2-10-8v-2Z" fill="#dce9ff" fill-opacity="0.18"/>
-  <path d="M54 88h24c6 0 12-4 13-10l1-6c1-4-1-7-5-7h-15" fill="none" stroke="#dce9ff" stroke-opacity="0.62" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M66 70a12 12 0 1 0 0.01 0" fill="none" stroke="url(#manageAccent)" stroke-width="4"/>
-  <path d="M66 54v5M66 81v5M52 67h5M75 67h5M56 58l4 4M72 72l4 4M56 76l4-4M72 62l4-4" stroke="#89c0ff" stroke-width="3" stroke-linecap="round"/>
-  <path d="m61 68 4 4 7-8" fill="none" stroke="#72efd7" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
-  <circle cx="87" cy="38" r="5" fill="url(#manageAccent)"/>
+  <path d="M24 78h30c3 0 5 2 6 4l3 8H36c-8 0-12-4-12-12Z" fill="#dce9ff" fill-opacity="0.34"/>
+  <path d="M54 82h22c8 0 13-4 15-10l2-5c1-3-1-5-4-5H72" fill="none" stroke="#dce9ff" stroke-opacity="0.76" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="69" cy="54" r="13" fill="none" stroke="url(#manageAccent)" stroke-width="6"/>
+  <path d="m62 54 5 5 9-10" fill="none" stroke="#72efd7" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
