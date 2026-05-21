@@ -383,9 +383,9 @@ body.is-test-host .theme-lab{display:flex}
 
 
 .hero-rhythm-visual{
-  margin-top:18px;
-  padding:12px;
-  border-radius:26px;
+  margin:24px 0 -14px;
+  padding:5px;
+  border-radius:28px;
   background:
     radial-gradient(circle at 18% 10%, rgba(91,158,255,.14), transparent 36%),
     linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.03)),
@@ -393,19 +393,22 @@ body.is-test-host .theme-lab{display:flex}
   backdrop-filter:blur(8px);
   -webkit-backdrop-filter:blur(8px);
   box-shadow:0 18px 34px rgba(9,18,34,.24);
-  flex:1 1 430px;
-  min-height:430px;
-  display:flex;
+  width:100%;
+  max-width:none;
+  min-height:0;
+  max-height:none;
+  display:block;
 }
 .hero-rhythm-image{
   display:block;
   width:100%;
-  height:100%;
+  height:auto;
   min-height:0;
   max-height:none;
-  object-fit:cover;
+  object-fit:contain;
   object-position:center center;
-  border-radius:18px;
+  border-radius:20px;
+  background:rgba(8,18,32,.48);
   border:1px solid rgba(126,190,255,.26);
   box-shadow:0 16px 30px rgba(8,18,32,.26), 0 0 28px rgba(91,158,255,.10);
 }
@@ -497,7 +500,7 @@ body.is-test-host .theme-lab{display:flex}
 .trust-grid{grid-template-columns:repeat(4, minmax(0,1fr))}
 .trust-pill{
   padding:18px 20px;
-  border-radius:18px;
+  border-radius:20px;
   border:1px solid var(--border);
   background:var(--surface-2);
   text-align:center;
@@ -672,13 +675,18 @@ section + .section::before{
   font-weight:800;
   margin-bottom:10px;
 }
-.operations-confidence-list{
+
+.operations-confidence-note{
+  color:var(--muted);
+  max-width:72ch;
+}
+.operations-confidence-list-deprecated{
   list-style:none;
   display:grid;
   grid-template-columns:repeat(3,minmax(0,1fr));
   gap:10px;
 }
-.operations-confidence-list li{
+.operations-confidence-list-deprecated li{
   display:flex;
   align-items:center;
   gap:10px;
@@ -689,7 +697,7 @@ section + .section::before{
   background:var(--surface-4);
   font-size:.92rem;
 }
-.operations-confidence-list li span{
+.operations-confidence-list-deprecated li span{
   width:9px;
   height:9px;
   border-radius:50%;
@@ -812,14 +820,14 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   .hero-grid{padding:22px;grid-template-columns:1fr}
   .hero h1{max-width:none}
   .hero-rhythm-visual{
-    margin-top:14px;
-    padding:10px;
-    min-height:360px;
-    flex-basis:360px;
+    margin-top:16px;
+    width:100%;
+    max-width:520px;
+    padding:6px;
   }
   .hero-rhythm-image{
-    height:100%;
-    object-fit:cover;
+    height:auto;
+    object-fit:contain;
   }
   .theme-lab{width:100%;justify-content:space-between}
   .theme-lab button{flex:1}
@@ -950,7 +958,7 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .field select,
 .field textarea{
   width:100%;
-  border-radius:18px;
+  border-radius:20px;
   border:1px solid var(--border);
   background:var(--surface-2);
   color:var(--text);
@@ -974,7 +982,7 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .intake-note{
   margin-top:18px;
   padding:16px 18px;
-  border-radius:18px;
+  border-radius:20px;
   background:var(--surface-2);
   border:1px solid var(--border);
   color:var(--muted);
@@ -1108,7 +1116,7 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
 .mobile-menu-actions{display:grid;gap:12px}
 .mobile-nav-links a{
   padding:16px 18px;
-  border-radius:18px;
+  border-radius:20px;
   background:var(--surface-4);
   border:1px solid var(--border);
   color:var(--text);
@@ -1220,7 +1228,7 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
 .search-input-wrap input{
   flex:1;
   min-height:56px;
-  border-radius:18px;
+  border-radius:20px;
   border:1px solid var(--border);
   background:var(--surface-4);
   color:var(--text);
@@ -1364,7 +1372,7 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
 }
 .accent-card{
   padding:16px;
-  border-radius:18px;
+  border-radius:20px;
   background:var(--surface-4);
   border:1px solid var(--border);
 }
@@ -1395,7 +1403,7 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
 
 @media (max-width:860px){
   .accent-grid{grid-template-columns:1fr}
-  .operations-confidence-list{grid-template-columns:1fr}
+  .operations-confidence-list-deprecated{grid-template-columns:1fr}
   .summary-card::after,
   .service-side-panels .content-block::after{display:none}
   .service-lane-icon{
@@ -1434,7 +1442,7 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
 .estimator-disclaimer{
   margin-top:14px;
   padding:14px 16px;
-  border-radius:18px;
+  border-radius:20px;
   background:var(--surface-4);
   border:1px solid var(--border);
 }
@@ -1537,7 +1545,7 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
 .estimator-handoff-card .field textarea{min-height:110px}
 .estimator-empty{
   padding:16px 18px;
-  border-radius:18px;
+  border-radius:20px;
   background:var(--surface-4);
   border:1px dashed var(--border);
   color:var(--muted);
