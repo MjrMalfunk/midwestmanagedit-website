@@ -377,7 +377,7 @@ body.is-test-host .theme-lab{display:flex}
 
 .hero-rhythm-visual{
   margin-top:16px;
-  padding:14px;
+  padding:10px;
   border-radius:24px;
   background:
     linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.03)),
@@ -388,6 +388,10 @@ body.is-test-host .theme-lab{display:flex}
 }
 .hero-rhythm-image{
   width:100%;
+  min-height:200px;
+  max-height:260px;
+  object-fit:contain;
+  object-position:left center;
   border-radius:16px;
   border:1px solid var(--border);
   box-shadow:0 14px 26px rgba(8,18,32,.22);
@@ -611,16 +615,16 @@ body.is-test-host .theme-lab{display:flex}
 .operations-confidence-band > *{position:relative;z-index:1;}
 
 .service-lane-icon{
-  width:78px;
-  height:78px;
-  margin:4px auto 16px;
-  padding:12px;
+  width:80px;
+  height:80px;
+  margin:6px auto 18px;
+  padding:14px;
   object-fit:contain;
   object-position:center;
   border-radius:20px;
-  background:linear-gradient(145deg, rgba(91,158,255,.18), rgba(114,239,215,.12));
-  border:1px solid rgba(146,195,255,.24);
-  box-shadow:inset 0 1px 0 rgba(255,255,255,.08), 0 14px 24px rgba(8,20,36,.24);
+  background:transparent;
+  border:none;
+  box-shadow:none;
   display:block;
 }
 .package-card{text-align:center}
@@ -795,7 +799,11 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   .hero h1{max-width:none}
   .hero-rhythm-visual{
     margin-top:14px;
-    padding:12px;
+    padding:10px;
+  }
+  .hero-rhythm-image{
+    min-height:180px;
+    max-height:220px;
   }
   .theme-lab{width:100%;justify-content:space-between}
   .theme-lab button{flex:1}
@@ -807,10 +815,10 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
     opacity:.2;
   }
   .service-lane-icon{
-    width:68px;
-    height:68px;
-    margin:2px auto 14px;
-    padding:10px;
+    width:74px;
+    height:74px;
+    margin:4px auto 14px;
+    padding:12px;
   }
 }
 
@@ -1375,10 +1383,10 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
   .summary-card::after,
   .service-side-panels .content-block::after{display:none}
   .service-lane-icon{
-    width:62px;
-    height:62px;
-    padding:11px;
-    margin:2px auto 12px;
+    width:70px;
+    height:70px;
+    padding:12px;
+    margin:3px auto 12px;
   }
 }
 .estimator-grid{
