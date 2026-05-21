@@ -347,7 +347,13 @@ body.is-test-host .theme-lab{display:flex}
   line-height:1.01;
   letter-spacing:-.04em;
   margin-bottom:18px;
-  max-width:11ch;
+  max-width:14ch;
+}
+.hero-line{
+  display:block;
+}
+.hero-line-nowrap{
+  white-space:nowrap;
 }
 .hero-lead{
   max-width:62ch;
@@ -750,9 +756,11 @@ section + .section::before{
 .cta-band{
   padding:34px;
   border-radius:34px;
-  background:linear-gradient(135deg, rgba(24,57,112,.98), rgba(16,33,66,.98));
-  border:1px solid rgba(154,202,255,.16);
-  box-shadow:0 30px 60px rgba(14,29,58,.28);
+  background:
+    radial-gradient(circle at 16% 12%, rgba(91,158,255,.18), transparent 42%),
+    linear-gradient(140deg, rgba(14,25,44,.94), rgba(9,17,31,.92));
+  border:1px solid rgba(130,181,245,.28);
+  box-shadow:0 26px 54px rgba(9,18,36,.44), inset 0 1px 0 rgba(188,220,255,.08);
   color:#eef5ff;
 }
 html[data-theme="soft-light"] .cta-band{box-shadow:0 22px 40px rgba(14,29,58,.16)}
