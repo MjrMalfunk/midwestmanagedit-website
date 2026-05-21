@@ -375,17 +375,23 @@ body.is-test-host .theme-lab{display:flex}
 }
 
 
-.hero-rhythm-strip{
+.hero-rhythm-visual{
   margin-top:16px;
-  padding:14px 16px;
-  border-radius:18px;
-  border:1px solid var(--border);
-  background:linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
-  box-shadow:var(--shadow-sm);
+  padding:14px;
+  border-radius:24px;
+  background:
+    linear-gradient(145deg, rgba(255,255,255,.12), rgba(255,255,255,.03)),
+    linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.015));
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  box-shadow:0 16px 30px rgba(9,18,34,.2);
 }
-.hero-rhythm-strip .eyebrow{margin-bottom:8px;padding:0;background:none}
-.hero-rhythm-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
-.hero-rhythm-list li{padding:8px 10px;border-radius:12px;border:1px solid var(--border);background:var(--surface-4);color:var(--muted);font-size:.9rem;font-weight:700}
+.hero-rhythm-image{
+  width:100%;
+  border-radius:16px;
+  border:1px solid var(--border);
+  box-shadow:0 14px 26px rgba(8,18,32,.22);
+}
 .hero-side{
   display:grid;
   gap:16px;
@@ -787,6 +793,10 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   .nav-links{gap:12px}
   .hero-grid{padding:22px;grid-template-columns:1fr}
   .hero h1{max-width:none}
+  .hero-rhythm-visual{
+    margin-top:14px;
+    padding:12px;
+  }
   .theme-lab{width:100%;justify-content:space-between}
   .theme-lab button{flex:1}
   .trust-grid,.service-grid,.feature-grid,.process-grid,.faq-grid,.value-grid,.stats-grid,.notify-form,.audience-grid,.package-grid,.outcome-grid{grid-template-columns:1fr}
@@ -1586,7 +1596,6 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
 .dot-list li span{width:9px;height:9px;border-radius:50%;margin-top:8px;flex:none;background:linear-gradient(135deg,var(--brand),var(--accent))}
 @media (max-width:960px){
   .estimator-grid,.estimate-helper-grid,.estimator-addon-grid{grid-template-columns:1fr}
-  .hero-rhythm-list{grid-template-columns:1fr}
   .cadence-steps{justify-content:center}
   .cadence-steps li{flex:1 1 100%}
 }
