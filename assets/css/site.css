@@ -374,6 +374,18 @@ body.is-test-host .theme-lab{display:flex}
   box-shadow:0 0 0 6px rgba(91,158,255,.10);
 }
 
+
+.hero-rhythm-strip{
+  margin-top:16px;
+  padding:14px 16px;
+  border-radius:18px;
+  border:1px solid var(--border);
+  background:linear-gradient(145deg, rgba(255,255,255,.07), rgba(255,255,255,.025));
+  box-shadow:var(--shadow-sm);
+}
+.hero-rhythm-strip .eyebrow{margin-bottom:8px;padding:0;background:none}
+.hero-rhythm-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.hero-rhythm-list li{padding:8px 10px;border-radius:12px;border:1px solid var(--border);background:var(--surface-4);color:var(--muted);font-size:.9rem;font-weight:700}
 .hero-side{
   display:grid;
   gap:16px;
@@ -596,7 +608,8 @@ body.is-test-host .theme-lab{display:flex}
   width:72px;
   height:72px;
   margin:4px auto 16px;
-  padding:14px;
+  padding:10px;
+  object-fit:contain;
   border-radius:20px;
   background:linear-gradient(145deg, rgba(91,158,255,.16), rgba(114,239,215,.1));
   border:1px solid rgba(146,195,255,.22);
@@ -783,10 +796,10 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
     opacity:.2;
   }
   .service-lane-icon{
-    width:66px;
-    height:66px;
+    width:64px;
+    height:64px;
     margin:2px auto 14px;
-    padding:12px;
+    padding:9px;
   }
 }
 
@@ -1513,14 +1526,13 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
   text-underline-offset:3px;
 }
 .cadence-card{margin-top:14px}
-.cadence-steps{list-style:none;display:grid;gap:10px;margin-top:12px}
-.cadence-steps li{display:grid;grid-template-columns:10px auto;column-gap:10px;row-gap:2px;align-items:start}
-.cadence-steps li span{width:10px;height:10px;border-radius:50%;margin-top:7px;background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow:0 0 0 4px rgba(114,239,215,.12)}
-.cadence-steps small{color:var(--muted);display:block}
+.cadence-steps{list-style:none;display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.cadence-steps li{padding:8px 12px;border-radius:999px;border:1px solid var(--border);background:var(--surface-4);font-weight:700;color:var(--text);white-space:nowrap}
 .support-dots-card{margin-top:14px}
 .dot-list{list-style:none;display:grid;gap:10px;margin-top:8px}
 .dot-list li{display:flex;gap:10px;align-items:flex-start;color:var(--muted)}
 .dot-list li span{width:9px;height:9px;border-radius:50%;margin-top:8px;flex:none;background:linear-gradient(135deg,var(--brand),var(--accent))}
 @media (max-width:960px){
   .estimator-grid,.estimate-helper-grid,.estimator-addon-grid{grid-template-columns:1fr}
+  .hero-rhythm-list{grid-template-columns:1fr}
 }
