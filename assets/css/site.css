@@ -1070,11 +1070,16 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   gap:28px;
   align-items:start;
 }
+.consult-main-stack{
+  display:grid;
+  gap:22px;
+  align-content:start;
+}
 .consult-lower-fill{
-  margin-top:12px;
+  margin-top:0;
   width:100%;
-  max-width:min(980px,100%);
-  margin-inline:auto;
+  max-width:100%;
+  margin-inline:0;
 }
 .leave-with-card{
   background:linear-gradient(165deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
@@ -1225,10 +1230,10 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .mini-faq-list article h3{font-size:1.05rem;margin-bottom:6px}
 .mini-faq-list article p{color:var(--muted);line-height:1.6}
 #schedule-intake{
-  padding-bottom:60px;
+  padding-bottom:34px;
 }
 #schedule-intake + .section{
-  padding-top:30px;
+  padding-top:14px;
 }
 
 @media (max-width: 980px){
@@ -1241,6 +1246,8 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   .two-col,
   .page-hero-grid{grid-template-columns:1fr}
   .proof-side{position:static}
+  .consult-main-stack{gap:18px}
+  .consult-lower-fill{margin-top:0}
 }
 
 @media (max-width: 760px){
