@@ -1109,17 +1109,28 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   gap:14px;
   align-items:stretch;
 }
-.service-navigation-band .link-card,
+.service-navigation-band .service-nav-grid{
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+}
 .service-navigation-band .summary-card{
   background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
   border-color:rgba(146,195,255,.2);
+  height:100%;
+  padding:22px;
+}
+.page-summary .link-card{
+  height:100%;
 }
 .service-navigation-band .link-list{
   margin-top:10px;
   gap:10px;
 }
+.service-navigation-band .service-path-panel,
 .service-navigation-band .support-dots-card{
   margin-top:0;
+  display:flex;
+  flex-direction:column;
 }
 .service-navigation-band .dot-list{
   gap:10px;
