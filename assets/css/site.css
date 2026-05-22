@@ -1104,6 +1104,27 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .service-path-steps li:not(:last-child) span::after{content:"";position:absolute;top:11px;left:50%;width:1px;height:14px;background:linear-gradient(180deg, rgba(146,195,255,.46), rgba(114,239,215,.2))}
 .summary-card h3,.link-card h3,.mini-panel h3{font-size:1.05rem;margin-bottom:8px}
 .summary-card p,.link-card p,.mini-panel p{color:var(--muted);font-size:.98rem}
+.service-navigation-band{padding:8px 0 6px}
+.service-navigation-band .compact-grid{
+  gap:14px;
+  align-items:stretch;
+}
+.service-navigation-band .link-card,
+.service-navigation-band .summary-card{
+  background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  border-color:rgba(146,195,255,.2);
+}
+.service-navigation-band .link-list{
+  margin-top:10px;
+  gap:10px;
+}
+.service-navigation-band .support-dots-card{
+  margin-top:0;
+}
+.service-navigation-band .dot-list{
+  gap:10px;
+  margin-top:10px;
+}
 .link-list,.check-list,.bullet-list{display:grid;gap:12px;list-style:none;padding:0;margin:14px 0 0}
 .content-block .check-list{padding-left:0}
 .service-side-panels .check-list{gap:13px}
