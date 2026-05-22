@@ -1097,46 +1097,6 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .consult-card h2{font-size:clamp(2rem,3vw,2.7rem);line-height:1.05;margin-bottom:10px}
 .consult-rail{display:grid;gap:18px}
 
-.consult-transition-ribbon{
-  margin:16px 0 6px;
-  padding:10px 14px;
-  border-radius:14px;
-  border:1px solid rgba(91,158,255,.24);
-  background:linear-gradient(120deg, rgba(91,158,255,.12), rgba(114,239,215,.08));
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:14px;
-}
-.consult-transition-ribbon p{
-  margin:0;
-  color:var(--muted);
-  font-size:.95rem;
-  line-height:1.45;
-}
-.consult-transition-ribbon strong{color:var(--text)}
-.consult-transition-pills{
-  margin:0;
-  padding:0;
-  list-style:none;
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
-  justify-content:flex-end;
-}
-.consult-transition-pills li{
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  border-radius:999px;
-  padding:6px 10px;
-  border:1px solid rgba(91,158,255,.26);
-  background:rgba(15,24,46,.45);
-  color:var(--brand-2);
-  font-size:.79rem;
-  font-weight:700;
-  letter-spacing:.01em;
-}
 .card-support-note{margin-top:14px;padding:10px 12px;border-radius:12px;border:1px solid var(--border);background:var(--surface-4);color:var(--muted);font-size:.9rem}
 .service-side-panels .content-block{position:relative;overflow:hidden}
 .service-side-panels .content-block::after{content:"";position:absolute;inset:auto 16px 12px auto;width:64px;height:10px;border-radius:999px;background:linear-gradient(90deg, rgba(91,158,255,.55), rgba(114,239,215,.3));opacity:.5}
@@ -1289,8 +1249,6 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   .proof-side{position:static}
   .consult-main-stack{gap:18px}
   .consult-lower-fill{margin-top:0}
-  .consult-transition-ribbon{margin:10px 0 0;padding:10px 12px;flex-direction:column;align-items:flex-start}
-  .consult-transition-pills{justify-content:flex-start}
 }
 
 @media (max-width: 760px){
