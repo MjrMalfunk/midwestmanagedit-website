@@ -1070,9 +1070,22 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
   gap:28px;
   align-items:start;
 }
-.consult-lower-fill{margin-top:18px;max-width:min(760px,100%)}
+.consult-lower-fill{
+  margin-top:20px;
+  width:100%;
+  max-width:min(980px,100%);
+  margin-inline:auto;
+}
+.leave-with-card{
+  background:linear-gradient(165deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+}
 .leave-with-card h3{margin-bottom:10px}
-.leave-with-list{margin-top:14px}
+.leave-with-list{
+  margin-top:14px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:12px 18px;
+}
 .leave-with-list li{align-items:flex-start}
 .leave-with-list strong{display:block;margin-bottom:4px}
 .leave-with-list .muted{font-size:.94rem;line-height:1.45}
@@ -1226,7 +1239,8 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 
 @media (max-width: 760px){
   .proof-grid,
-  .input-grid.two-up{grid-template-columns:1fr}
+  .input-grid.two-up,
+  .leave-with-list{grid-template-columns:1fr}
   .consult-submit-row .btn{width:100%}
   .scheduler-slot-row{grid-template-columns:1fr}
 }
