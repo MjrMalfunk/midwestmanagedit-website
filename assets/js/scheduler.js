@@ -119,7 +119,7 @@
     setSummary(state.sourceMode === 'live' ? 'Choose a live opening to book instantly.' : 'Choose a preferred slot to include with your intake.', false);
   }).catch(() => {
     picker.dataset.schedulerReady = 'false';
-    daysWrap.innerHTML = '<p class="muted">Available times could not load right now. Send the form and we'll follow up directly.</p>';
+    daysWrap.innerHTML = '<p class="muted">Available times could not load right now. Send the form and we\'ll follow up directly.</p>';
     setSummary('No time selected yet.', false);
   });
 })();
