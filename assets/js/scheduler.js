@@ -111,7 +111,7 @@
     picker.dataset.schedulerReady = state.days.length ? 'true' : 'false';
     if (timezoneLabel) timezoneLabel.textContent = tzLabel(data);
     if (!state.days.length) {
-      daysWrap.innerHTML = '<p class="muted">No available windows are listed right now. Send the form and we'll follow up directly with next steps.</p>';
+      daysWrap.innerHTML = '<p class="muted">No available windows are listed right now. Send the form and we\'ll follow up directly with next steps.</p>';
       setSummary('No time selected yet.', false);
       return;
     }
