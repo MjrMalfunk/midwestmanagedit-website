@@ -1003,6 +1003,11 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .summary-card,.link-card,.mini-panel{background:var(--surface-2);border:1px solid var(--border);border-radius:24px;padding:20px;box-shadow:var(--shadow-sm)}
 .summary-card{position:relative;overflow:hidden}
 .summary-card::after{content:"";position:absolute;width:120px;height:120px;right:-64px;bottom:-64px;border-radius:50%;background:radial-gradient(circle, rgba(114,239,215,.18), transparent 66%);pointer-events:none}
+.service-path-panel p{margin-top:12px}
+.service-path-steps{list-style:none;display:grid;gap:10px;margin-top:6px}
+.service-path-steps li{display:flex;align-items:center;gap:10px;font-size:.92rem;color:var(--muted)}
+.service-path-steps li span{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow:0 0 0 3px rgba(91,158,255,.16);position:relative;flex:none}
+.service-path-steps li:not(:last-child) span::after{content:"";position:absolute;top:11px;left:50%;width:1px;height:14px;background:linear-gradient(180deg, rgba(146,195,255,.46), rgba(114,239,215,.2))}
 .summary-card h3,.link-card h3,.mini-panel h3{font-size:1.05rem;margin-bottom:8px}
 .summary-card p,.link-card p,.mini-panel p{color:var(--muted);font-size:.98rem}
 .link-list,.check-list,.bullet-list{display:grid;gap:12px;list-style:none;padding:0;margin:14px 0 0}
@@ -1026,6 +1031,9 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .metric{padding:18px;border-radius:20px;background:var(--surface-4);border:1px solid var(--border)}
 .metric strong{display:block;font-size:1.05rem;margin-bottom:6px}
 .metric span{display:block;color:var(--muted);font-size:.96rem}
+.service-badge{display:inline-grid;place-items:center;width:24px;height:24px;margin-right:8px;border-radius:999px;font-size:.82rem;line-height:1;background:linear-gradient(135deg, rgba(91,158,255,.26), rgba(114,239,215,.16));border:1px solid rgba(146,195,255,.44);box-shadow:inset 0 1px 0 rgba(255,255,255,.16)}
+.service-bridge-card .dot-list{margin-top:6px}
+.service-bridge-card .dot-list li{font-size:.92rem;line-height:1.45}
 .callout{padding:18px 20px;border-left:3px solid var(--brand);border-radius:18px;background:var(--surface-4);color:var(--muted)}
 .breadcrumbs{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:14px;color:var(--muted);font-size:.92rem}
 .breadcrumbs a:hover{color:var(--text)}
@@ -1036,6 +1044,7 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .compact-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .service-grid a.card-link{margin-top:auto}
 @media (max-width:960px){.page-hero-grid,.two-col,.compact-grid{grid-template-columns:1fr}.metric-grid{grid-template-columns:1fr}.nav-links a.is-current::after{display:none}.contact-map-head{align-items:flex-start}.consult-lower-fill{margin-top:12px}}
+@media (max-width:960px){.service-path-steps li:not(:last-child) span::after{height:11px}}
 
 
 .section-head.left{text-align:left;max-width:none;margin-bottom:24px}
