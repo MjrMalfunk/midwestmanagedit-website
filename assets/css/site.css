@@ -1185,6 +1185,8 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .relationship-lane-list li{position:relative;padding-left:24px;color:var(--muted)}
 .relationship-lane-list li::before{content:"";position:absolute;left:0;top:.62em;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow:0 0 0 3px rgba(91,158,255,.14),0 0 12px rgba(114,239,215,.22)}
 .metric-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.first-call-prep-card{display:flex;flex-direction:column}
+.first-call-prep-card .prep-metric-grid{margin-top:24px;align-content:end}
 .metric{display:block;padding:20px;border-radius:20px;background:var(--surface-4);border:1px solid var(--border)}
 
 .lane-metric-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
@@ -1242,6 +1244,8 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .tight-step-list li:last-child{border-bottom:none;padding-bottom:0}
 .tight-step-list strong{display:block;font-size:1rem}
 .tight-step-list span{display:block;color:var(--muted);font-size:.97rem;line-height:1.55}
+.fit-step-list li{padding:15px 0}
+.fit-step-list li:last-child{padding-bottom:0}
 .consult-grid{
   display:grid;
   grid-template-columns:minmax(0,1.08fr) minmax(300px,.72fr);
