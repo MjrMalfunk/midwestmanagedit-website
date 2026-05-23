@@ -1144,6 +1144,24 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 .link-list a{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;border-radius:18px;background:var(--surface-4);border:1px solid var(--border);color:var(--text);font-weight:700;transition:transform var(--transition), border-color var(--transition), background var(--transition)}
 .link-list a:hover{transform:translateY(-2px);border-color:var(--border-strong);background:var(--surface-3)}
 .link-list a span{color:var(--muted)}
+
+.link-card .link-list a{align-items:center}
+.link-card .link-list a span{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;min-width:108px;text-align:center;padding:4px 10px;border-radius:999px;border:1px solid rgba(91,158,255,.24);background:rgba(91,158,255,.12);color:var(--brand-2);font-size:.78rem;font-weight:800;line-height:1.15}
+.package-card{display:flex;flex-direction:column;height:100%}
+.package-card ul{margin-bottom:0}
+.package-card .card-link{margin-top:auto;padding-top:18px}
+.package-card .card-support-note{margin-top:14px}
+.plan-callout-band .hero-actions,.plan-estimator-callout .hero-actions,.page-cta .hero-actions{align-items:stretch}
+.plan-callout-band .hero-actions .btn,.plan-estimator-callout .hero-actions .btn,.page-cta .hero-actions .btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px}
+.plan-compare-table .plan-row > div[role="cell"],.plan-compare-table .plan-row-head > div:not(:first-child){display:flex;align-items:center;justify-content:center;text-align:center}
+.plan-compare-table .plan-row > .plan-feature{display:block;text-align:left}
+.fit-stack-choose .fit-choice{background:linear-gradient(160deg, rgba(20,31,54,.92), rgba(12,20,38,.96));border-color:rgba(91,158,255,.22)}
+.fit-stack-choose .fit-choice strong{margin-bottom:10px}
+.fit-stack-choose .fit-choice .tag{display:inline-flex}
+@media (max-width:700px){
+  .link-card .link-list a{flex-direction:column;align-items:flex-start}
+  .link-card .link-list a span{min-width:0}
+}
 .eyebrow + .service-grid{margin-top:28px}
 .info-card .card-link,.service-card .card-link,.package-card .card-link{display:inline-flex;align-items:center;gap:8px;margin-top:14px;color:#b9d8ff;font-weight:800;text-decoration:underline;text-decoration-color:rgba(114,239,215,.42);text-underline-offset:3px;transition:color var(--transition), text-decoration-color var(--transition), text-shadow var(--transition)}
 .info-card .card-link:hover,.service-card .card-link:hover,.package-card .card-link:hover{color:#fff;text-decoration-color:rgba(146,195,255,.72);text-shadow:0 0 14px rgba(91,158,255,.32)}
