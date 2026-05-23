@@ -2014,3 +2014,38 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
   .cadence-steps{justify-content:center}
   .cadence-steps li{flex:1 1 100%}
 }
+
+/* Why MMIT page polish */
+.about-hero .page-hero-copy h1{max-width:14.5ch;font-size:clamp(2.75rem,4.6vw,4.15rem);line-height:1.02}
+.about-hero .page-hero-copy p{max-width:68ch}
+.about-next-card .link-list a{flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:74px}
+.about-next-card .link-list a span{min-width:0;white-space:normal}
+.about-row-list{gap:12px;margin-top:16px;padding-left:0!important}
+.about-row-list li{position:relative;display:grid;gap:4px;padding:13px 14px 13px 34px;border:1px solid rgba(146,195,255,.20);border-radius:16px;background:rgba(255,255,255,.045);list-style:none;color:var(--text)!important}
+.about-row-list li::before{content:"";position:absolute;left:14px;top:19px;width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow:0 0 0 3px rgba(91,158,255,.14),0 0 12px rgba(114,239,215,.22)}
+.about-row-list strong{color:var(--text);font-size:.95rem}
+.about-row-list span{color:var(--muted);font-size:.9rem;line-height:1.45}
+.about-principles-card,.about-start-card,.about-client-meaning{display:flex;flex-direction:column;justify-content:flex-start}
+.about-compact-list{display:grid;grid-template-columns:1fr;gap:8px;margin:14px 0 0;padding-left:0!important;list-style:none}
+.about-compact-list li{position:relative;padding:9px 12px 9px 28px;border:1px solid rgba(146,195,255,.18);border-radius:14px;background:rgba(255,255,255,.04);color:var(--muted)!important;font-size:.92rem}
+.about-compact-list li::before{content:"";position:absolute;left:12px;top:50%;width:8px;height:8px;transform:translateY(-50%);border-radius:50%;background:linear-gradient(135deg,var(--brand),var(--accent));box-shadow:0 0 10px rgba(114,239,215,.24)}
+.about-support-feel{display:flex;flex-direction:column;gap:14px}
+.about-feel-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:6px}
+.about-feel-grid div{display:grid;gap:5px;padding:14px;border:1px solid rgba(146,195,255,.20);border-radius:16px;background:rgba(255,255,255,.045)}
+.about-feel-grid strong{color:var(--text);font-size:.96rem}
+.about-feel-grid span{color:var(--muted);font-size:.88rem;line-height:1.45}
+
+.about-hero .page-hero-copy > .hero-actions{gap:32px}
+.about-hero .page-hero-copy > .hero-actions .btn-secondary{margin-left:8px}
+.about-mini-intro{margin:10px 0 0;color:var(--muted);line-height:1.55}
+.about-avoid-card{display:flex;flex-direction:column}
+.about-avoid-list{margin-top:14px}
+.about-avoid-list li{padding-top:12px;padding-bottom:12px}
+
+.about-start-card .hero-actions{gap:32px}
+.about-start-card .hero-actions .btn-ghost{margin-left:8px}
+.about-fit-actions{gap:28px}
+.about-fit-actions .btn-ghost{margin-left:8px}
+.about-support-feel .callout{line-height:1.6;padding:18px 20px}
+@media (max-width:760px){.about-hero .page-hero-copy > .hero-actions .btn-secondary,.about-start-card .hero-actions .btn-ghost,.about-fit-actions .btn-ghost{margin-left:0}}
+@media (max-width:760px){.about-hero .page-hero-copy h1{max-width:12ch}.about-feel-grid{grid-template-columns:1fr}.about-next-card .link-list a{min-height:0}}
