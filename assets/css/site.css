@@ -1147,6 +1147,10 @@ html[data-theme="soft-light"] .form-status.is-error{color:#a62b2b}
 
 .link-card .link-list a{align-items:center}
 .link-card .link-list a span{display:inline-flex;align-items:center;justify-content:center;white-space:nowrap;min-width:108px;text-align:center;padding:4px 10px;border-radius:999px;border:1px solid rgba(91,158,255,.24);background:rgba(91,158,255,.12);color:var(--brand-2);font-size:.78rem;font-weight:800;line-height:1.15}
+.next-click-list{gap:10px}
+.next-click-list a{display:flex;flex-direction:column;align-items:flex-start;gap:3px;padding:12px 14px;border-radius:16px}
+.next-click-list a strong{color:var(--text);font-size:.95rem;line-height:1.2}
+.next-click-list a small{color:var(--muted);font-size:.82rem;line-height:1.3}
 .package-card{display:flex;flex-direction:column;height:100%}
 .package-card ul{margin-bottom:0}
 .package-card .card-link{margin-top:auto;padding-top:18px}
