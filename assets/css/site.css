@@ -1806,6 +1806,33 @@ html[data-theme="soft-light"] .mobile-menu{background:rgba(255,255,255,.95)}
     margin:3px auto 12px;
   }
 }
+.estimator-column{
+  display:grid;
+  gap:18px;
+}
+.estimator-orientation-card{
+  background:var(--surface-2);
+  border:1px solid var(--border);
+  border-radius:28px;
+  padding:22px;
+  box-shadow:var(--shadow-sm);
+}
+.estimator-orientation-card h2{
+  font-size:clamp(1.45rem,2.2vw,2rem);
+  line-height:1.1;
+  letter-spacing:-.02em;
+  margin:8px 0 10px;
+}
+.estimator-orientation-card .estimate-helper-grid{
+  grid-template-columns:1fr;
+  gap:12px;
+  margin-top:14px;
+}
+.estimator-orientation-card .estimate-helper{
+  padding:14px 16px;
+  border-radius:18px;
+  background:var(--surface-4);
+}
 .estimator-grid{
   display:grid;
   grid-template-columns:minmax(0,1.04fr) minmax(320px,.96fr);
