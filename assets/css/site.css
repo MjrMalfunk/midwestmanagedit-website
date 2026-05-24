@@ -175,7 +175,7 @@ html[data-theme="soft-light"] .topbar{background:rgba(255,255,255,.76)}
 .brand img{height:42px;width:auto;flex:none}
 .brand-copy{min-width:0}
 .brand-name{display:block;font-weight:800;letter-spacing:.01em}
-.brand-copy small{display:block;color:var(--muted-2);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.brand-copy small,.brand-tagline{display:block;color:var(--muted-2);font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;max-width:34ch;white-space:normal}
 .nav-links{display:flex;align-items:center;gap:18px;flex-wrap:wrap;color:var(--muted)}
 .nav-links a{font-size:.96rem;transition:color var(--transition)}
 .nav-links a:hover{color:var(--text)}
