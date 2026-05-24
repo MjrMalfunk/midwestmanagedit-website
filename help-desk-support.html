@@ -19,6 +19,15 @@
 <meta content="Responsive help desk and remote support for small businesses, including user assistance, issue triage, remote troubleshooting, clearer follow-up, and escalation when needed." name="twitter:description"/>
 <meta content="#0e1726" name="theme-color"/>
 <link href="assets/css/site.css" rel="stylesheet"/>
+<style>
+.page-summary{padding-right:4px}
+.page-summary .next-click-list a span{display:block;overflow-wrap:anywhere}
+.work-pill-list{display:grid;gap:10px;margin:16px 0 0;padding:0;list-style:none}
+.work-pill-list li{position:relative;margin:0;padding:12px 14px 12px 34px;border:1px solid rgba(120,194,255,.26);border-radius:12px;background:linear-gradient(145deg,rgba(23,41,67,.72),rgba(11,22,39,.72));color:rgba(229,239,255,.94)}
+.work-pill-list li::before{content:"";position:absolute;left:14px;top:50%;width:8px;height:8px;border-radius:50%;transform:translateY(-50%);background:radial-gradient(circle at 30% 30%,rgba(163,230,255,.95),rgba(82,186,255,.9));box-shadow:0 0 0 2px rgba(82,186,255,.2)}
+.cta-row-balanced{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:18px}
+.cta-row-balanced .btn{flex:1 1 220px;display:inline-flex;justify-content:center;text-align:center}
+</style>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -105,7 +114,7 @@
 </div>
 <div class="link-card">
 <div class="eyebrow">Good next clicks</div>
-<ul class="link-list next-click-list"><li><a href="services.html">Review all services<span>See how help desk fits the full support model.</span></a></li><li><a href="plans.html">Compare the lanes<span>See Manage, Protect, and Govern.</span></a></li><li><a href="managed-it.html">Explore Managed IT<span>Connect day-to-day support with a stronger operating baseline.</span></a></li></ul>
+<ul class="link-list next-click-list"><li><a href="services.html">Review all services<span>See how help desk fits the full support model.</span></a></li><li><a href="plans.html">Compare the lanes<span>See Manage, Protect, and Govern.</span></a></li><li><a href="managed-it.html">Explore Managed IT<span>Connect support with a stronger IT baseline.</span></a></li></ul>
 </div>
 </aside>
 </div>
@@ -127,17 +136,19 @@
 <div class="content-block">
 <div class="eyebrow">How We Work</div>
 <h3>Support that stays connected to the bigger picture.</h3>
-<ul class="check-list">
+<ul class="work-pill-list">
 <li>Use remote-first support where it improves response time</li>
 <li>Keep requests organized so follow-up is clearer</li>
 <li>Escalate issues when they point to a deeper technical problem</li>
 <li>Coordinate onsite help when hands-on work adds real value</li>
 <li>Feed repeat issues back into managed IT planning and cleanup</li>
 </ul>
+</div>
+<div class="content-block">
 <div class="eyebrow">Start a Conversation</div>
 <h3>Start with the support friction your team already feels.</h3>
 <p>You do not need a perfect support process before reaching out. A useful first conversation can start with repeat user issues, unclear request flow, account-access problems, workstation frustrations, application questions, or too many small issues landing on the same person.</p>
-<div class="hero-actions" style="margin-top:18px">
+<div class="hero-actions cta-row-balanced">
 <a class="btn btn-primary" href="contact.html#schedule-intake">Schedule a Chat</a>
 <a class="btn btn-ghost" href="mailto:info@midwestmanagedit.com">Email Us</a>
 </div>
