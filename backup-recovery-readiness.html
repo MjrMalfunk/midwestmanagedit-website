@@ -19,9 +19,15 @@
 <link href="assets/css/site.css" rel="stylesheet"/>
 <style>
 .friction-stack{display:grid;gap:10px;margin:18px 0 0;padding:0;list-style:none}
-.friction-item{margin:0;padding:12px 14px;border:1px solid rgba(120,194,255,.26);border-radius:12px;background:linear-gradient(145deg,rgba(23,41,67,.72),rgba(11,22,39,.72));color:rgba(229,239,255,.94)}
+.friction-item{position:relative;margin:0;padding:12px 14px 12px 34px;border:1px solid rgba(120,194,255,.26);border-radius:12px;background:linear-gradient(145deg,rgba(23,41,67,.72),rgba(11,22,39,.72));color:rgba(229,239,255,.94)}
+.friction-item::before{content:"";position:absolute;left:14px;top:50%;width:8px;height:8px;border-radius:50%;transform:translateY(-50%);background:radial-gradient(circle at 30% 30%,rgba(163,230,255,.95),rgba(82,186,255,.9));box-shadow:0 0 0 2px rgba(82,186,255,.2)}
 .tight-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
 .tight-chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid rgba(120,194,255,.28);background:rgba(26,46,74,.5);font-size:.82rem;font-weight:600;color:rgba(222,235,255,.92);line-height:1.2}
+.tight-list.tight-list-centered{justify-content:center;margin-top:18px}
+.distinction-callout{margin-top:18px}
+.distinction-chips{margin-top:18px}
+.cta-row-balanced{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:20px}
+.cta-row-balanced .btn{flex:1 1 220px;justify-content:center;text-align:center}
 </style>
 <script type="application/ld+json">
 {
@@ -154,8 +160,8 @@
 <div class="content-block">
 <div class="eyebrow">Important distinction</div>
 <p>Backup and recovery are related, but they are not identical. A green status light does not automatically answer how long a recovery would take, what order matters most, or how much interruption the business can tolerate.</p>
-<div class="callout">That is why calmer backup conversations usually include both tool coverage and recovery readiness, not just one screenshot of a successful job.</div>
-<div class="tight-list" aria-label="Backup readiness checks">
+<div class="callout distinction-callout">That is why calmer backup conversations usually include both tool coverage and recovery readiness, not just one screenshot of a successful job.</div>
+<div class="tight-list tight-list-centered distinction-chips" aria-label="Backup readiness checks">
 <span class="tight-chip">Coverage</span>
 <span class="tight-chip">Backup health</span>
 <span class="tight-chip">Restore expectations</span>
@@ -170,9 +176,9 @@
 <span class="tight-chip">Security planning</span>
 <span class="tight-chip">Continuity readiness</span>
 </div>
-<div class="hero-actions" style="margin-top:18px">
+<div class="hero-actions cta-row-balanced">
 <a class="btn btn-secondary" href="plans.html">See the lanes</a>
-<a class="btn btn-ghost" href="contact.html#schedule-intake">Discuss backup readiness</a>
+<a class="btn btn-ghost" href="contact.html#schedule-intake">Discuss readiness</a>
 </div>
 </div>
 </aside>
