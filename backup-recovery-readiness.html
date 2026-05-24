@@ -17,6 +17,12 @@
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="#0e1726" name="theme-color"/>
 <link href="assets/css/site.css" rel="stylesheet"/>
+<style>
+.friction-stack{display:grid;gap:10px;margin:18px 0 0;padding:0;list-style:none}
+.friction-item{margin:0;padding:12px 14px;border:1px solid rgba(120,194,255,.26);border-radius:12px;background:linear-gradient(145deg,rgba(23,41,67,.72),rgba(11,22,39,.72));color:rgba(229,239,255,.94)}
+.tight-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.tight-chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid rgba(120,194,255,.28);background:rgba(26,46,74,.5);font-size:.82rem;font-weight:600;color:rgba(222,235,255,.92);line-height:1.2}
+</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -125,12 +131,12 @@
 <div class="content-block">
 <div class="eyebrow">Common backup friction</div>
 <h2>Backup anxiety usually comes from uncertainty, not just missing tools.</h2>
-<ul class="bullet-list">
-<li>The business is not fully sure what is covered and what is not.</li>
-<li>Backup status exists somewhere, but not in a way anybody checks confidently.</li>
-<li>Recovery expectations are fuzzy, optimistic, or based on vibes from a long time ago.</li>
-<li>Workstations, servers, and cloud data do not all live under the same clarity umbrella.</li>
-<li>There is a backup product, but not much operational storytelling around readiness.</li>
+<ul class="friction-stack">
+<li class="friction-item">The business is not fully sure what is covered and what is not.</li>
+<li class="friction-item">Backup status exists somewhere, but is not checked with confidence.</li>
+<li class="friction-item">Recovery expectations are fuzzy, optimistic, or based on an old assumption.</li>
+<li class="friction-item">Workstations, servers, and cloud data do not always live under the same clarity umbrella.</li>
+<li class="friction-item">There may be a backup product in place, but not much operational readiness around it.</li>
 </ul>
 </div>
 <div class="content-block">
@@ -149,11 +155,21 @@
 <div class="eyebrow">Important distinction</div>
 <p>Backup and recovery are related, but they are not identical. A green status light does not automatically answer how long a recovery would take, what order matters most, or how much interruption the business can tolerate.</p>
 <div class="callout">That is why calmer backup conversations usually include both tool coverage and recovery readiness, not just one screenshot of a successful job.</div>
+<div class="tight-list" aria-label="Backup readiness checks">
+<span class="tight-chip">Coverage</span>
+<span class="tight-chip">Backup health</span>
+<span class="tight-chip">Restore expectations</span>
+</div>
 </div>
 <div class="content-block page-cta">
 <div class="eyebrow">Where this usually fits</div>
 <h3>Protect IT is often where backup coverage starts feeling complete.</h3>
 <p>For businesses that want support, protection, and backup moving together, Protect IT is often the lane where the relationship begins to feel meaningfully sturdier.</p>
+<div class="tight-list" aria-label="Backup readiness alignment">
+<span class="tight-chip">Managed support</span>
+<span class="tight-chip">Security planning</span>
+<span class="tight-chip">Continuity readiness</span>
+</div>
 <div class="hero-actions" style="margin-top:18px">
 <a class="btn btn-secondary" href="plans.html">See the lanes</a>
 <a class="btn btn-ghost" href="contact.html#schedule-intake">Discuss backup readiness</a>
