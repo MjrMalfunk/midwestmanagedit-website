@@ -105,7 +105,7 @@
     ]
   },
   {
-    "title": "Cybersecurity without enterprise fog machines",
+    "title": "Cybersecurity without enterprise complexity",
     "url": "cybersecurity.html",
     "category": "services",
     "summary": "Learn how layered protection, safer defaults, hardening, and risk reduction fit into the relationship.",
@@ -154,7 +154,7 @@
     "title": "Help desk and remote support",
     "url": "help-desk-support.html",
     "category": "services",
-    "summary": "Understand the remote-first support model and how day-to-day issues get handled without chaos.",
+    "summary": "Understand the remote-first support model and how day-to-day issues get handled with steadier workflows.",
     "keywords": [
       "help desk",
       "remote support",
@@ -209,7 +209,7 @@
     ]
   },
   {
-    "title": "Backup recovery readiness without hand-waving",
+    "title": "Backup recovery readiness with clarity",
     "url": "backup-recovery-readiness.html",
     "category": "guides",
     "summary": "A plain-English look at backup health, coverage, recoverability, and business continuity.",
