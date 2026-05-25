@@ -1,0 +1,21 @@
+# Midwest Managed IT public site
+# Clean launch .htaccess - removes old Namecheap Site Builder rewrites
+
+DirectoryIndex index.html index.php
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# Always allow ACME/certificate validation and other well-known files
+RewriteRule ^\.well-known/ - [L]
+
+# Preserve authorization headers for PHP endpoints if needed
+RewriteCond %{HTTP:Authorization} ^(.*)
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%1]
+
+RewriteCond %{HTTP:X-Server-Addr} ^(.*)
+RewriteRule .* - [E=HTTP_X_SERVER_ADDR:%1]
+</IfModule>
+
+ErrorDocument 401 "Unauthorized"
+ErrorDocument 403 "Forbidden"
