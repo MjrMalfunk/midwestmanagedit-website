@@ -17,18 +17,6 @@
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="#0e1726" name="theme-color"/>
 <link href="assets/css/site.css" rel="stylesheet"/>
-<style>
-.friction-stack{display:grid;gap:10px;margin:18px 0 0;padding:0;list-style:none}
-.friction-item{position:relative;margin:0;padding:12px 14px 12px 34px;border:1px solid rgba(120,194,255,.26);border-radius:12px;background:linear-gradient(145deg,rgba(23,41,67,.72),rgba(11,22,39,.72));color:rgba(229,239,255,.94)}
-.friction-item::before{content:"";position:absolute;left:14px;top:50%;width:8px;height:8px;border-radius:50%;transform:translateY(-50%);background:radial-gradient(circle at 30% 30%,rgba(163,230,255,.95),rgba(82,186,255,.9));box-shadow:0 0 0 2px rgba(82,186,255,.2)}
-.tight-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-.tight-chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;border:1px solid rgba(120,194,255,.28);background:rgba(26,46,74,.5);font-size:.82rem;font-weight:600;color:rgba(222,235,255,.92);line-height:1.2}
-.tight-list.tight-list-centered{justify-content:center;margin-top:18px}
-.distinction-callout{margin-top:18px}
-.distinction-chips{margin-top:18px}
-.cta-row-balanced{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin-top:20px}
-.cta-row-balanced .btn{flex:1 1 220px;justify-content:center;text-align:center}
-</style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -57,12 +45,12 @@
 
 <header class="topbar">
 <div class="container nav">
-<a aria-label="Midwest Managed IT home" class="brand" href="index.html">
-<picture>
-<source media="(prefers-color-scheme: light)" srcset="assets/brand/mmit-logo-horizontal-dark.svg"/>
-<img alt="Midwest Managed IT" src="assets/brand/mmit-logo-horizontal-light.svg"/>
-</picture>
+<a aria-label="Midwest Managed IT home" class="brand brand-lockup" href="index.html">
+<span class="brand-mark" aria-hidden="true">
+<img alt="" src="assets/brand/mmit-icon.svg"/>
+</span>
 <span class="brand-copy">
+<span class="brand-name">Midwest Managed <span class="brand-accent">IT</span></span>
 <small class="brand-tagline">Proactive support for growing businesses</small>
 </span>
 </a>
@@ -105,25 +93,20 @@
 <div class="breadcrumbs"><a href="index.html">Home</a> / <a href="resources.html">Resources</a> / <span>Backup &amp; Recovery Readiness</span></div>
 <div class="page-kicker">Backup guide</div>
 <h1>A backup is only comforting if recovery is believable.</h1>
-<p>“We have backups” is a starting point, not a finish line. Readiness gets stronger when the business can see what is protected, understand what recovery means, and trust that backup oversight is not just a checkbox wearing a cape.</p>
-<div class="hero-actions" style="margin-top:24px">
-<a class="btn btn-primary" href="contact.html#schedule-intake">Schedule a Chat</a>
-<a class="btn btn-secondary" href="backup-recovery-readiness.html">Explore the Service</a>
-</div>
+<p>“We have backups” is a starting point, not a finish line. Readiness gets stronger when the business can see what is protected, understand what recovery means, and trust that backup oversight is part of the operating rhythm.</p>
 </div>
 <aside class="page-summary">
 <div class="summary-card">
 <div class="eyebrow">Quick view</div>
 <h3>What backup confidence should include</h3>
-<p>Visibility into what is protected, a sane understanding of recovery paths, and ongoing oversight that can spot when “we should be fine” is quietly becoming “we hope so.”</p>
+<p>Visibility into what is protected, clear recovery expectations, and ongoing oversight that can spot when backup confidence is weaker than assumed.</p>
 </div>
 <div class="link-card">
-<div class="eyebrow">Keep moving</div>
-<ul class="link-list">
-<li><a href="backup-recovery-readiness.html">Backup &amp; Recovery<span>See the service lane</span></a></li>
-<li><a href="plans.html">Plans<span>See where backup becomes standard</span></a></li>
-<li><a href="managed-vs-reactive-support.html">Managed vs reactive<span>See why oversight matters</span></a></li>
-<li><a href="services.html">Review all services<span>See how recovery readiness fits the full support model.</span></a></li>
+<div class="eyebrow">Good next clicks</div>
+<ul class="link-list next-click-list">
+<li><a href="plans.html"><strong>Compare plans</strong><span>See where backup becomes standard.</span></a></li>
+<li><a href="managed-vs-reactive-support.html"><strong>Managed vs reactive</strong><span>See why oversight matters.</span></a></li>
+<li><a href="services.html"><strong>Review all services</strong><span>See how readiness fits the full model.</span></a></li>
 </ul>
 </div>
 </aside>
@@ -136,12 +119,12 @@
 <div class="content-block">
 <div class="eyebrow">Common backup friction</div>
 <h2>Backup anxiety usually comes from uncertainty, not just missing tools.</h2>
-<ul class="friction-stack">
-<li class="friction-item">The business is not fully sure what is covered and what is not.</li>
-<li class="friction-item">Backup status exists somewhere, but is not checked with confidence.</li>
-<li class="friction-item">Recovery expectations are fuzzy, optimistic, or based on an old assumption.</li>
-<li class="friction-item">Workstations, servers, and cloud data do not always live under the same clarity umbrella.</li>
-<li class="friction-item">There may be a backup product in place, but not much operational readiness around it.</li>
+<ul class="work-pill-list">
+<li>The business is not fully sure what is covered and what is not.</li>
+<li>Backup status exists somewhere, but is not checked with confidence.</li>
+<li>Recovery expectations are unclear, optimistic, or based on an old assumption.</li>
+<li>Workstations, servers, and cloud data do not always live under the same clarity umbrella.</li>
+<li>There may be a backup product in place, but not much operational readiness around it.</li>
 </ul>
 </div>
 <div class="content-block">
@@ -159,25 +142,25 @@
 <div class="content-block">
 <div class="eyebrow">Important distinction</div>
 <p>Backup and recovery are related, but they are not identical. A green status light does not automatically answer how long a recovery would take, what order matters most, or how much interruption the business can tolerate.</p>
-<div class="callout distinction-callout">That is why calmer backup conversations usually include both tool coverage and recovery readiness, not just one screenshot of a successful job.</div>
-<div class="tight-list tight-list-centered distinction-chips" aria-label="Backup readiness checks">
-<span class="tight-chip">Coverage</span>
-<span class="tight-chip">Backup health</span>
-<span class="tight-chip">Restore expectations</span>
+<ul class="work-pill-list" aria-label="Backup readiness checks">
+<li>Coverage is reviewed</li>
+<li>Backup health is visible</li>
+<li>Restore expectations are clearer</li>
+</ul>
+<div class="callout">That is why calmer backup conversations usually include both tool coverage and recovery readiness, not just one screenshot of a successful job.</div>
 </div>
-</div>
-<div class="content-block page-cta">
+<div class="content-block page-cta backup-fit-card">
 <div class="eyebrow">Where this usually fits</div>
 <h3>Protect IT is often where backup coverage starts feeling complete.</h3>
 <p>For businesses that want support, protection, and backup moving together, Protect IT is often the lane where the relationship begins to feel meaningfully sturdier.</p>
-<div class="tight-list" aria-label="Backup readiness alignment">
-<span class="tight-chip">Managed support</span>
-<span class="tight-chip">Security planning</span>
-<span class="tight-chip">Continuity readiness</span>
-</div>
+<ul class="work-pill-list" aria-label="Backup readiness alignment">
+<li>Managed support stays connected</li>
+<li>Security planning includes recovery</li>
+<li>Continuity readiness stays in view</li>
+</ul>
 <div class="hero-actions cta-row-balanced">
 <a class="btn btn-secondary" href="plans.html">See the lanes</a>
-<a class="btn btn-ghost" href="contact.html#schedule-intake">Discuss readiness</a>
+<a class="btn btn-primary" href="contact.html#schedule-intake">Discuss readiness</a>
 </div>
 </div>
 </aside>
@@ -192,12 +175,12 @@
 </div>
 <div class="proof-grid">
 <article class="info-card proof-card"><h3>Tool-only mindset</h3><p>There is a backup platform, but not much confidence in day-to-day oversight or restore realism.</p></article>
-<article class="info-card proof-card"><h3>Readiness mindset</h3><p>The tool is paired with visibility, routine review, and a clearer idea of what recovery should look like when things go sideways.</p></article>
+<article class="info-card proof-card"><h3>Readiness mindset</h3><p>The tool is paired with visibility, routine review, and a clearer idea of what recovery should look like when something interrupts work.</p></article>
 <article class="info-card proof-card"><h3>Tool-only mindset</h3><p>Success is measured by “we bought backup.”</p></article>
-<article class="info-card proof-card"><h3>Readiness mindset</h3><p>Success is measured by whether the business feels more recoverable and less exposed to one ugly surprise.</p></article>
+<article class="info-card proof-card"><h3>Readiness mindset</h3><p>Success is measured by whether the business feels more recoverable and less exposed to an unexpected disruption.</p></article>
 </div>
 <div class="hero-actions section-head-actions">
-<a class="btn btn-secondary" href="resources.html">Back to Resources</a>
+<a class="btn btn-secondary" href="services.html">Back to Services</a>
 </div>
 </div>
 </section>
@@ -215,7 +198,7 @@
 <ul>
 <li><a href="services.html">Services</a></li>
 <li><a href="plans.html">Plans</a></li>
-<li><a href="pricing-estimator.html">See Your Configuration Pricing</a></li>
+<li><a href="pricing-estimator.html">See Your Estimate</a></li>
 <li><a href="who-we-help.html">Who We Help</a></li>
 <li><a href="getting-started.html">Getting Started</a></li>
 <li><a href="faq.html">FAQ</a></li>
