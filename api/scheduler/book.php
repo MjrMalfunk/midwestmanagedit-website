@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 require dirname(__DIR__, 2) . '/includes/scheduler-lib.php';
+require dirname(__DIR__, 2) . '/includes/private-config.php';
 
 scheduler_require_method('POST');
 if (!scheduler_rate_limit_guard('scheduler-book', 20, 300)) {
@@ -15,13 +16,8 @@ function mmit_mark_estimate_scheduled(array $data): void
         return;
     }
 
-    $secretsPath = '/home/mjrmstlj/private/mmit-secrets.php';
-    if (!is_file($secretsPath)) {
-        return;
-    }
-
     try {
-        $secrets = require $secretsPath;
+        $secrets = mmit_load_secrets_config();
     } catch (Throwable $e) {
         error_log('MMIT scheduler Brevo secret load failed: ' . $e->getMessage());
         return;

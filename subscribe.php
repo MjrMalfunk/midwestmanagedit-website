@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json; charset=utf-8');
+require __DIR__ . '/includes/private-config.php';
 
 function json_response(int $status, string $message): void {
     http_response_code($status);
@@ -47,12 +48,14 @@ if (!rate_limit_guard('subscribe', 20, 300)) {
     json_response(429, 'Too many requests. Please wait and try again.');
 }
 
-$secretsPath = '/home/mjrmstlj/private/mmit-secrets.php';
-if (!is_file($secretsPath)) {
-    json_response(500, 'Server configuration is missing.');
-}
+$secrets = [];
 
-$secrets = require $secretsPath;
+try {
+    $secrets = mmit_load_secrets_config();
+} catch (Throwable $e) {
+    error_log('MMIT subscribe config load failed: ' . $e->getMessage());
+    json_response(500, $e->getMessage() === 'Missing MMIT staging config.' ? 'Missing MMIT staging config.' : 'Server configuration is missing.');
+}
 $apiKey = (string)($secrets['brevo']['api_key'] ?? '');
 $pendingListId = (int)($secrets['brevo']['pending_list_id'] ?? 0);
 
