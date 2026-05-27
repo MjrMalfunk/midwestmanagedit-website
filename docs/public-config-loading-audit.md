@@ -188,3 +188,69 @@ chmod 600 /home/mjrmstlj/private/mmit/scheduler.staging.php
 - `rg -n "/home/mjrmstlj/private|mmit-secrets.php|mmit-scheduler.php|private/mmit/|Brevo|Graph|Microsoft|scheduler|subscribe|estimate|config|secrets" api includes estimate-request.php subscribe.php`
 - `rg -n "test\.midwestmanagedit\.com|HTTP_HOST|SERVER_NAME|staging|environment|ENV|prod|production" *.php api includes assets/js`
 - `nl -ba ...` inspections of relevant PHP files for line-level traceability.
+
+## 13) Implementation status (2026-05-27)
+
+Implemented in this repository:
+
+- Added `includes/private-config.php` with hostname-aware private config loading.
+- Production host (`midwestmanagedit.com`) secrets load order:
+  1. `/home/mjrmstlj/private/mmit/secrets.php`
+  2. `/home/mjrmstlj/private/mmit-secrets.php` (**deprecated fallback, production-only**)
+- Staging host (`test.midwestmanagedit.com`) secrets load:
+  - `/home/mjrmstlj/private/mmit/secrets.staging.php`
+  - If missing, request fails safely with: `Missing MMIT staging config.`
+  - Staging does not fall back to production secrets.
+- Production host scheduler load order:
+  1. `/home/mjrmstlj/private/mmit/scheduler.php`
+  2. `/home/mjrmstlj/private/mmit-scheduler.php` (**deprecated fallback, production-only**)
+  3. Existing local/dev fallback candidates remain for backward compatibility.
+- Staging host scheduler load:
+  - `/home/mjrmstlj/private/mmit/scheduler.staging.php`
+  - If missing, request fails safely with: `Missing MMIT staging scheduler config.`
+  - Staging does not fall back to production scheduler config.
+
+Updated runtime consumers:
+
+- `subscribe.php`
+- `estimate-request.php`
+- `api/scheduler/book.php`
+- `includes/scheduler-lib.php`
+
+### Private path policy reminder
+
+Private config files must remain outside all public web roots (for cPanel/shared hosting: under `/home/mjrmstlj/private/...`).
+Do not place secrets in repository-tracked files.
+
+### Manual migration/copy commands (run on hosting terminal, not in repo)
+
+```bash
+# Backup legacy files
+cp -a /home/mjrmstlj/private/mmit-secrets.php /home/mjrmstlj/private/mmit-secrets.php.bak.$(date +%Y%m%d%H%M%S)
+cp -a /home/mjrmstlj/private/mmit-scheduler.php /home/mjrmstlj/private/mmit-scheduler.php.bak.$(date +%Y%m%d%H%M%S)
+
+# Ensure organized directory exists
+mkdir -p /home/mjrmstlj/private/mmit
+chmod 700 /home/mjrmstlj/private/mmit
+
+# Seed production files
+cp -a /home/mjrmstlj/private/mmit-secrets.php /home/mjrmstlj/private/mmit/secrets.php
+cp -a /home/mjrmstlj/private/mmit-scheduler.php /home/mjrmstlj/private/mmit/scheduler.php
+
+# Create staging variants (then edit with staging-only values)
+cp -a /home/mjrmstlj/private/mmit/secrets.php /home/mjrmstlj/private/mmit/secrets.staging.php
+cp -a /home/mjrmstlj/private/mmit/scheduler.php /home/mjrmstlj/private/mmit/scheduler.staging.php
+
+# Lock private file permissions
+chmod 600 /home/mjrmstlj/private/mmit/secrets.php
+chmod 600 /home/mjrmstlj/private/mmit/secrets.staging.php
+chmod 600 /home/mjrmstlj/private/mmit/scheduler.php
+chmod 600 /home/mjrmstlj/private/mmit/scheduler.staging.php
+```
+
+### Staging safety reminders
+
+- Never copy production tokens/keys into staging config without explicit approval.
+- Confirm staging host is exactly `test.midwestmanagedit.com`.
+- Verify staging files exist before smoke testing scheduler and form endpoints.
+

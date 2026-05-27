@@ -1,6 +1,8 @@
 <?php
 declare(strict_types=1);
 
+require_once __DIR__ . '/private-config.php';
+
 function scheduler_json_response(array $payload, int $status = 200): void
 {
     http_response_code($status);
@@ -56,21 +58,23 @@ function scheduler_rate_limit_guard(string $scope, int $maxRequests, int $window
 
 function scheduler_load_config(): ?array
 {
-    $candidates = [];
-    $envPath = getenv('MMIT_SCHEDULER_CONFIG');
-    if (is_string($envPath) && trim($envPath) !== '') {
-        $candidates[] = trim($envPath);
-    }
-
-    $candidates[] = dirname(__DIR__) . '/api/scheduler/config.local.php';
-    $candidates[] = dirname(__DIR__) . '/private/mmit-scheduler.php';
-    $candidates[] = dirname(__DIR__, 2) . '/private/mmit-scheduler.php';
+    $candidates = mmit_scheduler_config_candidates();
 
     foreach ($candidates as $path) {
-        if (is_file($path)) {
-            $config = require $path;
-            return is_array($config) ? $config : null;
+        if (!is_file($path)) {
+            continue;
         }
+
+        $config = require $path;
+        if (is_array($config)) {
+            return $config;
+        }
+
+        return null;
+    }
+
+    if (mmit_is_staging_host()) {
+        throw new RuntimeException('Missing MMIT staging scheduler config.');
     }
 
     return null;
