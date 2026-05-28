@@ -15,11 +15,12 @@ Mode: Audit-only (no runtime behavior changes).
   - `api/scheduler/book.php` (Brevo contact status update helper)
 
 ### Scheduler config (Microsoft Graph / M365 calendar)
-- Candidate load order in `scheduler_load_config()`:
+- Candidate load order from `mmit_scheduler_config_candidates()`:
   1. `getenv('MMIT_SCHEDULER_CONFIG')` if present/non-empty.
-  2. `<repo>/api/scheduler/config.local.php`
-  3. `<repo>/private/mmit-scheduler.php`
-  4. `<parent-of-repo>/private/mmit-scheduler.php`
+  2. On staging host `test.midwestmanagedit.com`: `/home/mjrmstlj/private/mmit/scheduler.staging.php` only.
+  3. On production/default hosts: `/home/mjrmstlj/private/mmit/scheduler.php`.
+  4. Production-only deprecated fallback: `/home/mjrmstlj/private/mmit-scheduler.php`.
+  5. Local/dev fallback candidates: `<repo>/api/scheduler/config.local.php`, `<repo>/private/mmit-scheduler.php`, and `<parent-of-repo>/private/mmit-scheduler.php`.
 - Loaded by:
   - `api/scheduler/status.php`
   - `api/scheduler/availability.php`
@@ -60,8 +61,49 @@ Mode: Audit-only (no runtime behavior changes).
 - Required keys validated by `scheduler_is_configured()`:
   - `provider`, `calendar_user`, `tenant_id`, `client_id`, `client_secret`, `timezone`, `graph_timezone`
 - Expected nested/optional keys used:
+  - `availability_schedules` array of mailbox/calendar addresses checked through Microsoft Graph `getSchedule`; when missing or empty, scheduler falls back to `[calendar_user]`.
+  - `booking_attendees` array of internal attendee email strings or attendee arrays (`email`/`address`, optional `name`, optional `type`) added to created booking events.
   - `meeting` sub-array (`duration_minutes`, `buffer_minutes`, `min_notice_minutes`, etc.)
   - `working_hours`, `blackout_dates`, `blackout_ranges`, `timezone_label`
+
+#### Non-secret scheduler config shape example
+
+```php
+<?php
+return [
+    'provider' => 'm365',
+    'calendar_user' => 'scheduling@midwestmanagedit.com',
+    'availability_schedules' => [
+        'scheduling@midwestmanagedit.com',
+        'consultant@example.com',
+        'service-desk@example.com',
+    ],
+    'booking_attendees' => [
+        ['email' => 'consultant@example.com', 'name' => 'MMIT Consultant'],
+        'service-desk@example.com',
+    ],
+    'tenant_id' => 'YOUR_TENANT_ID',
+    'client_id' => 'YOUR_CLIENT_ID',
+    'client_secret' => 'YOUR_CLIENT_SECRET',
+    'timezone' => 'America/Indiana/Indianapolis',
+    'graph_timezone' => 'Eastern Standard Time',
+    'timezone_label' => 'Eastern time',
+    'meeting' => [
+        'duration_minutes' => 30,
+        'buffer_minutes' => 15,
+        'min_notice_minutes' => 120,
+    ],
+    'working_hours' => [
+        1 => [['start' => '09:00', 'end' => '16:00']],
+        2 => [['start' => '09:00', 'end' => '16:00']],
+        3 => [['start' => '09:00', 'end' => '16:00']],
+        4 => [['start' => '09:00', 'end' => '16:00']],
+        5 => [['start' => '09:00', 'end' => '16:00']],
+    ],
+    'blackout_dates' => [],
+    'blackout_ranges' => [],
+];
+```
 
 ### Other private files in-scope
 - `{$HOME}/private/mmit/estimate-links/*.json` are JSON records written/read at runtime; not PHP config.
