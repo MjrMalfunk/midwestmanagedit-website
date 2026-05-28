@@ -91,6 +91,89 @@ function scheduler_is_configured(?array $config): bool
     return ($config['provider'] ?? '') === 'm365';
 }
 
+function scheduler_normalized_email_list(array $config, string $key, array $fallback = []): array
+{
+    $values = $config[$key] ?? [];
+    if (!is_array($values)) {
+        $values = [];
+    }
+
+    $emails = [];
+    foreach ($values as $value) {
+        if (is_array($value)) {
+            $value = $value['email'] ?? $value['address'] ?? '';
+        }
+        $email = trim((string)$value);
+        if ($email === '') {
+            continue;
+        }
+        $emails[strtolower($email)] = $email;
+    }
+
+    if (!$emails) {
+        foreach ($fallback as $value) {
+            $email = trim((string)$value);
+            if ($email !== '') {
+                $emails[strtolower($email)] = $email;
+            }
+        }
+    }
+
+    return array_values($emails);
+}
+
+function scheduler_availability_schedules(array $config): array
+{
+    return scheduler_normalized_email_list($config, 'availability_schedules', [(string)($config['calendar_user'] ?? '')]);
+}
+
+function scheduler_attendee_payload_from_config(array $attendee): ?array
+{
+    $address = trim((string)($attendee['email'] ?? $attendee['address'] ?? ''));
+    if ($address === '') {
+        return null;
+    }
+
+    return [
+        'emailAddress' => [
+            'address' => $address,
+            'name' => trim((string)($attendee['name'] ?? $address)),
+        ],
+        'type' => (string)($attendee['type'] ?? 'required'),
+    ];
+}
+
+function scheduler_booking_attendees(array $config): array
+{
+    $configured = $config['booking_attendees'] ?? [];
+    if (!is_array($configured)) {
+        return [];
+    }
+
+    $attendees = [];
+    $seen = [];
+    foreach ($configured as $attendee) {
+        if (is_string($attendee)) {
+            $attendee = ['email' => $attendee];
+        }
+        if (!is_array($attendee)) {
+            continue;
+        }
+        $payload = scheduler_attendee_payload_from_config($attendee);
+        if (!$payload) {
+            continue;
+        }
+        $addressKey = strtolower((string)$payload['emailAddress']['address']);
+        if (isset($seen[$addressKey])) {
+            continue;
+        }
+        $seen[$addressKey] = true;
+        $attendees[] = $payload;
+    }
+
+    return $attendees;
+}
+
 function scheduler_uuid(): string
 {
     $bytes = random_bytes(16);
@@ -201,37 +284,49 @@ function scheduler_build_availability(array $config, int $requestedDays = 14): a
     $windowStart = $now;
     $windowEnd = $now->setTime(23, 59, 59)->modify(sprintf('+%d days', $daysToCheck));
 
-    $eventsData = scheduler_graph_request(
+    $availabilitySchedules = scheduler_availability_schedules($config);
+    $scheduleData = scheduler_graph_request(
         $config,
-        'GET',
-        '/users/' . rawurlencode((string)$config['calendar_user']) . '/calendarView',
+        'POST',
+        '/users/' . rawurlencode((string)$config['calendar_user']) . '/calendar/getSchedule',
+        [],
         [
-            'startDateTime' => $windowStart->format(DATE_ATOM),
-            'endDateTime' => $windowEnd->format(DATE_ATOM),
-            '$select' => 'showAs,start,end',
-            '$top' => '500',
+            'schedules' => $availabilitySchedules,
+            'startTime' => [
+                'dateTime' => $windowStart->format('Y-m-d\TH:i:s'),
+                'timeZone' => (string)$config['graph_timezone'],
+            ],
+            'endTime' => [
+                'dateTime' => $windowEnd->format('Y-m-d\TH:i:s'),
+                'timeZone' => (string)$config['graph_timezone'],
+            ],
+            'availabilityViewInterval' => $slotMinutes,
         ],
-        null,
         ['Prefer: outlook.timezone="' . (string)$config['graph_timezone'] . '"']
     );
 
     $busyIntervals = [];
-    foreach (($eventsData['value'] ?? []) as $event) {
-        $showAs = strtolower((string)($event['showAs'] ?? 'busy'));
-        if (in_array($showAs, ['free', 'workingelsewhere'], true)) {
-            continue;
+    foreach (($scheduleData['value'] ?? []) as $schedule) {
+        if (!empty($schedule['error']['message'])) {
+            throw new RuntimeException('Microsoft Graph schedule lookup failed: ' . (string)$schedule['error']['message']);
         }
-        $startRaw = $event['start']['dateTime'] ?? null;
-        $endRaw = $event['end']['dateTime'] ?? null;
-        if (!$startRaw || !$endRaw) {
-            continue;
-        }
-        try {
-            $busyIntervals[] = [
-                'start' => (new DateTimeImmutable((string)$startRaw, $tz))->setTimezone($tz),
-                'end' => (new DateTimeImmutable((string)$endRaw, $tz))->setTimezone($tz),
-            ];
-        } catch (Throwable $e) {
+        foreach (($schedule['scheduleItems'] ?? []) as $item) {
+            $status = strtolower((string)($item['status'] ?? 'busy'));
+            if (in_array($status, ['free', 'workingelsewhere'], true)) {
+                continue;
+            }
+            $startRaw = $item['start']['dateTime'] ?? null;
+            $endRaw = $item['end']['dateTime'] ?? null;
+            if (!$startRaw || !$endRaw) {
+                continue;
+            }
+            try {
+                $busyIntervals[] = [
+                    'start' => (new DateTimeImmutable((string)$startRaw, $tz))->setTimezone($tz),
+                    'end' => (new DateTimeImmutable((string)$endRaw, $tz))->setTimezone($tz),
+                ];
+            } catch (Throwable $e) {
+            }
         }
     }
 
@@ -344,19 +439,30 @@ function scheduler_event_payload(array $config, array $request, string $slotIso)
         . '<p><strong>Pain points</strong><br>' . nl2br(htmlspecialchars(trim((string)($request['painPoints'] ?? '')), ENT_QUOTES, 'UTF-8')) . '</p>'
         . '<p><strong>Additional notes</strong><br>' . nl2br(htmlspecialchars(trim((string)($request['availability'] ?? 'Not provided')), ENT_QUOTES, 'UTF-8')) . '</p>';
 
+    $attendees = [[
+        'emailAddress' => [
+            'address' => trim((string)($request['email'] ?? '')),
+            'name' => trim((string)($request['name'] ?? '')),
+        ],
+        'type' => 'required',
+    ]];
+    $seenAttendees = [strtolower(trim((string)($request['email'] ?? ''))) => true];
+    foreach (scheduler_booking_attendees($config) as $attendee) {
+        $addressKey = strtolower((string)($attendee['emailAddress']['address'] ?? ''));
+        if ($addressKey === '' || isset($seenAttendees[$addressKey])) {
+            continue;
+        }
+        $seenAttendees[$addressKey] = true;
+        $attendees[] = $attendee;
+    }
+
     $payload = [
         'subject' => (string)($meeting['title_prefix'] ?? 'Schedule a Chat - ') . trim((string)($request['company'] ?? 'Prospect')),
         'body' => ['contentType' => 'HTML', 'content' => $body],
         'start' => ['dateTime' => $startLocal->format('Y-m-d\TH:i:s'), 'timeZone' => (string)$config['graph_timezone']],
         'end' => ['dateTime' => $endLocal->format('Y-m-d\TH:i:s'), 'timeZone' => (string)$config['graph_timezone']],
         'location' => ['displayName' => (string)($meeting['location'] ?? 'Online / Phone')],
-        'attendees' => [[
-            'emailAddress' => [
-                'address' => trim((string)($request['email'] ?? '')),
-                'name' => trim((string)($request['name'] ?? '')),
-            ],
-            'type' => 'required',
-        ]],
+        'attendees' => $attendees,
         'allowNewTimeProposals' => false,
         'transactionId' => scheduler_uuid(),
     ];
@@ -383,6 +489,8 @@ function scheduler_status_snapshot(array $config): array
         'configured' => true,
         'provider' => (string)($config['provider'] ?? 'm365'),
         'calendar_user' => (string)($config['calendar_user'] ?? ''),
+        'availability_schedule_count' => count(scheduler_availability_schedules($config)),
+        'booking_attendee_count' => count(scheduler_booking_attendees($config)),
         'timezone' => (string)($config['timezone_label'] ?? $config['timezone'] ?? ''),
         'slot_duration_minutes' => (int)(($config['meeting']['duration_minutes'] ?? 30)),
         'buffer_minutes' => (int)(($config['meeting']['buffer_minutes'] ?? 15)),
