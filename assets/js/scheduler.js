@@ -163,29 +163,57 @@
 
   function firstDisplayDate() {
     for (const day of state.days) {
-      const slot = Array.isArray(day.slots) ? day.slots.find((item) => item.displayTimestamp) : null;
+      const slot = Array.isArray(day.slots) ? day.slots.find((item) => Number.isFinite(item.displayTimestamp)) : null;
       if (slot) return new Date(slot.displayTimestamp);
     }
     return new Date();
+  }
+
+  function addDaysToIsoDate(isoDate, offset) {
+    const [year, month, day] = String(isoDate).split('-').map(Number);
+    if ([year, month, day].some(Number.isNaN)) return '';
+
+    const date = new Date(Date.UTC(year, month - 1, day + offset, 12, 0, 0));
+    return dateIsValid(date) ? date.toISOString().slice(0, 10) : '';
+  }
+
+  function weekdayForIsoDate(isoDate) {
+    const [year, month, day] = String(isoDate).split('-').map(Number);
+    if ([year, month, day].some(Number.isNaN)) return '';
+
+    const date = new Date(Date.UTC(year, month - 1, day, 12, 0, 0));
+    return dateIsValid(date) ? String(date.getUTCDay()) : '';
+  }
+
+  function fallbackDayLabel(isoDate, businessZone, long = false) {
+    const businessNoon = dateFromZonedTime(isoDate, '12:00', businessZone);
+    if (!businessNoon) return isoDate;
+    return long ? fmtLongDay(businessNoon, businessZone) : fmtDay(businessNoon, businessZone);
   }
 
   function normalizeFallback(config) {
     const lookahead = Number(config.lookahead_days || 21);
     const businessHours = config.business_hours || {};
     const blackout = new Set(config.blackout_dates || []);
+    const businessZone = config.timezone || easternTimeZone;
     const results = [];
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
+    const todayBusinessDate = zonedDateKey(new Date(), businessZone);
+
     for (let offset = 0; offset < lookahead; offset += 1) {
-      const date = new Date(today);
-      date.setDate(today.getDate() + offset);
-      const isoDate = date.toISOString().slice(0, 10);
-      const weekday = String(date.getDay());
+      const isoDate = addDaysToIsoDate(todayBusinessDate, offset);
+      if (!isoDate) continue;
+
+      const weekday = weekdayForIsoDate(isoDate);
       const slots = Array.isArray(businessHours[weekday]) ? businessHours[weekday] : [];
       if (blackout.has(isoDate) || slots.length === 0) continue;
-      results.push({ isoDate, label: fmtDay(date), longLabel: fmtLongDay(date), slots: slots.map((time) => ({ time, label: fmtTime(time), iso: `${isoDate}T${time}` })) });
+      results.push({
+        isoDate,
+        label: fallbackDayLabel(isoDate, businessZone),
+        longLabel: fallbackDayLabel(isoDate, businessZone, true),
+        slots: slots.map((time) => ({ time, label: fmtTime(time), iso: `${isoDate}T${time}` }))
+      });
     }
-    return { ok: true, configured: false, timezone: config.timezone || easternTimeZone, timezone_label: config.timezone_label || config.timezone || 'Eastern Time', days: results.slice(0, Number(config.max_bookable_days || 10)) };
+    return { ok: true, configured: false, timezone: businessZone, timezone_label: config.timezone_label || config.timezone || 'Eastern Time', days: results.slice(0, Number(config.max_bookable_days || 10)) };
   }
 
   async function loadData() {
