@@ -2,5 +2,6 @@
 deployment:
   tasks:
     - export REPOPATH=/home/mjrmstlj/repositories/midwestmanagedit-website/
-    - export DEPLOYPATH=/home/mjrmstlj/public_html/
+    - export BRANCH="$(git -C "$REPOPATH" rev-parse --abbrev-ref HEAD)"
+    - if [ "$BRANCH" = "main" ]; then export DEPLOYPATH=/home/mjrmstlj/public_html/; elif [ "$BRANCH" = "staging" ]; then export DEPLOYPATH=/home/mjrmstlj/test.midwestmanagedit.com/; else echo "Refusing deployment from branch $BRANCH. Only main and staging are deployable."; exit 1; fi
     - /bin/rsync -rlptD --exclude=.git/ --exclude=.cpanel.yml --exclude=.gitignore --exclude=.env --exclude=private/ --exclude=storage/ --exclude=error_log --exclude=*.log --exclude=*.zip --exclude=Videos/ --exclude=videos/ --exclude=Docs/ --exclude=docs/ --exclude=pix/ --exclude=includes/private-config.php "$REPOPATH" "$DEPLOYPATH"
