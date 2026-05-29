@@ -1,0 +1,135 @@
+/* Contact page zoom/responsive hardening.
+   This file is loaded by the contact scheduler script so it can be tested on staging
+   without disturbing the base site stylesheet. */
+
+@media (max-width: 960px){
+  .topbar .nav{
+    min-height:72px;
+    padding:12px 0;
+    flex-direction:row;
+    align-items:center;
+    flex-wrap:nowrap;
+  }
+
+  .topbar .brand-lockup{
+    flex:1 1 auto;
+    min-width:0;
+    max-width:calc(100% - 64px);
+  }
+
+  .topbar .brand-mark{
+    width:50px;
+    height:40px;
+    flex:0 0 50px;
+  }
+
+  .topbar .brand-copy{
+    min-width:0;
+  }
+
+  .topbar .brand-name{
+    font-size:clamp(1rem, 4.5vw, 1.28rem);
+  }
+
+  .topbar .brand-tagline{
+    max-width:min(42ch, 64vw);
+    font-size:clamp(.58rem, 2.1vw, .72rem);
+    letter-spacing:.095em;
+  }
+
+  .topbar .nav-actions{
+    flex:0 0 auto;
+    margin-left:auto;
+  }
+
+  .page-hero{
+    padding:24px 0 8px;
+  }
+
+  .page-hero-shell{
+    border-radius:28px;
+  }
+
+  .page-hero-grid{
+    padding:clamp(22px, 5vw, 30px);
+    gap:18px;
+  }
+
+  .page-hero-copy h1{
+    font-size:clamp(2.1rem, 10vw, 3.4rem);
+    line-height:1.04;
+    max-width:11ch;
+  }
+
+  .page-hero-copy p{
+    font-size:clamp(.98rem, 2.8vw, 1.05rem);
+    max-width:60ch;
+  }
+
+  .contact-clarify-panel{
+    padding:14px;
+  }
+
+  .summary-card,
+  .link-card,
+  .mini-panel{
+    border-radius:20px;
+  }
+}
+
+@media (max-width: 640px){
+  .container{
+    width:min(100% - 28px, var(--max));
+  }
+
+  .topbar .brand-mark{
+    width:44px;
+    height:36px;
+    flex-basis:44px;
+  }
+
+  .topbar .brand-name{
+    font-size:1rem;
+  }
+
+  .topbar .brand-tagline{
+    display:none;
+  }
+
+  .topbar .nav-toggle{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+  }
+
+  .page-hero-shell{
+    border-radius:24px;
+  }
+
+  .page-hero-grid{
+    padding:20px;
+  }
+
+  .page-hero-copy h1{
+    font-size:clamp(2rem, 12vw, 2.75rem);
+  }
+
+  .breadcrumbs{
+    font-size:.85rem;
+  }
+
+  .page-kicker{
+    padding:7px 12px;
+    font-size:.78rem;
+  }
+}
+
+@media (max-width: 380px){
+  .topbar .brand-name{
+    max-width:14ch;
+  }
+
+  .page-hero-copy h1{
+    font-size:2rem;
+  }
+}
