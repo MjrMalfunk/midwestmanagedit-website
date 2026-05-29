@@ -3,4 +3,4 @@ deployment:
   tasks:
     - export REPOPATH=/home/mjrmstlj/repositories/midwestmanagedit-website/
     - export DEPLOYPATH=/home/mjrmstlj/public_html/
-    - /usr/bin/rsync -rlptD --exclude='.git/' --exclude='.cpanel.yml' --exclude='private/' --exclude='storage/' --exclude='error_log' --exclude='*.zip' --exclude='Videos/' --exclude='videos/' --exclude='Docs/' --exclude='docs/' --exclude='pix/' "$REPOPATH" "$DEPLOYPATH"
+    - /bin/rsync -rlptD --exclude=.git/ --exclude=.cpanel.yml --exclude=.gitignore --exclude=.env --exclude=private/ --exclude=storage/ --exclude=error_log --exclude=*.log --exclude=*.zip --exclude=Videos/ --exclude=videos/ --exclude=Docs/ --exclude=docs/ --exclude=pix/ --exclude=includes/private-config.php "$REPOPATH" "$DEPLOYPATH"
