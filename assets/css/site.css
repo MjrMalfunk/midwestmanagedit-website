@@ -2602,3 +2602,39 @@ body.home-page .hero .card:hover{
 .review-combined-card > .eyebrow:first-child {
   margin-top: 0.1rem !important;
 }
+
+/* Contact scheduler campaign context */
+.campaign-context-banner {
+  display: grid;
+  gap: 0.25rem;
+  margin: 0 0 1rem;
+  padding: 1rem 1.1rem;
+  border: 1px solid rgba(125, 211, 252, 0.36);
+  border-radius: 1rem;
+  background:
+    radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 16rem),
+    rgba(56, 189, 248, 0.055);
+  color: var(--text);
+}
+
+.campaign-context-banner[hidden] {
+  display: none !important;
+}
+
+.campaign-context-banner strong {
+  color: #eaf1ff;
+}
+
+.campaign-context-banner span {
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+body.is-it-review-scheduler #schedule-intake .consult-card {
+  border-color: rgba(125, 211, 252, 0.34);
+  box-shadow: 0 22px 54px rgba(37, 99, 235, 0.14);
+}
+
+body.is-it-review-scheduler #schedule-intake .scheduler-card {
+  border-color: rgba(91, 158, 255, 0.34);
+}
