@@ -16,7 +16,7 @@
 <meta content="https://midwestmanagedit.com/assets/brand/mmit-favicon-512.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="#0e1726" name="theme-color"/>
-<link href="assets/css/site.css" rel="stylesheet"/>
+<link href="assets/css/site.css?v=contact-review-20260630" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -122,10 +122,17 @@
 <div class="container consult-grid">
 <div class="consult-main-stack">
 <div class="card card-pad consult-card">
-<div class="eyebrow">Chat request intake</div>
-<h2>Tell us what is getting in the way.</h2>
-<p class="muted">This intake is designed to make the first conversation more useful. Choose a time or send the request, and we’ll confirm the next step. If a time is not available, send the form and we’ll follow up directly.</p>
+<div class="eyebrow" id="scheduleKicker">Chat request intake</div>
+<h2 id="scheduleHeading">Tell us what is getting in the way.</h2>
+<p class="muted" id="scheduleIntro">This intake is designed to make the first conversation more useful. Choose a time or send the request, and we’ll confirm the next step. If a time is not available, send the form and we’ll follow up directly.</p>
+<div class="campaign-context-banner" id="campaignContextBanner" hidden>
+<strong>Free IT &amp; Backup Readiness Review</strong>
+<span>You came from the review page. This form keeps the request tied to that campaign.</span>
+</div>
 <form class="intake-form" data-booking-endpoint="api/scheduler/book.php" id="scheduleForm" novalidate="">
+<input id="scheduleSource" name="source" type="hidden" value="website_contact"/>
+<input id="scheduleCampaign" name="campaign" type="hidden" value="general_contact"/>
+<input id="scheduleLandingPage" name="landing_page" type="hidden" value="contact.html"/>
 <div class="input-grid two-up">
 <label class="field">
 <span>Full name <em>*</em></span>
@@ -230,7 +237,7 @@
 <p class="muted">Midwest Managed IT reviews the request, confirms the best contact path, and follows up with either the selected time or the next available option.</p>
 </div>
 <div class="submit-row consult-submit-row">
-<button class="btn btn-primary" type="submit">Book Selected Time</button>
+<button class="btn btn-primary" id="scheduleSubmitButton" type="submit">Book Selected Time</button>
 <a class="btn btn-secondary" href="mailto:info@midwestmanagedit.com?subject=General%20Inquiry">Prefer a simple email?</a>
 </div>
 <p class="legal-inline">By using this booking flow, you agree to the site <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
@@ -411,5 +418,59 @@
 
 <script src="assets/js/scheduler.js"></script>
 <script src="assets/js/site.js"></script>
+
+<script>
+(() => {
+  const params = new URLSearchParams(window.location.search);
+  const source = params.get('source') || '';
+  const campaign = params.get('utm_campaign') || params.get('campaign') || '';
+  const isReviewFlow = source === 'it-review' || campaign === 'it_review';
+
+  const sourceInput = document.getElementById('scheduleSource');
+  const campaignInput = document.getElementById('scheduleCampaign');
+  const landingInput = document.getElementById('scheduleLandingPage');
+
+  if (sourceInput) sourceInput.value = isReviewFlow ? 'it-review' : (source || 'website_contact');
+  if (campaignInput) campaignInput.value = campaign || (isReviewFlow ? 'it_review' : 'general_contact');
+  if (landingInput) landingInput.value = window.location.pathname.replace(/^\/+/, '') || 'contact.html';
+
+  if (!isReviewFlow) return;
+
+  document.body.classList.add('is-it-review-scheduler');
+
+  const banner = document.getElementById('campaignContextBanner');
+  const kicker = document.getElementById('scheduleKicker');
+  const heading = document.getElementById('scheduleHeading');
+  const intro = document.getElementById('scheduleIntro');
+  const submit = document.getElementById('scheduleSubmitButton');
+  const interest = document.getElementById('scheduleInterest');
+  const painPoints = document.getElementById('schedulePainPoints');
+
+  if (banner) banner.hidden = false;
+  if (kicker) kicker.textContent = 'Free review request';
+  if (heading) heading.textContent = 'Schedule your free IT & Backup Readiness Review.';
+  if (intro) {
+    intro.textContent = 'Tell us what you want reviewed, pick an available time if one works, and we’ll confirm the next step. This keeps the request tied to the free review offer.';
+  }
+  if (submit) submit.textContent = 'Request My Free Review';
+
+  if (interest) {
+    const preferredTerms = ['backup', 'review', 'managed', 'security', 'microsoft'];
+    const options = Array.from(interest.options);
+    const match = options.find((option) => {
+      const value = `${option.value} ${option.textContent}`.toLowerCase();
+      return preferredTerms.some((term) => value.includes(term));
+    });
+    if (match && !interest.value) {
+      interest.value = match.value;
+    }
+  }
+
+  if (painPoints && !painPoints.value) {
+    painPoints.placeholder = 'Example: We want to know if backups, Microsoft 365, devices, security, and support are actually covered.';
+  }
+})();
+</script>
+
 </body>
 </html>
