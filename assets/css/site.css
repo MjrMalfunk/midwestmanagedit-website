@@ -2638,3 +2638,724 @@ body.is-it-review-scheduler #schedule-intake .consult-card {
 body.is-it-review-scheduler #schedule-intake .scheduler-card {
   border-color: rgba(91, 158, 255, 0.34);
 }
+
+/* Contact V2: reduce repetition and make scheduler flow task-first */
+.contact-v2-hero .page-hero-copy p {
+  max-width: 58rem;
+}
+
+.contact-v2-hero-grid {
+  align-items: stretch;
+}
+
+.contact-v2-use-card {
+  min-height: 100%;
+}
+
+.contact-v2-list {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0;
+  margin: 1rem 0 0;
+  list-style: none;
+}
+
+.contact-v2-list li {
+  position: relative;
+  padding-left: 1.35rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.contact-v2-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #7dd3fc;
+  font-weight: 900;
+}
+
+.intake-note-slim {
+  margin-top: 1rem;
+}
+
+.contact-v2-support {
+  padding-top: 1rem;
+}
+
+.contact-v2-support .compact-heading {
+  max-width: 760px;
+  margin-bottom: 1.5rem;
+}
+
+.contact-v2-cards {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.contact-v2-cards .info-card {
+  display: grid;
+  align-content: start;
+  gap: 0.65rem;
+  min-height: 13rem;
+}
+
+.contact-v2-cards .info-card h3,
+.contact-v2-cards .info-card p {
+  margin: 0;
+}
+
+.contact-v2-cards .info-card a {
+  align-self: end;
+  margin-top: 0.35rem;
+  color: #9ed0ff;
+  font-weight: 800;
+}
+
+@media (max-width: 1000px) {
+  .contact-v2-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .contact-v2-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Contact V2.5: cleaner intake rhythm */
+#schedule-intake .consult-grid {
+  grid-template-columns: minmax(0, 1.18fr) minmax(22rem, 0.82fr);
+  align-items: start;
+  gap: 1.5rem;
+}
+
+#schedule-intake .consult-card,
+#schedule-intake .rail-card {
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.09), transparent 15rem),
+    rgba(255, 255, 255, 0.04);
+}
+
+#schedule-intake .consult-card > h2 {
+  max-width: 13ch;
+  text-wrap: balance;
+}
+
+#schedule-intake .consult-card > .muted {
+  max-width: 58rem;
+}
+
+#schedule-intake .input-grid.two-up {
+  gap: 1rem;
+}
+
+#schedule-intake .field span {
+  letter-spacing: -0.01em;
+}
+
+#schedule-intake .field input,
+#schedule-intake .field select,
+#schedule-intake .field textarea {
+  min-height: 3.2rem;
+}
+
+#schedule-intake textarea#schedulePainPoints {
+  min-height: 8.5rem;
+}
+
+#schedule-intake textarea#scheduleAvailability {
+  min-height: 6.25rem;
+}
+
+#schedule-intake .intake-note-slim {
+  border-color: rgba(125, 211, 252, 0.24);
+  background: rgba(56, 189, 248, 0.055);
+}
+
+#schedule-intake .consult-submit-row {
+  margin-top: 1.15rem;
+}
+
+#schedule-intake .consult-submit-row .btn {
+  min-height: 3.15rem;
+}
+
+#schedule-intake .scheduler-card {
+  position: sticky;
+  top: 5.5rem;
+}
+
+#schedule-intake .scheduler-day-button,
+#schedule-intake .scheduler-slot-button {
+  border-radius: 1rem;
+}
+
+#schedule-intake .scheduler-day-button.is-active,
+#schedule-intake .scheduler-slot-button.is-active {
+  background:
+    radial-gradient(circle at top left, rgba(91, 158, 255, 0.22), transparent 8rem),
+    rgba(91, 158, 255, 0.12);
+}
+
+#schedule-intake .rail-card:not(.scheduler-card) {
+  padding: 1.05rem;
+}
+
+#schedule-intake .rail-card:not(.scheduler-card) .work-pill-list {
+  gap: 0.65rem;
+}
+
+.contact-v2-support {
+  border-top: 1px solid rgba(148, 163, 184, 0.14);
+}
+
+.contact-v2-cards .info-card {
+  border-color: rgba(148, 163, 184, 0.22);
+  background:
+    radial-gradient(circle at top right, rgba(124, 58, 237, 0.08), transparent 12rem),
+    rgba(255, 255, 255, 0.035);
+}
+
+.contact-v2-cards .info-card:hover {
+  border-color: rgba(125, 211, 252, 0.34);
+}
+
+@media (max-width: 960px) {
+  #schedule-intake .consult-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #schedule-intake .scheduler-card {
+    position: static;
+  }
+
+  #schedule-intake .consult-card > h2 {
+    max-width: none;
+  }
+}
+
+/* Contact V2.6: prevent scheduler rail overlap */
+#schedule-intake .scheduler-card {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+}
+
+#schedule-intake .consult-rail {
+  display: grid !important;
+  align-content: start !important;
+  gap: 1rem !important;
+}
+
+#schedule-intake .scheduler-picker,
+#schedule-intake .scheduler-days,
+#schedule-intake .scheduler-slots {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+#schedule-intake .rail-card {
+  position: relative !important;
+  z-index: 0 !important;
+}
+
+#schedule-intake .scheduler-card + .rail-card {
+  margin-top: 0 !important;
+}
+
+/* Contact V2.7: form left, scheduler/helpful details right */
+#schedule-intake .consult-main-stack {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+#schedule-intake .contact-after-submit-card {
+  border-color: rgba(125, 211, 252, 0.24);
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 14rem),
+    rgba(255, 255, 255, 0.035);
+}
+
+#schedule-intake .contact-after-submit-card .work-pill-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+#schedule-intake .contact-after-submit-card .work-pill-list li {
+  min-height: auto;
+}
+
+#schedule-intake .consult-rail {
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+#schedule-intake .consult-rail .rail-card:first-child {
+  margin-bottom: 0;
+}
+
+#schedule-intake .scheduler-card {
+  position: static !important;
+}
+
+/* Contact V2.8: balance intake columns */
+#schedule-intake .consult-main-stack {
+  display: grid !important;
+  align-content: start !important;
+  gap: 1rem !important;
+}
+
+#schedule-intake .consult-rail {
+  display: grid !important;
+  align-content: start !important;
+  gap: 1rem !important;
+}
+
+#schedule-intake .contact-after-submit-card,
+#schedule-intake .contact-helpful-details-card {
+  border-color: rgba(125, 211, 252, 0.24);
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 14rem),
+    rgba(255, 255, 255, 0.035);
+}
+
+#schedule-intake .contact-after-submit-card .work-pill-list,
+#schedule-intake .contact-helpful-details-card .work-pill-list {
+  display: grid;
+  gap: 0.7rem;
+}
+
+#schedule-intake .contact-after-submit-card .work-pill-list li,
+#schedule-intake .contact-helpful-details-card .work-pill-list li {
+  min-height: auto;
+}
+
+#schedule-intake .consult-rail .scheduler-card {
+  position: static !important;
+  top: auto !important;
+  height: fit-content;
+}
+
+#schedule-intake .consult-rail .scheduler-card + .rail-card {
+  display: none !important;
+}
+
+/* Contact V2.9: balanced lower support cards */
+#schedule-intake .contact-after-submit-card,
+#schedule-intake .contact-helpful-details-card {
+  min-height: 14.5rem;
+  display: grid;
+  align-content: start;
+  border-color: rgba(125, 211, 252, 0.24);
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 14rem),
+    rgba(255, 255, 255, 0.035);
+}
+
+#schedule-intake .contact-after-submit-card .work-pill-list,
+#schedule-intake .contact-helpful-details-card .work-pill-list {
+  display: grid;
+  gap: 0.72rem;
+}
+
+#schedule-intake .contact-after-submit-card .work-pill-list li,
+#schedule-intake .contact-helpful-details-card .work-pill-list li {
+  min-height: 2.75rem;
+  display: flex;
+  align-items: center;
+}
+
+#schedule-intake .contact-helpful-details-card {
+  margin-top: 1rem;
+}
+
+#schedule-intake .consult-main-stack,
+#schedule-intake .consult-rail {
+  align-content: start !important;
+}
+
+@media (max-width: 960px) {
+  #schedule-intake .contact-after-submit-card,
+  #schedule-intake .contact-helpful-details-card {
+    min-height: auto;
+  }
+}
+
+/* Contact V3.0: scheduler in hero, helpful details in intake rail */
+.contact-hero-action-stack {
+  display: grid !important;
+  gap: 1rem !important;
+  align-content: start !important;
+}
+
+.contact-hero-action-stack .contact-v2-use-card {
+  padding: 1.05rem 1.1rem !important;
+}
+
+.contact-hero-action-stack .contact-v2-use-card h3 {
+  margin-bottom: 0.55rem;
+}
+
+.contact-hero-action-stack .contact-v2-list {
+  gap: 0.45rem;
+  margin-top: 0.65rem;
+}
+
+.contact-hero-scheduler {
+  padding: 1.05rem 1.1rem !important;
+  border-color: rgba(91, 158, 255, 0.34) !important;
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.10), transparent 12rem),
+    rgba(255, 255, 255, 0.04) !important;
+}
+
+.contact-hero-scheduler h3 {
+  font-size: 1.15rem;
+  margin-bottom: 0.45rem;
+}
+
+.contact-hero-scheduler > p.muted {
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.contact-hero-scheduler .scheduler-config-row {
+  padding: 0.7rem 0.8rem;
+}
+
+.contact-hero-scheduler .scheduler-days {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-hero-scheduler .scheduler-day-button {
+  min-height: 3.4rem;
+  padding: 0.7rem 0.8rem;
+}
+
+.contact-hero-scheduler .scheduler-slots {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-hero-scheduler .scheduler-slot-button {
+  min-height: 2.55rem;
+  padding: 0.55rem 0.75rem;
+}
+
+.contact-hero-scheduler .scheduler-selection-summary {
+  padding: 0.8rem 0.9rem;
+}
+
+#schedule-intake .consult-rail {
+  display: grid !important;
+  align-content: start !important;
+  gap: 1rem !important;
+}
+
+#schedule-intake .contact-helpful-details-card {
+  min-height: 14.5rem;
+  display: grid;
+  align-content: start;
+  border-color: rgba(125, 211, 252, 0.24);
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 14rem),
+    rgba(255, 255, 255, 0.035);
+}
+
+@media (max-width: 960px) {
+  .contact-hero-scheduler .scheduler-days,
+  .contact-hero-scheduler .scheduler-slots {
+    grid-template-columns: 1fr;
+  }
+
+  #schedule-intake .contact-helpful-details-card {
+    min-height: auto;
+  }
+}
+
+/* Contact V3.1: final seating chart reset */
+.contact-v31-hero .page-hero-shell {
+  min-height: auto !important;
+}
+
+.contact-v31-hero-grid {
+  align-items: stretch !important;
+  grid-template-columns: minmax(0, 1.05fr) minmax(21rem, 0.78fr) !important;
+}
+
+.contact-v31-hero .page-hero-copy,
+.contact-v31-hero .page-summary {
+  min-height: 0 !important;
+}
+
+.contact-v31-hero .contact-v2-use-card {
+  height: 100%;
+  display: grid;
+  align-content: center;
+}
+
+.contact-v31-intake {
+  padding-top: clamp(2.5rem, 5vw, 4.5rem) !important;
+}
+
+.contact-v31-grid {
+  grid-template-columns: minmax(0, 1.05fr) minmax(22rem, 0.82fr) !important;
+  align-items: start !important;
+  gap: 1.35rem !important;
+}
+
+.contact-v31-grid .consult-main-stack,
+.contact-v31-grid .consult-rail {
+  display: grid !important;
+  align-content: start !important;
+  gap: 1rem !important;
+}
+
+.contact-v31-grid .scheduler-card {
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+}
+
+.contact-v31-grid .contact-after-submit-card,
+.contact-v31-grid .contact-helpful-details-card {
+  min-height: 13.5rem;
+  display: grid;
+  align-content: start;
+  border-color: rgba(125, 211, 252, 0.24);
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 14rem),
+    rgba(255, 255, 255, 0.035);
+}
+
+.contact-v31-grid .contact-after-submit-card .work-pill-list,
+.contact-v31-grid .contact-helpful-details-card .work-pill-list {
+  display: grid;
+  gap: 0.72rem;
+}
+
+.contact-v31-grid .contact-after-submit-card .work-pill-list li,
+.contact-v31-grid .contact-helpful-details-card .work-pill-list li {
+  min-height: 2.7rem;
+  display: flex;
+  align-items: center;
+}
+
+.contact-v31-grid .scheduler-card + .contact-helpful-details-card {
+  margin-top: 0 !important;
+}
+
+/* Kill the previous hero-scheduler experiment if old CSS still exists lower in the file */
+.contact-v31-hero .contact-hero-scheduler {
+  display: none !important;
+}
+
+@media (max-width: 960px) {
+  .contact-v31-hero-grid,
+  .contact-v31-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-v31-hero .contact-v2-use-card {
+    height: auto;
+    align-content: start;
+  }
+
+  .contact-v31-grid .contact-after-submit-card,
+  .contact-v31-grid .contact-helpful-details-card {
+    min-height: auto;
+  }
+}
+
+/* Contact final: hero summary only, scheduler beside intake form */
+.contact-final-hero .page-hero-shell {
+  width: min(100% - 2rem, 1040px) !important;
+  min-height: auto !important;
+}
+
+.contact-final-hero-grid {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(20rem, 0.72fr) !important;
+  gap: 1.25rem !important;
+  align-items: stretch !important;
+}
+
+.contact-final-hero .page-hero-copy {
+  display: grid !important;
+  align-content: center !important;
+  min-height: 0 !important;
+}
+
+.contact-final-hero .page-summary {
+  display: grid !important;
+  align-content: stretch !important;
+  min-height: 0 !important;
+}
+
+.contact-final-hero .contact-v2-use-card {
+  height: 100% !important;
+  display: grid !important;
+  align-content: center !important;
+}
+
+.contact-final-hero .scheduler-card,
+.contact-final-hero .contact-hero-scheduler,
+.contact-final-hero .contact-helpful-details-card {
+  display: none !important;
+}
+
+.contact-final-intake {
+  padding-top: clamp(2.5rem, 5vw, 4rem) !important;
+}
+
+.contact-final-grid {
+  width: min(100% - 2rem, 1040px) !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) minmax(22rem, 0.84fr) !important;
+  gap: 1.35rem !important;
+  align-items: start !important;
+}
+
+.contact-final-grid .consult-main-stack,
+.contact-final-grid .consult-rail {
+  display: grid !important;
+  gap: 1rem !important;
+  align-content: start !important;
+}
+
+.contact-final-grid .scheduler-card {
+  display: block !important;
+  position: static !important;
+  top: auto !important;
+  z-index: auto !important;
+  height: auto !important;
+}
+
+.contact-final-grid .contact-after-submit-card,
+.contact-final-grid .contact-helpful-details-card {
+  min-height: 13.5rem;
+  display: grid !important;
+  align-content: start !important;
+  border-color: rgba(125, 211, 252, 0.24);
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.08), transparent 14rem),
+    rgba(255, 255, 255, 0.035);
+}
+
+.contact-final-grid .contact-after-submit-card .work-pill-list,
+.contact-final-grid .contact-helpful-details-card .work-pill-list {
+  display: grid !important;
+  gap: 0.72rem !important;
+}
+
+.contact-final-grid .contact-after-submit-card .work-pill-list li,
+.contact-final-grid .contact-helpful-details-card .work-pill-list li {
+  min-height: 2.7rem;
+  display: flex !important;
+  align-items: center !important;
+}
+
+@media (max-width: 960px) {
+  .contact-final-hero-grid,
+  .contact-final-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .contact-final-hero .page-hero-copy,
+  .contact-final-hero .contact-v2-use-card {
+    align-content: start !important;
+  }
+
+  .contact-final-grid .contact-after-submit-card,
+  .contact-final-grid .contact-helpful-details-card {
+    min-height: auto;
+  }
+}
+
+/* Contact final polish: hero right card and bottom link alignment */
+.contact-final-hero .page-summary {
+  display: grid !important;
+  align-items: center !important;
+}
+
+.contact-final-hero .contact-v2-use-card {
+  width: 100% !important;
+  max-width: 29rem !important;
+  height: auto !important;
+  min-height: 17rem !important;
+  align-self: center !important;
+  justify-self: center !important;
+  align-content: start !important;
+  padding: 1.6rem 1.55rem !important;
+  border-radius: 1.35rem !important;
+  background:
+    radial-gradient(circle at 92% 92%, rgba(56, 189, 248, 0.14), transparent 11rem),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.035)) !important;
+}
+
+.contact-final-hero .contact-v2-use-card .eyebrow {
+  margin-bottom: 0.85rem !important;
+}
+
+.contact-final-hero .contact-v2-use-card h3 {
+  margin: 0 0 1.05rem !important;
+  line-height: 1.2 !important;
+}
+
+.contact-final-hero .contact-v2-list {
+  gap: 0.85rem !important;
+  margin-top: 0 !important;
+}
+
+.contact-final-hero .contact-v2-list li {
+  line-height: 1.42 !important;
+}
+
+/* Bottom utility cards: keep links aligned */
+.contact-v2-support .contact-v2-cards {
+  align-items: stretch !important;
+}
+
+.contact-v2-support .contact-v2-cards .info-card {
+  display: grid !important;
+  grid-template-rows: auto 1fr auto !important;
+  gap: 0.85rem !important;
+  min-height: 14.25rem !important;
+  padding: 1.35rem !important;
+}
+
+.contact-v2-support .contact-v2-cards .info-card h3 {
+  margin: 0 !important;
+}
+
+.contact-v2-support .contact-v2-cards .info-card p {
+  margin: 0 !important;
+  align-self: start !important;
+}
+
+.contact-v2-support .contact-v2-cards .info-card a {
+  align-self: end !important;
+  justify-self: start !important;
+  margin-top: 0 !important;
+  line-height: 1.2 !important;
+  min-height: 1.35rem !important;
+  display: inline-flex !important;
+  align-items: center !important;
+}
+
+@media (max-width: 960px) {
+  .contact-final-hero .contact-v2-use-card {
+    max-width: none !important;
+    min-height: auto !important;
+    justify-self: stretch !important;
+  }
+
+  .contact-v2-support .contact-v2-cards .info-card {
+    min-height: auto !important;
+  }
+}
