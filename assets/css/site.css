@@ -2421,3 +2421,184 @@ body.home-page .hero .card:hover{
 }
 /* End site-wide zoom and narrow-viewport layout hardening */
 
+
+/* IT Review landing page: campaign-ready cards and icons */
+.it-review-body .page-hero-shell,
+.it-review-body .section-lg > .container {
+  width: min(100% - 2rem, 1080px);
+}
+
+.it-review-page .compact-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 1rem !important;
+  margin-top: 2rem !important;
+}
+
+.it-review-page .compact-grid .service-card {
+  min-height: 13rem !important;
+  padding: 1.35rem 1.15rem !important;
+  border: 1px solid rgba(148, 163, 184, 0.26) !important;
+  border-radius: 1.35rem !important;
+  background:
+    radial-gradient(circle at top right, rgba(56, 189, 248, 0.12), transparent 12rem),
+    rgba(255, 255, 255, 0.04) !important;
+  box-shadow: 0 16px 42px rgba(2, 6, 23, 0.22) !important;
+  text-align: center !important;
+  display: grid !important;
+  align-content: start !important;
+  justify-items: center !important;
+}
+
+.it-review-page .compact-grid .service-card h3 {
+  margin: 0 0 0.65rem !important;
+  line-height: 1.15 !important;
+}
+
+.it-review-page .compact-grid .service-card p {
+  margin: 0 !important;
+  color: var(--muted) !important;
+  line-height: 1.55 !important;
+}
+
+.it-review-page .review-icon {
+  width: 3.35rem !important;
+  height: 3.35rem !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  margin: 0 auto 1rem !important;
+  border: 1px solid rgba(125, 211, 252, 0.48) !important;
+  border-radius: 999px !important;
+  background:
+    radial-gradient(circle at 35% 22%, rgba(124, 58, 237, 0.28), transparent 60%),
+    rgba(56, 189, 248, 0.12) !important;
+  color: #8be9ff !important;
+  box-shadow:
+    0 0 0 6px rgba(56, 189, 248, 0.045),
+    0 18px 38px rgba(37, 99, 235, 0.22) !important;
+}
+
+.it-review-page .review-icon-svg {
+  width: 1.85rem !important;
+  height: 1.85rem !important;
+  fill: none !important;
+  stroke: currentColor !important;
+  stroke-width: 1.85 !important;
+  stroke-linecap: round !important;
+  stroke-linejoin: round !important;
+}
+
+.it-review-page .review-actions-list {
+  display: grid !important;
+  gap: 0.85rem !important;
+  max-width: 64rem !important;
+  margin-top: 1.1rem !important;
+}
+
+.it-review-page .review-actions-list p {
+  margin: 0 !important;
+  padding: 0.9rem 1rem !important;
+  border: 1px solid rgba(148, 163, 184, 0.22) !important;
+  border-radius: 1rem !important;
+  background: rgba(255, 255, 255, 0.035) !important;
+  color: var(--muted) !important;
+  line-height: 1.5 !important;
+}
+
+.it-review-page .review-actions-list strong {
+  color: var(--text) !important;
+  margin-right: 0.35rem !important;
+}
+
+@media (max-width: 900px) {
+  .it-review-page .compact-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .it-review-page .compact-grid .service-card {
+    min-height: auto !important;
+  }
+}
+
+/* IT Review hero photo + combined value card */
+.it-review-visual-stack {
+  display: grid !important;
+  grid-template-rows: minmax(11rem, 0.78fr) auto !important;
+  gap: 1rem !important;
+}
+
+.review-hero-photo {
+  position: relative;
+  min-height: 13rem;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.28);
+  border-radius: 1.35rem;
+  background:
+    radial-gradient(circle at 30% 20%, rgba(56, 189, 248, 0.16), transparent 18rem),
+    linear-gradient(135deg, rgba(13, 31, 61, 0.95), rgba(3, 8, 20, 0.82));
+  box-shadow: 0 18px 44px rgba(2, 6, 23, 0.22);
+}
+
+.review-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(3, 8, 20, 0.08), rgba(3, 8, 20, 0.34)),
+    radial-gradient(circle at bottom right, rgba(124, 58, 237, 0.18), transparent 14rem);
+  pointer-events: none;
+}
+
+.review-hero-photo img {
+  width: 100%;
+  height: 100%;
+  min-height: 13rem;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  filter: saturate(0.95) contrast(1.04);
+}
+
+.review-combined-card {
+  padding: 1.2rem !important;
+}
+
+.review-combined-card h3 {
+  margin-bottom: 0.75rem !important;
+}
+
+.review-card-divider {
+  height: 1px;
+  margin: 1rem 0;
+  background: linear-gradient(90deg, transparent, rgba(148, 163, 184, 0.34), transparent);
+}
+
+@media (max-width: 900px) {
+  .it-review-visual-stack {
+    grid-template-rows: auto !important;
+  }
+
+  .review-hero-photo,
+  .review-hero-photo img {
+    min-height: 12rem;
+  }
+}
+
+/* IT Review hero photo/card spacing polish */
+.it-review-visual-stack {
+  gap: 1.35rem !important;
+}
+
+.review-hero-photo {
+  margin-bottom: 0.35rem !important;
+}
+
+.review-combined-card {
+  margin-top: 0.25rem !important;
+  padding-top: 1.45rem !important;
+}
+
+.review-combined-card > .eyebrow:first-child {
+  margin-top: 0.1rem !important;
+}
