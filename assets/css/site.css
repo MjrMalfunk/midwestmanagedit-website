@@ -3434,3 +3434,115 @@ body.is-it-review-scheduler #schedule-intake .scheduler-card {
     grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
   }
 }
+
+/* Footer mobile hard reset: stack columns and stop brand copy from collapsing */
+@media (max-width: 820px) {
+  footer,
+  .site-footer {
+    overflow-x: hidden !important;
+  }
+
+  footer .container,
+  .site-footer .container {
+    width: min(100% - 2rem, 1120px) !important;
+    max-width: none !important;
+  }
+
+  footer [class*="footer"],
+  .site-footer [class*="footer"] {
+    min-width: 0 !important;
+  }
+
+  footer .footer-grid,
+  footer .footer-main,
+  footer .footer-inner,
+  footer .footer-content,
+  footer .footer-columns,
+  footer .footer-links-grid,
+  .site-footer .footer-grid,
+  .site-footer .footer-main,
+  .site-footer .footer-inner,
+  .site-footer .footer-content,
+  .site-footer .footer-columns,
+  .site-footer .footer-links-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+    align-items: start !important;
+  }
+
+  footer .footer-brand,
+  footer .footer-about,
+  footer .footer-copy,
+  footer .footer-column,
+  footer .footer-nav,
+  footer .footer-links,
+  .site-footer .footer-brand,
+  .site-footer .footer-about,
+  .site-footer .footer-copy,
+  .site-footer .footer-column,
+  .site-footer .footer-nav,
+  .site-footer .footer-links {
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    grid-column: auto !important;
+  }
+
+  footer .footer-brand p,
+  footer .footer-about p,
+  footer .footer-copy p,
+  .site-footer .footer-brand p,
+  .site-footer .footer-about p,
+  .site-footer .footer-copy p {
+    width: 100% !important;
+    max-width: 42rem !important;
+    min-width: 0 !important;
+    display: block !important;
+    line-height: 1.55 !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+    hyphens: none !important;
+  }
+
+  footer ul,
+  .site-footer ul {
+    display: grid !important;
+    gap: 0.55rem !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+  }
+
+  footer li,
+  .site-footer li {
+    width: 100% !important;
+  }
+
+  footer a,
+  .site-footer a {
+    display: inline-flex !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+  }
+}
+
+@media (max-width: 520px) {
+  footer .footer-grid,
+  footer .footer-main,
+  footer .footer-inner,
+  footer .footer-content,
+  footer .footer-columns,
+  footer .footer-links-grid,
+  .site-footer .footer-grid,
+  .site-footer .footer-main,
+  .site-footer .footer-inner,
+  .site-footer .footer-content,
+  .site-footer .footer-columns,
+  .site-footer .footer-links-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
