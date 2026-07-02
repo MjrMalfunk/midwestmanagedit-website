@@ -3359,3 +3359,78 @@ body.is-it-review-scheduler #schedule-intake .scheduler-card {
     min-height: auto !important;
   }
 }
+
+/* Footer mobile polish: prevent crushed brand copy and overlapping link columns */
+@media (max-width: 760px) {
+  .site-footer,
+  footer.site-footer,
+  .footer {
+    overflow-x: hidden;
+  }
+
+  .site-footer .footer-grid,
+  footer.site-footer .footer-grid,
+  .footer .footer-grid,
+  .site-footer .footer-main,
+  footer.site-footer .footer-main {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    align-items: start !important;
+  }
+
+  .site-footer .footer-brand,
+  .site-footer .footer-about,
+  .site-footer .footer-column,
+  .site-footer .footer-links,
+  .site-footer .footer-nav,
+  footer.site-footer .footer-brand,
+  footer.site-footer .footer-about,
+  footer.site-footer .footer-column,
+  footer.site-footer .footer-links,
+  footer.site-footer .footer-nav {
+    width: 100% !important;
+    max-width: none !important;
+    min-width: 0 !important;
+  }
+
+  .site-footer .footer-brand p,
+  .site-footer .footer-about p,
+  footer.site-footer .footer-brand p,
+  footer.site-footer .footer-about p {
+    max-width: 34rem !important;
+    width: 100% !important;
+    line-height: 1.58 !important;
+    word-break: normal !important;
+    overflow-wrap: normal !important;
+    hyphens: none !important;
+  }
+
+  .site-footer .footer-links-grid,
+  .site-footer .footer-columns,
+  .site-footer .footer-nav-grid,
+  footer.site-footer .footer-links-grid,
+  footer.site-footer .footer-columns,
+  footer.site-footer .footer-nav-grid {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    gap: 1.6rem !important;
+  }
+
+  .site-footer a,
+  footer.site-footer a {
+    overflow-wrap: normal !important;
+    word-break: normal !important;
+  }
+}
+
+@media (min-width: 520px) and (max-width: 760px) {
+  .site-footer .footer-links-grid,
+  .site-footer .footer-columns,
+  .site-footer .footer-nav-grid,
+  footer.site-footer .footer-links-grid,
+  footer.site-footer .footer-columns,
+  footer.site-footer .footer-nav-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
