@@ -237,18 +237,17 @@
     ]
   },
   {
-    "title": "Schedule a chat and intake",
-    "url": "contact.html#schedule-intake",
+    "title": "Tell us what your business needs",
+    "url": "contact.html#inquiry",
     "category": "contact",
-    "summary": "Use the intake path to describe friction points, support needs, business profile, and timing.",
+    "summary": "Share your business details and IT questions. MMIT follows up by email; no appointment is needed.",
     "keywords": [
       "contact",
-      "schedule a chat",
-      "intake",
-      "book",
-      "talk",
-      "consultation",
-      "email"
+      "inquiry",
+      "help",
+      "email",
+      "managed IT",
+      "follow up"
     ]
   },
   {
@@ -266,8 +265,8 @@
     ]
   },
   {
-    "title": "Schedule a chat and book a time",
-    "url": "contact.html#schedule-intake",
+    "title": "Book a consultation after follow-up",
+    "url": "consultation.html#schedule-intake",
     "category": "process",
     "summary": "Use the booking intake to choose a live opening, share context, and request your first conversation.",
     "keywords": [
@@ -284,7 +283,7 @@
     "title": "See your estimate",
     "url": "pricing-estimator.html",
     "category": "plans",
-    "summary": "Build a transparent monthly planning range around your lane, workstation count, server count, and common add-ons.",
+    "summary": "Build a planning estimate, then share the context through an inquiry or use the existing email follow-up option.",
     "keywords": [
       "pricing",
       "estimate",
@@ -328,7 +327,7 @@
     "title": "Configuration pricing follow-up",
     "url": "pricing-estimator.html",
     "category": "Plans",
-    "summary": "Build a planning estimate, then either schedule a chat about it or send the estimate into the email-first follow-up path.",
+    "summary": "Build a planning estimate, then share the context through an inquiry or use the existing email follow-up option.",
     "keywords": [
       "estimate",
       "pricing",

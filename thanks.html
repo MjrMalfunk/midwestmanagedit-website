@@ -108,6 +108,7 @@ p{
 
 <!-- Google tag (production hosts only) -->
 <script src="assets/js/analytics.js"></script>
+<link href="assets/css/v2.css?v=20260913" rel="stylesheet">
 </head>
 <body>
 <main class="card">
@@ -172,7 +173,7 @@ p{
 
     const secondary = document.createElement('a');
     secondary.className = 'btn btn-secondary';
-    secondary.href = 'contact.html#schedule-intake';
+    secondary.href = 'contact.html#inquiry';
     secondary.textContent = 'Back to Scheduler';
     actions.appendChild(secondary);
     return;
@@ -205,8 +206,8 @@ p{
 
     const primary = document.createElement('a');
     primary.className = 'btn btn-primary';
-    primary.href = carryParams.toString() ? `contact.html?${carryParams.toString()}#schedule-intake` : 'contact.html#schedule-intake';
-    primary.textContent = 'Schedule a Chat Instead';
+    primary.href = carryParams.toString() ? `contact.html?${carryParams.toString()}#schedule-intake` : 'contact.html#inquiry';
+    primary.textContent = 'Tell us what you need Instead';
     actions.appendChild(primary);
 
     const secondary = document.createElement('a');
