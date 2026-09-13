@@ -221,13 +221,13 @@ function buildCarryParams(estimate, lead = collectLead()){
 
 function updateCarryLink(estimate){
   if(!carryButton||!estimate){
-    if(carryButton)carryButton.href='contact.html#schedule-intake';
+    if(carryButton)carryButton.href='contact.html#inquiry';
     return;
   }
   const lead=collectLead();
   const params=buildCarryParams(estimate,lead);
   saveCarrySnapshot(estimate,lead);
-  carryButton.href=`contact.html?${params.toString()}#schedule-intake`;
+  carryButton.href='contact.html#inquiry';
 }
 
 function render(){

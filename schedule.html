@@ -81,6 +81,7 @@
 
 <!-- Google tag (production hosts only) -->
 <script src="assets/js/analytics.js"></script>
+<link href="assets/css/v2.css?v=20260913" rel="stylesheet">
 </head>
 <body>
   <main class="schedule-loader-page">
@@ -91,7 +92,7 @@
       <p id="scheduleLoaderMessage">We are securely retrieving your estimate details so you do not have to re-enter everything.</p>
       <div class="loader-dots" aria-hidden="true"><span></span><span></span><span></span></div>
       <p>
-        <a class="btn btn-primary" id="manualScheduleLink" href="contact.html#schedule-intake">Continue to scheduler</a>
+        <a class="btn btn-primary" id="manualScheduleLink" href="consultation.html#inquiry">Continue to scheduler</a>
       </p>
     </section>
   </main>
@@ -103,7 +104,7 @@
       const manualLink = document.getElementById('manualScheduleLink');
       const params = new URLSearchParams(window.location.search);
       const token = (params.get('estimate') || '').trim();
-      const redirectToScheduler = () => window.location.replace('contact.html#schedule-intake');
+      const redirectToScheduler = () => window.location.replace('consultation.html#inquiry');
 
       function setMessage(text) {
         if (message) message.textContent = text;

@@ -4,13 +4,13 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Contact Midwest Managed IT | Schedule a Chat</title>
+<title>Contact Midwest Managed IT | Tell Us What You Need</title>
 <meta content="Start a no-pressure conversation with Midwest Managed IT about managed IT services, cybersecurity, Microsoft 365 administration, backup oversight, or support gaps that need a steadier plan." name="description"/>
 <meta content="index,follow" name="robots"/>
 <link href="https://midwestmanagedit.com/contact.html" rel="canonical"/>
 <link href="assets/brand/mmit-favicon.ico" rel="icon" type="image/x-icon"/>
 <meta content="website" property="og:type"/>
-<meta content="Contact Midwest Managed IT | Schedule a Chat" property="og:title"/>
+<meta content="Contact Midwest Managed IT | Tell Us What You Need" property="og:title"/>
 <meta content="Start a no-pressure conversation with Midwest Managed IT about managed IT services, cybersecurity, Microsoft 365 administration, backup oversight, or support gaps that need a steadier plan." property="og:description"/>
 <meta content="https://midwestmanagedit.com/contact.html" property="og:url"/>
 <meta content="https://midwestmanagedit.com/assets/brand/mmit-favicon-512.png" property="og:image"/>
@@ -35,8 +35,10 @@
 
 <!-- Google tag (production hosts only) -->
 <script src="assets/js/analytics.js"></script>
+<link href="assets/css/v2.css?v=20260913" rel="stylesheet">
 </head>
-<body>
+<body class="v2-page">
+<a class="v2-skip" href="#top">Skip to content</a>
 
 <header class="topbar">
 <div class="container nav">
@@ -56,9 +58,9 @@
 <a href="about.html">Why MMIT</a>
 <a class="is-current" href="contact.html">Contact</a>
 </nav>
-<div class="nav-actions">
+<div class="nav-actions"><a class="v2-client-link" href="https://portal.midwestmanagedit.com/">Client portal ↗</a>
 
-<a class="btn btn-primary" href="#schedule-intake">Schedule a Chat</a>
+<a class="btn btn-primary" href="#inquiry">Tell us what you need</a>
 <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" id="navToggle" type="button">
 <span></span><span></span><span></span>
 </button>
@@ -73,171 +75,20 @@
 <a href="about.html">Why MMIT</a>
 <a class="is-current" href="contact.html">Contact</a>
 </nav>
-<div class="mobile-menu-actions">
-<a class="btn btn-primary" href="#schedule-intake">Schedule a Chat</a>
+<div class="mobile-menu-actions"><a href="https://portal.midwestmanagedit.com/">Client portal ↗</a>
+<a class="btn btn-primary" href="#inquiry">Tell us what you need</a>
 <a class="btn btn-secondary" href="mailto:info@midwestmanagedit.com">Email MMIT</a>
 </div>
 </div>
 </div>
 </header>
-<main id="top">
-<section class="page-hero contact-final-hero">
-<div class="container page-hero-shell">
-<div class="page-hero-grid contact-final-hero-grid">
-<div class="page-hero-copy">
-<div class="breadcrumbs"><a href="index.html">Home</a> / <span>Contact</span></div>
-<div class="page-kicker">Schedule a chat</div>
-<h1>Start the conversation.</h1>
-<p>Tell us what you need help with, choose a time if one works, or send the request and we’ll follow up directly. No polished project brief required.</p>
-<div class="hero-actions">
-<a class="btn btn-primary" href="#schedule-intake">Use the scheduler</a>
-<a class="btn btn-secondary" href="mailto:info@midwestmanagedit.com?subject=IT%20Conversation">Email instead</a>
-</div>
-</div>
-<aside class="page-summary contact-summary-stack">
-<div class="summary-card contact-v2-use-card">
-<div class="eyebrow">Use this page for</div>
-<h3>One place to start.</h3>
-<ul class="contact-v2-list">
-<li>Request a free IT review</li>
-<li>Talk through recurring support problems</li>
-<li>Ask about Microsoft 365, backup, or security concerns</li>
-<li>See whether a managed service plan fits</li>
-</ul>
-</div>
-</aside>
-</div>
-</div>
-</section>
-
-<section class="section-lg contact-final-intake" id="schedule-intake">
-<div class="container consult-grid contact-final-grid">
-<div class="consult-main-stack">
-<div class="card card-pad consult-card">
-<div class="eyebrow" id="scheduleKicker">Request intake</div>
-<h2 id="scheduleHeading">Share the issue or goal.</h2>
-<p class="muted" id="scheduleIntro">Share the issue, goal, or review request. Pick a time if one fits, or send the form and we’ll follow up directly.</p>
-<div class="campaign-context-banner" id="campaignContextBanner" hidden>
-<strong>Free IT &amp; Backup Readiness Review</strong>
-<span>You came from the review page. This form keeps the request tied to that campaign.</span>
-</div>
-<form class="intake-form" data-booking-endpoint="api/scheduler/book.php" id="scheduleForm" novalidate="">
-<input id="scheduleSource" name="source" type="hidden" value="website_contact"/>
-<input id="scheduleCampaign" name="campaign" type="hidden" value="general_contact"/>
-<input id="scheduleLandingPage" name="landing_page" type="hidden" value="contact.html"/>
-<div class="input-grid two-up">
-<label class="field">
-<span>Preferred contact</span>
-<select id="scheduleContactMethod" name="contact_method">
-<option value="">Select one</option>
-<option>Email first</option>
-<option>Phone call</option>
-<option>Video meeting</option>
-<option>No strong preference</option>
-</select>
-</label>
-</div>
-<label class="field field-full">
-<span>What should we look at first? <em>*</em></span>
-<textarea id="schedulePainPoints" name="pain_points" placeholder="Examples: repeat support issues, Microsoft 365 confusion, backup concerns, security questions, onboarding gaps, or slow response flow." required="" rows="5"></textarea>
-</label>
-<label class="field field-full">
-<span>Anything else or alternate windows</span>
-<textarea id="scheduleAvailability" name="availability" placeholder="Share anything else that would help us prepare, including alternate times or context for the first conversation." rows="3"></textarea>
-</label>
-<div class="intake-note intake-note-slim">
-<strong>Scheduling note:</strong> Pick an available time if one works. If not, submit the form anyway and we’ll follow up with the next best option.
-          </div>
-<div class="submit-row consult-submit-row">
-<button class="btn btn-primary" id="scheduleSubmitButton" type="submit">Book Selected Time</button>
-<a class="btn btn-secondary" href="mailto:info@midwestmanagedit.com?subject=General%20Inquiry">Prefer a simple email?</a>
-</div>
-<p class="legal-inline">By using this booking flow, you agree to the site <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
-<div aria-live="polite" class="form-status intake-status" id="scheduleFormStatus" role="status"></div>
-</form>
-</div>
-<div class="card card-pad contact-after-submit-card">
-<div class="eyebrow">After you submit</div>
-<ul class="work-pill-list rail-stack">
-<li><strong>Review:</strong> we read the request and selected time.</li>
-<li><strong>Confirm:</strong> we send the next step or an alternate window.</li>
-<li><strong>Prepare:</strong> we use your notes to keep the first call focused.</li>
-</ul>
-</div>
-</div>
-<aside class="consult-rail">
-<div class="card card-pad rail-card scheduler-card">
-<div class="eyebrow">Choose a time window</div>
-<h3>Pick a time window.</h3>
-<p class="muted">Choose an available opening, or send the request without a time and we’ll follow up.</p>
-<div class="scheduler-config-row">
-<span class="scheduler-config-label">Time zone</span>
-<strong class="scheduler-config-value" id="schedulerTimezoneLabel">Eastern Time</strong>
-</div>
-<div class="scheduler-picker" data-live-endpoint="api/scheduler/availability.php" data-source="assets/data/scheduler-availability.json" id="schedulerPicker">
-<div class="scheduler-days" id="schedulerDays">
-<p class="muted">Loading available days…</p>
-</div>
-<div class="scheduler-slots" id="schedulerSlots"></div>
-</div>
-<input id="scheduleRequestedSlot" name="requested_slot" type="hidden"/>
-<input id="scheduleRequestedSlotIso" name="requested_slot_iso" type="hidden"/>
-<div class="scheduler-selection-summary" id="schedulerSelectionSummary">No time selected yet.</div>
-<div class="scheduler-microcopy">We’ll confirm the requested time or send the next best option.</div>
-</div>
-<div class="card card-pad rail-card contact-helpful-details-card">
-<div class="eyebrow">Helpful details</div>
-<ul class="work-pill-list rail-stack">
-<li>Approximate user/device count</li>
-<li>Main concern or recurring issue</li>
-<li>Microsoft 365, backup, or security worries</li>
-<li>Who should join from your side</li>
-</ul>
-</div>
-</aside>
-</div>
-</section>
-
-<section class="section contact-v2-support">
-<div class="container">
-<div class="section-heading compact-heading">
-<div class="eyebrow">Other ways to start</div>
-<h2>Not every conversation starts the same way.</h2>
-<p>Use the scheduler when you want a direct conversation. Use the other paths when you are still gathering information.</p>
-</div>
-<div class="contact-v2-cards">
-<article class="info-card">
-<h3>Build a planning range</h3>
-<p>Use the estimator when you want a rough monthly service range before talking through details.</p>
-<a href="pricing-estimator.html">Open estimator</a>
-</article>
-<article class="info-card">
-<h3>Compare services</h3>
-<p>Review support, security, Microsoft 365, and backup services before deciding what to discuss.</p>
-<a href="services.html">View services</a>
-</article>
-<article class="info-card">
-<h3>Read common answers</h3>
-<p>Browse common first questions around contracts, onboarding, response model, and service fit.</p>
-<a href="faq.html">Browse FAQ</a>
-</article>
-<article class="info-card">
-<h3>Email instead</h3>
-<p>Prefer not to use the scheduler? Send a simple note and we’ll reply directly.</p>
-<a href="mailto:info@midwestmanagedit.com?subject=IT%20Conversation">Email MMIT</a>
-</article>
-</div>
-</div>
-</section>
-
-</main>
+<main id="top"><section class="v2-section"><div class="container v2-contact-grid"><div><p class="v2-eyebrow">LET’S START WITH YOUR BUSINESS</p><h1>Tell us what’s<br>on your plate.</h1><p class="v2-lead">An IT problem. A question about security. A plan for something better. You don’t have to have it all figured out.</p><p>Share a few details and we’ll follow up by email. No appointment needed.</p><div class="v2-next"><h2>What happens next?</h2><ol><li>We receive your inquiry.</li><li>We review what you’ve shared.</li><li>We follow up about the right next step.</li></ol></div><p class="v2-small">Already a client? <a href="https://portal.midwestmanagedit.com/">Use the client portal ↗</a> for support.<br>Prefer email? <a href="mailto:info@midwestmanagedit.com">info@midwestmanagedit.com</a></p></div><div class="v2-form-card" id="inquiry"><span id="schedule-intake"></span><p class="v2-eyebrow">A LITTLE CONTEXT GOES A LONG WAY</p><h2>How can we help?</h2><p class="v2-small">Required fields are marked with an asterisk (*).</p><form id="inquiryForm"><div class="v2-form-grid"><label>Your name *<input name="name" autocomplete="name" required maxlength="100"></label><label>Business name *<input name="company" autocomplete="organization" required maxlength="150"></label><label>Email address *<input name="email" type="email" autocomplete="email" required maxlength="254"></label><label>Phone (optional)<input name="phone" type="tel" autocomplete="tel" maxlength="40"></label></div><label>What would you like help with?<select name="interest"><option value="unsure">I’m not sure yet</option value="managed-it">Managed IT</option><option value="security">Cybersecurity</option><option value="microsoft-365">Microsoft 365 &amp; cloud</option><option value="backup">Backup &amp; recovery</option><option value="support">Help desk &amp; support</option><option value="guidance">Technology guidance</option></select></label><label>Tell us a little more *<textarea name="message" required minlength="10" maxlength="5000" rows="5" placeholder="What’s happening today, and what would you like to improve?"></textarea></label><div class="v2-honeypot" aria-hidden="true"><label>Leave this empty<input name="website" tabindex="-1" autocomplete="off"></label></div><p class="v2-small">Please don’t include passwords or sensitive account details. We’ll use this information to respond to your inquiry; this form does not subscribe you to marketing emails. <a href="privacy.html">Privacy policy</a>.</p><button id="inquirySubmit" type="submit" class="btn btn-primary" disabled>Send my inquiry ↗</button><p id="inquiryStatus" role="status" aria-live="polite">Preparing the form…</p><noscript><p>Please email <a href="mailto:info@midwestmanagedit.com">info@midwestmanagedit.com</a> to send your inquiry.</p></noscript></form><div id="inquirySuccess" hidden tabindex="-1"><h3>Thanks. Your inquiry is in.</h3><p>We’ll review what you shared and follow up by email.</p><p id="inquiryReference" class="v2-small"></p></div></div></div></section></main>
 
 <footer class="footer">
 <div class="container">
 <div class="footer-grid">
 <div class="footer-brand">
-<h4>Midwest Managed IT</h4>
-<p>Midwest Managed IT provides proactive IT support, cybersecurity, Microsoft 365 administration, backup oversight, and responsive remote support for small businesses. We help reduce downtime, improve security, and keep technology operations organized through practical managed services. From day-to-day support and endpoint protection to cloud administration and recovery readiness, the focus is steady operations instead of reactive break-fix support. On-site support is available when needed, with a remote-first model designed for consistent, reliable service.</p>
+<h4>Midwest Managed IT</h4><p>Practical managed IT, security, cloud administration, and support for small businesses. Indiana-based. Remote-first. Onsite when needed.</p>
 </div>
 <div>
 <h4>Explore</h4>
@@ -267,7 +118,7 @@
 <div>
 <h4>Contact &amp; legal</h4>
 <ul>
-<li><a href="contact.html#schedule-intake">Schedule a Chat</a></li>
+<li><a href="contact.html#inquiry">Tell us what you need</a></li>
 <li><a href="mailto:info@midwestmanagedit.com">info@midwestmanagedit.com</a></li>
 <li>Indiana</li>
 <li>LnK Consulting LLC</li>
@@ -280,61 +131,6 @@
 </div>
 </footer>
 
-<script src="assets/js/scheduler.js"></script>
 <script src="assets/js/site.js"></script>
-
-<script>
-(() => {
-  const params = new URLSearchParams(window.location.search);
-  const source = params.get('source') || '';
-  const campaign = params.get('utm_campaign') || params.get('campaign') || '';
-  const isReviewFlow = source === 'it-review' || campaign === 'it_review';
-
-  const sourceInput = document.getElementById('scheduleSource');
-  const campaignInput = document.getElementById('scheduleCampaign');
-  const landingInput = document.getElementById('scheduleLandingPage');
-
-  if (sourceInput) sourceInput.value = isReviewFlow ? 'it-review' : (source || 'website_contact');
-  if (campaignInput) campaignInput.value = campaign || (isReviewFlow ? 'it_review' : 'general_contact');
-  if (landingInput) landingInput.value = window.location.pathname.replace(/^\/+/, '') || 'contact.html';
-
-  if (!isReviewFlow) return;
-
-  document.body.classList.add('is-it-review-scheduler');
-
-  const banner = document.getElementById('campaignContextBanner');
-  const kicker = document.getElementById('scheduleKicker');
-  const heading = document.getElementById('scheduleHeading');
-  const intro = document.getElementById('scheduleIntro');
-  const submit = document.getElementById('scheduleSubmitButton');
-  const interest = document.getElementById('scheduleInterest');
-  const painPoints = document.getElementById('schedulePainPoints');
-
-  if (banner) banner.hidden = false;
-  if (kicker) kicker.textContent = 'Free review request';
-  if (heading) heading.textContent = 'Schedule your free IT & Backup Readiness Review.';
-  if (intro) {
-    intro.textContent = 'Tell us what you want reviewed, pick an available time if one works, and we’ll confirm the next step. This keeps the request tied to the free review offer.';
-  }
-  if (submit) submit.textContent = 'Request My Free Review';
-
-  if (interest) {
-    const preferredTerms = ['backup', 'review', 'managed', 'security', 'microsoft'];
-    const options = Array.from(interest.options);
-    const match = options.find((option) => {
-      const value = `${option.value} ${option.textContent}`.toLowerCase();
-      return preferredTerms.some((term) => value.includes(term));
-    });
-    if (match && !interest.value) {
-      interest.value = match.value;
-    }
-  }
-
-  if (painPoints && !painPoints.value) {
-    painPoints.placeholder = 'Example: We want to know if backups, Microsoft 365, devices, security, and support are actually covered.';
-  }
-})();
-</script>
-
-</body>
-</html>
+<script src="assets/js/inquiry.js"></script>
+</body></html>
