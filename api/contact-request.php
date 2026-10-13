@@ -112,7 +112,6 @@ $utmMedium = mmit_contact_clean((string)($data['utm_medium'] ?? ''), 100);
 $utmCampaign = mmit_contact_clean((string)($data['utm_campaign'] ?? ''), 100);
 $utmContent = mmit_contact_clean((string)($data['utm_content'] ?? ''), 100);
 $qrCode = mmit_contact_clean((string)($data['qr_code'] ?? ''), 100);
-$marketingConsent = in_array($data['marketing_consent'] ?? false, [true, 1, '1', 'true', 'on'], true);
 
 if ($name === '' || $message === '') {
     mmit_contact_json_response(422, 'Please add your name and a short message.');
@@ -173,7 +172,6 @@ $lines = [
     'Landing page: ' . $landingPage,
     'UTM source / medium / campaign / content: ' . implode(' / ', [$utmSource, $utmMedium, $utmCampaign, $utmContent]),
     'QR code: ' . ($qrCode !== '' ? $qrCode : 'Not provided'),
-    'Email updates opt-in: ' . ($marketingConsent ? 'Yes' : 'No'),
 ];
 $emailResult = mmit_contact_brevo_post('smtp/email', $apiKey, [
     'sender' => ['email' => $senderEmail, 'name' => 'Midwest Managed IT'],
@@ -188,50 +186,5 @@ if ($emailResult['error'] !== '' || $emailResult['status'] < 200 || $emailResult
     mmit_contact_json_response(502, 'We could not send your note just now. Please email info@midwestmanagedit.com.');
 }
 
-$emailUpdatesSaved = null;
-if ($marketingConsent) {
-    $listId = (int)($secrets['brevo']['pending_list_id'] ?? 0);
-    if ($listId > 0) {
-        $parts = preg_split('/\s+/', $name) ?: [$name];
-        $firstName = (string)array_shift($parts);
-        $attributes = [
-            'FIRSTNAME' => $firstName !== '' ? $firstName : $name,
-            'OPT_IN' => true,
-            'DOUBLE_OPT-IN' => false,
-        ];
-        if ($parts) {
-            $attributes['LASTNAME'] = implode(' ', $parts);
-        }
-        if ($company !== '') {
-            $attributes['COMPANY'] = $company;
-        }
-
-        $contactResult = mmit_contact_brevo_post('contacts', $apiKey, [
-            'email' => $email,
-            'attributes' => $attributes,
-            'listIds' => [$listId],
-            'updateEnabled' => true,
-        ]);
-        $emailUpdatesSaved = $contactResult['error'] === ''
-            && $contactResult['status'] >= 200
-            && $contactResult['status'] < 300;
-
-        if (!$emailUpdatesSaved) {
-            error_log('MMIT contact email-updates enrollment failed: ' . ($contactResult['error'] !== '' ? $contactResult['error'] : 'HTTP ' . $contactResult['status']));
-        }
-    } else {
-        $emailUpdatesSaved = false;
-        error_log('MMIT contact email-updates enrollment skipped: no pending list configured.');
-    }
-}
-
-$messageToVisitor = 'Thanks. Your message is with Midwest Managed IT. We’ll reply by email.';
-if ($marketingConsent && $emailUpdatesSaved === true) {
-    $messageToVisitor .= ' You’re also on the list for occasional practical updates.';
-} elseif ($marketingConsent && $emailUpdatesSaved === false) {
-    $messageToVisitor .= ' Your message reached us, but your optional email-updates request could not be saved.';
-}
-
-mmit_contact_json_response(200, $messageToVisitor, [
-    'email_updates_saved' => $emailUpdatesSaved,
-]);
+// Contact requests are answered directly; they do not enroll visitors in campaigns.
+mmit_contact_json_response(200, 'Thanks. Your message is with Midwest Managed IT. We’ll reply by email.');

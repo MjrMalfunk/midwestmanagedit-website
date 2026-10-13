@@ -142,7 +142,6 @@
       }
 
       const payload = Object.fromEntries(new FormData(contactForm).entries());
-      payload.marketing_consent = Boolean(contactForm.querySelector('[name="marketing_consent"]')?.checked);
       if (contactSubmitButton) contactSubmitButton.disabled = true;
       contactForm.setAttribute('aria-busy', 'true');
 

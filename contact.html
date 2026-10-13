@@ -16,7 +16,7 @@
 <meta content="https://midwestmanagedit.com/assets/brand/mmit-favicon-512.png" property="og:image"/>
 <meta content="summary_large_image" name="twitter:card"/>
 <meta content="#0e1726" name="theme-color"/>
-<link href="assets/css/site.css?v=contact-first-20261012" rel="stylesheet"/>
+<link href="assets/css/site.css?v=contact-note-20261013" rel="stylesheet"/>
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
@@ -58,7 +58,6 @@
 </nav>
 <div class="nav-actions">
 
-<a class="btn btn-primary" href="#contact-start">Contact MMIT</a>
 <button aria-controls="mobileMenu" aria-expanded="false" aria-label="Open navigation" class="nav-toggle" id="navToggle" type="button">
 <span></span><span></span><span></span>
 </button>
@@ -73,42 +72,12 @@
 <a href="about.html">Why MMIT</a>
 <a class="is-current" href="contact.html">Contact</a>
 </nav>
-<div class="mobile-menu-actions">
-<a class="btn btn-primary" href="#contact-start">Contact MMIT</a>
-<a class="btn btn-secondary" href="mailto:info@midwestmanagedit.com">Email MMIT</a>
-</div>
+
 </div>
 </div>
 </header>
 <main id="top">
-<section class="page-hero contact-final-hero">
-<div class="container page-hero-shell">
-<div class="page-hero-grid contact-final-hero-grid">
-<div class="page-hero-copy">
-<div class="breadcrumbs"><a href="index.html">Home</a> / <span>Contact</span></div>
-<div class="page-kicker">Contact Midwest Managed IT</div>
-<h1>Start with a simple note.</h1>
-<p>Tell us what is going on or what you would like to improve. No appointment or polished project brief required. We’ll reply with a practical next step.</p>
-<div class="hero-actions">
-<a class="btn btn-primary" href="#contact-start">Send a message</a>
-<a class="btn btn-secondary" href="mailto:info@midwestmanagedit.com?subject=IT%20Conversation">Email MMIT</a>
-</div>
-</div>
-<aside class="page-summary contact-summary-stack">
-<div class="summary-card contact-v2-use-card">
-<div class="eyebrow">What happens next</div>
-<h3>Start at your pace.</h3>
-<ul class="contact-v2-list">
-<li>Share what is frustrating or what you want to improve</li>
-<li>We’ll review your note and respond by email</li>
-<li>Ask questions before deciding whether a plan fits</li>
-<li>When you’re ready, we can talk through next steps</li>
-</ul>
-</div>
-</aside>
-</div>
-</div>
-</section>
+<section class="page-hero contact-note-hero"><div class="container page-hero-shell"><div class="contact-note-hero-grid"><div class="page-hero-copy"><div class="breadcrumbs"><a href="index.html">Home</a> / <span>Contact</span></div><div class="page-kicker">Contact Midwest Managed IT</div><h1>Start with a simple note.</h1></div><p class="contact-note-intro">Tell us what is going on or what you would like to improve. No appointment or polished project brief required. We’ll reply with a practical next step.</p></div></div></section>
 
 
 <section class="section-lg contact-request-section" id="contact-start">
@@ -133,7 +102,8 @@
         <div class="contact-honeypot" aria-hidden="true">
           <label>Leave this field blank<input autocomplete="off" name="website" tabindex="-1" type="text"></label>
         </div>
-        <div class="input-grid two-up">
+        <div class="contact-form-body">
+<div class="input-grid two-up contact-details-grid">
           <label class="field">
             <span>Your name <em>*</em></span>
             <input autocomplete="name" id="contactName" maxlength="120" name="name" required type="text">
@@ -165,15 +135,13 @@
             </select>
           </label>
         </div>
-        <label class="field field-full">
+        <label class="field contact-message-field">
           <span>Your message <em>*</em></span>
-          <textarea id="contactMessage" maxlength="4000" name="message" placeholder="A sentence or two is plenty. What would you like us to know?" required rows="5"></textarea>
+          <textarea id="contactMessage" maxlength="4000" name="message" placeholder="A sentence or two is plenty. What would you like us to know?" required rows="7"></textarea>
         </label>
-        <label class="contact-marketing-consent">
-          <input id="contactMarketingConsent" name="marketing_consent" type="checkbox" value="1">
-          <span>Send me occasional practical IT tips and Midwest Managed IT updates by email. I can unsubscribe anytime.</span>
-        </label>
-        <p class="legal-inline">We’ll use your details to respond to this request. Ongoing email updates are sent only if you check the box above. See our <a href="privacy.html">Privacy Policy</a>.</p>
+</div>
+        
+        <p class="legal-inline">We’ll use your details to respond to your message. See our <a href="privacy.html">Privacy Policy</a>.</p>
         <div class="submit-row">
           <button class="btn btn-primary" id="contactSubmitButton" type="submit">Send message</button>
         </div>
@@ -181,134 +149,23 @@
       </form>
       <p class="contact-email-fallback">Prefer email? <a href="mailto:info@midwestmanagedit.com?subject=IT%20Conversation">info@midwestmanagedit.com</a></p>
     </div>
-    <aside class="card card-pad contact-next-step-card">
-      <div class="eyebrow">What happens next</div>
-      <h3>Start at your pace.</h3>
-      <ul class="contact-v2-list">
-        <li>We review your note and respond by email.</li>
-        <li>You can ask questions before deciding whether a plan fits.</li>
-        <li>When you’re ready, we can talk through the right next step.</li>
-      </ul>
-      <p class="muted">Prefer a live conversation? You can still choose a time below.</p>
-      <a class="btn btn-secondary" href="#schedule-intake">See available times</a>
-    </aside>
+    
   </div>
 </section>
 
-<details class="contact-scheduler-details" id="schedule-intake">
-<summary><span class="eyebrow">Optional</span><strong>Prefer to choose a meeting time?</strong><span class="muted">Open the calendar only when a conversation is useful to you.</span></summary>
-<section class="section-lg contact-final-intake" id="schedule-form">
-<div class="container consult-grid contact-final-grid">
-<div class="consult-main-stack">
-<div class="card card-pad consult-card">
-<div class="eyebrow" id="scheduleKicker">Meeting details</div>
-<h2 id="scheduleHeading">Reserve a time.</h2>
-<p class="muted" id="scheduleIntro">Add brief context, then choose an available time. Booking is optional; you can send a note above instead.</p>
-<div class="campaign-context-banner" id="campaignContextBanner" hidden>
-<strong>Free IT &amp; Backup Readiness Review</strong>
-<span>You came from the review page. This form keeps the request tied to that campaign.</span>
-</div>
-<form class="intake-form" data-booking-endpoint="api/scheduler/book.php" id="scheduleForm" novalidate="">
-<input id="scheduleSource" name="source" type="hidden" value="website_contact"/>
-<input id="scheduleCampaign" name="campaign" type="hidden" value="general_contact"/>
-<input id="scheduleLandingPage" name="landing_page" type="hidden" value="contact.html"/>
-<div class="input-grid two-up">
-<label class="field"><span>Your name <em>*</em></span><input autocomplete="name" id="scheduleName" maxlength="120" name="name" required type="text"/></label>
-<label class="field"><span>Company <em>*</em></span><input autocomplete="organization" id="scheduleCompany" maxlength="200" name="company" required type="text"/></label>
-<label class="field"><span>Work email <em>*</em></span><input autocomplete="email" id="scheduleEmail" maxlength="254" name="email" required type="email"/></label>
-<label class="field"><span>Phone</span><input autocomplete="tel" id="schedulePhone" maxlength="40" name="phone" type="tel"/></label>
-<label class="field"><span>Primary interest <em>*</em></span>
-<select id="scheduleInterest" name="interest" required>
-<option value="">Choose one</option>
-<option value="Managed IT Services">Managed IT services</option>
-<option value="Cybersecurity">Cybersecurity</option>
-<option value="Microsoft 365 &amp; Cloud">Microsoft 365 &amp; cloud</option>
-<option value="Backup &amp; Recovery">Backup &amp; recovery</option>
-<option value="Help Desk &amp; Remote Support">Help desk &amp; remote support</option>
-<option value="Technology Guidance">Technology guidance</option>
-</select></label>
-</div>
 
-<div class="input-grid two-up">
-<label class="field">
-<span>Preferred contact</span>
-<select id="scheduleContactMethod" name="contact_method">
-<option value="">Select one</option>
-<option>Email first</option>
-<option>Phone call</option>
-<option>Video meeting</option>
-<option>No strong preference</option>
-</select>
-</label>
-</div>
-<label class="field field-full">
-<span>What should we look at first? <em>*</em></span>
-<textarea id="schedulePainPoints" name="pain_points" placeholder="Examples: repeat support issues, Microsoft 365 confusion, backup concerns, security questions, onboarding gaps, or slow response flow." required="" rows="5"></textarea>
-</label>
-<label class="field field-full">
-<span>Anything else or alternate windows</span>
-<textarea id="scheduleAvailability" name="availability" placeholder="Share anything else that would help us prepare, including alternate times or context for the first conversation." rows="3"></textarea>
-</label>
-<div class="intake-note intake-note-slim">
-<strong>Booking note:</strong> The selected opening is placed on the calendar immediately. If you are not ready, close this panel and send a note instead.
-          </div>
-<div class="submit-row consult-submit-row">
-<button class="btn btn-primary" id="scheduleSubmitButton" type="submit">Book Selected Time</button>
-<a class="btn btn-secondary" href="mailto:info@midwestmanagedit.com?subject=General%20Inquiry">Prefer a simple email?</a>
-</div>
-<p class="legal-inline">By using this booking flow, you agree to the site <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
-<div aria-live="polite" class="form-status intake-status" id="scheduleFormStatus" role="status"></div>
-</form>
-</div>
-<div class="card card-pad contact-after-submit-card">
-<div class="eyebrow">After you submit</div>
-<ul class="work-pill-list rail-stack">
-<li><strong>Review:</strong> we read the request and selected time.</li>
-<li><strong>Confirm:</strong> we send the next step or an alternate window.</li>
-<li><strong>Prepare:</strong> we use your notes to keep the first call focused.</li>
-</ul>
-</div>
-</div>
-<aside class="consult-rail">
-<div class="card card-pad rail-card scheduler-card">
-<div class="eyebrow">Optional live conversation</div>
-<h3>Choose a time if it helps.</h3>
-<p class="muted">If a live conversation would help, choose an available opening. You can also send a note above and wait until you are ready.</p>
-<div class="scheduler-config-row">
-<span class="scheduler-config-label">Time zone</span>
-<strong class="scheduler-config-value" id="schedulerTimezoneLabel">Eastern Time</strong>
-</div>
-<div class="scheduler-picker" data-live-endpoint="api/scheduler/availability.php" data-source="assets/data/scheduler-availability.json" id="schedulerPicker">
-<div class="scheduler-days" id="schedulerDays">
-<p class="muted">Loading available days…</p>
-</div>
-<div class="scheduler-slots" id="schedulerSlots"></div>
-</div>
-<input id="scheduleRequestedSlot" name="requested_slot" type="hidden"/>
-<input id="scheduleRequestedSlotIso" name="requested_slot_iso" type="hidden"/>
-<div class="scheduler-selection-summary" id="schedulerSelectionSummary">No time selected yet.</div>
-<div class="scheduler-microcopy">We’ll confirm the requested time or send the next best option.</div>
-</div>
-<div class="card card-pad rail-card contact-helpful-details-card">
-<div class="eyebrow">Helpful details</div>
-<ul class="work-pill-list rail-stack">
-<li>Approximate user/device count</li>
-<li>Main concern or recurring issue</li>
-<li>Microsoft 365, backup, or security worries</li>
-<li>Who should join from your side</li>
-</ul>
-</div>
-</aside>
-</div>
-</section>
-</details>
 
+<section class="contact-next-section" aria-labelledby="contactNextHeading"><div class="container"><div class="card card-pad contact-next-step-card"><div><div class="eyebrow">What happens next</div><h2 id="contactNextHeading">Start at your pace.</h2></div><ol class="contact-next-steps">
+<li><span class="contact-step-number" aria-hidden="true">01</span><div><h3>We read your note.</h3><p>We review what you share and respond by email.</p></div></li>
+<li><span class="contact-step-number" aria-hidden="true">02</span><div><h3>Ask your questions.</h3><p>Get clear answers before deciding whether a service fits.</p></div></li>
+<li><span class="contact-step-number" aria-hidden="true">03</span><div><h3>Choose your next step.</h3><p>When you’re ready, we can talk through what makes sense for your business.</p></div></li>
+</ol></div></div></section>
 <section class="section contact-v2-support">
 <div class="container">
 <div class="section-heading compact-heading">
 <div class="eyebrow">Other ways to start</div>
 <h2>Not every conversation starts the same way.</h2>
-<p>Explore services and answers at your own pace, or open the optional calendar above when you would rather talk live.</p>
+<p>Explore services and answers at your own pace, then send us a note when you’re ready.</p>
 </div>
 <div class="contact-v2-cards">
 <article class="info-card">
@@ -385,8 +242,7 @@
 </div>
 </footer>
 
-<script src="assets/js/scheduler.js"></script>
-<script src="assets/js/site.js?v=contact-first-20261012"></script>
+<script src="assets/js/site.js?v=contact-note-20261013"></script>
 
 <script>
 (() => {
@@ -394,67 +250,42 @@
   const source = params.get('source') || '';
   const campaign = params.get('utm_campaign') || params.get('campaign') || '';
   const isReviewFlow = source === 'it-review' || campaign === 'it_review';
-  const landingPage = window.location.pathname.replace(/^\/+/, '') || 'contact.html';
-  const sourceValue = isReviewFlow ? 'it-review' : (source || 'website_contact');
-  const campaignValue = campaign || (isReviewFlow ? 'it_review' : 'general_contact');
-
   const setValue = (id, value) => {
-    const input = document.getElementById(id);
-    if (input) input.value = value || '';
+    const field = document.getElementById(id);
+    if (field) field.value = value || '';
   };
+  setValue('contactSource', source || (isReviewFlow ? 'it-review' : 'website_contact'));
+  setValue('contactCampaign', campaign || (isReviewFlow ? 'it_review' : 'general_contact'));
+  setValue('contactLandingPage', window.location.pathname.replace(/^\/+/, '') || 'contact.html');
+  for (const [id, key] of Object.entries({
+    contactUtmSource: 'utm_source', contactUtmMedium: 'utm_medium',
+    contactUtmCampaign: 'utm_campaign', contactUtmContent: 'utm_content', contactQrCode: 'qr_code'
+  })) setValue(id, params.get(key));
 
-  setValue('scheduleSource', sourceValue);
-  setValue('scheduleCampaign', campaignValue);
-  setValue('scheduleLandingPage', landingPage);
-  setValue('contactSource', sourceValue);
-  setValue('contactCampaign', campaignValue);
-  setValue('contactLandingPage', landingPage);
-  setValue('contactUtmSource', params.get('utm_source'));
-  setValue('contactUtmMedium', params.get('utm_medium'));
-  setValue('contactUtmCampaign', params.get('utm_campaign') || campaign);
-  setValue('contactUtmContent', params.get('utm_content'));
-  setValue('contactQrCode', params.get('qr_code'));
+  // Keep existing estimate links useful while directing visitors to an inquiry.
+  let saved = {};
+  try {
+    const snapshot = JSON.parse(sessionStorage.getItem('mmit-schedule-intake-v1') || '{}');
+    if (Date.now() - Number(snapshot.savedAt || 0) < 24 * 60 * 60 * 1000) saved = snapshot.fields || {};
+  } catch {}
+  for (const [id, key] of Object.entries({
+    contactName: 'name', contactEmail: 'email', contactCompany: 'company', contactPhone: 'phone'
+  })) setValue(id, params.get(key) || saved[key]);
+  const painPoints = params.get('pain_points') || saved.pain_points || '';
+  const estimate = params.get('estimate_range') || saved.estimate_range || '';
+  setValue('contactMessage', [painPoints, estimate && 'Estimator planning range: ' + estimate].filter(Boolean).join('\n\n'));
 
   if (isReviewFlow) {
-    document.body.classList.add('is-it-review-scheduler');
-    const contactBanner = document.getElementById('contactCampaignBanner');
-    const schedulerBanner = document.getElementById('campaignContextBanner');
-    if (contactBanner) contactBanner.hidden = false;
-    if (schedulerBanner) schedulerBanner.hidden = false;
-
-    const contactTopic = document.getElementById('contactTopic');
-    if (contactTopic && !contactTopic.value) contactTopic.value = 'Free IT & Backup Readiness Review';
-
-    const contactMessage = document.getElementById('contactMessage');
-    if (contactMessage) contactMessage.placeholder = 'Tell us what you would like us to look at in the free IT & Backup Readiness Review.';
-
-    const kicker = document.getElementById('scheduleKicker');
-    const heading = document.getElementById('scheduleHeading');
-    const intro = document.getElementById('scheduleIntro');
-    const submit = document.getElementById('scheduleSubmitButton');
-    const interest = document.getElementById('scheduleInterest');
-    const painPoints = document.getElementById('schedulePainPoints');
-
-    if (kicker) kicker.textContent = 'Optional free review conversation';
-    if (heading) heading.textContent = 'Choose a time only if a conversation would help.';
-    if (intro) intro.textContent = 'You can request the free review by sending the short note above. The calendar is available if you would rather discuss it live.';
-    if (submit) submit.textContent = 'Book Selected Time';
-
-    if (interest && !interest.value) {
-      const option = Array.from(interest.options).find((item) => /review/i.test(item.textContent));
-      if (option) interest.value = option.value;
-    }
-    if (painPoints && !painPoints.value) {
-      painPoints.placeholder = 'Example: We want to know if backups, Microsoft 365, devices, security, and support are actually covered.';
-    }
+    const banner = document.getElementById('contactCampaignBanner');
+    if (banner) banner.hidden = false;
+    setValue('contactTopic', 'Free IT & Backup Readiness Review');
+    const message = document.getElementById('contactMessage');
+    if (message) message.placeholder = 'Tell us what you would like us to look at in the free IT & Backup Readiness Review.';
   }
-
-  const schedulerDetails = document.getElementById('schedule-intake');
-  const openSchedulerForHash = () => {
-    if (schedulerDetails && window.location.hash === '#schedule-intake') schedulerDetails.open = true;
-  };
-  openSchedulerForHash();
-  window.addEventListener('hashchange', openSchedulerForHash);
+  if (window.location.hash === '#schedule-intake') {
+    history.replaceState(null, '', window.location.pathname + window.location.search + '#contact-start');
+    document.getElementById('contact-start')?.scrollIntoView();
+  }
 })();
 </script>
 
