@@ -115,4 +115,3 @@ grep -q '"ok":true' "$stage/contact-test.json"
 trap - ERR
 printf 'CONTACT_DEPLOY_OK\nApproved source: %s\nBackup: %s\nForm test accepted by Brevo.\n' "$approved" "$backup"
 
-
