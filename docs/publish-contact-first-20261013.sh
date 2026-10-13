@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
+trap 'code=$?; echo "PRECHECK_STOPPED at line $LINENO (status $code); live website unchanged"; exit "$code"' ERR
 site=/home/mjrmstlj/public_html
 repo=/home/mjrmstlj/repositories/midwestmanagedit-website
 approved=a2a5df9d2f0d0e0ad773a7758070af0f8cb93c29
@@ -40,14 +41,16 @@ git -C "$repo" cat-file -e "$approved^{commit}"
 stage=$(mktemp -d /home/mjrmstlj/mmit-contact-release.XXXXXX)
 git -C "$repo" archive "$approved" "${files[@]}" | tar -x -C "$stage"
 php -l "$stage/api/contact-request.php"
-php <<'PHP'
+php -v | head -n 1
+php -d display_errors=1 -d log_errors=0 <<'PHP'
 <?php
+echo "Runtime mode: " . PHP_SAPI . "\n";
 require "/home/mjrmstlj/public_html/includes/private-config.php";
 try { $config = mmit_load_secrets_config(); }
-catch (Throwable $error) { fwrite(STDERR, "Production configuration could not load.\n"); exit(1); }
+catch (Throwable $error) { echo "Production configuration could not load: " . $error->getMessage() . "\n"; exit(1); }
 $key = (string)($config["brevo"]["api_key"] ?? "");
 if ($key === "" || !function_exists("curl_init")) {
-    fwrite(STDERR, "Brevo key or PHP cURL is unavailable.\n"); exit(1);
+    echo "Brevo key or PHP cURL is unavailable.\n"; exit(1);
 }
 $request = curl_init("https://api.brevo.com/v3/account");
 curl_setopt_array($request, [
@@ -60,7 +63,7 @@ $result = curl_exec($request);
 $status = (int)curl_getinfo($request, CURLINFO_HTTP_CODE);
 curl_close($request);
 if ($result === false || $status !== 200) {
-    fwrite(STDERR, "Brevo configuration check failed (HTTP " . $status . ").\n"); exit(1);
+    echo "Brevo configuration check failed (HTTP " . $status . ").\n"; exit(1);
 }
 echo "PHP and Brevo configuration verified.\n";
 PHP
