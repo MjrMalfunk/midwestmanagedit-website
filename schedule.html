@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Loading your scheduler | Midwest Managed IT</title>
+  <title>Loading your contact details | Midwest Managed IT</title>
   <meta name="robots" content="noindex,nofollow">
-  <meta name="description" content="Securely loading your Midwest Managed IT estimate scheduling context.">
+  <meta name="description" content="Securely loading your Midwest Managed IT estimate contact context.">
   <link rel="icon" href="assets/brand/mmit-favicon.ico">
   <link rel="stylesheet" href="assets/css/site.css?v=footer-mobile-20260702">
   <style>
@@ -87,11 +87,11 @@
     <section class="schedule-loader-card" aria-live="polite">
       <img src="assets/brand/mmit-logo-horizontal-light.svg" alt="Midwest Managed IT">
       <span class="schedule-loader-kicker">Secure estimate handoff</span>
-      <h1>Loading your scheduler</h1>
+      <h1>Loading your contact details</h1>
       <p id="scheduleLoaderMessage">We are securely retrieving your estimate details so you do not have to re-enter everything.</p>
       <div class="loader-dots" aria-hidden="true"><span></span><span></span><span></span></div>
       <p>
-        <a class="btn btn-primary" id="manualScheduleLink" href="contact.html#schedule-intake">Continue to scheduler</a>
+        <a class="btn btn-primary" id="manualScheduleLink" href="contact.html#contact-start">Continue to contact form</a>
       </p>
     </section>
   </main>
@@ -103,7 +103,7 @@
       const manualLink = document.getElementById('manualScheduleLink');
       const params = new URLSearchParams(window.location.search);
       const token = (params.get('estimate') || '').trim();
-      const redirectToScheduler = () => window.location.replace('contact.html#schedule-intake');
+      const redirectToScheduler = () => window.location.replace('contact.html#contact-start');
 
       function setMessage(text) {
         if (message) message.textContent = text;
@@ -121,7 +121,7 @@
       }
 
       if (!token) {
-        setMessage('No estimate token was found. Sending you to the scheduler now.');
+        setMessage('No estimate token was found. Sending you to the contact form now.');
         window.setTimeout(redirectToScheduler, 650);
         return;
       }
@@ -138,11 +138,11 @@
             throw new Error((data && data.message) || 'This estimate link could not be loaded.');
           }
           saveScheduleFields(data.fields || {});
-          setMessage('Your estimate context is ready. Opening the scheduler now.');
+          setMessage('Your estimate context is ready. Opening the contact form now.');
           window.setTimeout(redirectToScheduler, 450);
         })
         .catch((error) => {
-          setMessage((error && error.message ? error.message : 'This estimate link could not be loaded.') + ' You can still continue to the scheduler and enter your details manually.');
+          setMessage((error && error.message ? error.message : 'This estimate link could not be loaded.') + ' You can still continue to the contact form and enter your details manually.');
           if (manualLink) manualLink.focus();
         });
     })();

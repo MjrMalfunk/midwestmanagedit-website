@@ -172,8 +172,8 @@ p{
 
     const secondary = document.createElement('a');
     secondary.className = 'btn btn-secondary';
-    secondary.href = 'contact.html#schedule-intake';
-    secondary.textContent = 'Back to Scheduler';
+    secondary.href = 'contact.html#contact-start';
+    secondary.textContent = 'Back to Contact Page';
     actions.appendChild(secondary);
     return;
   }
@@ -197,7 +197,7 @@ p{
     document.getElementById('eyebrow').textContent = 'Estimate Request Received';
     document.getElementById('headline').textContent = 'Thanks, we’ve got it ✉️';
     document.getElementById('leadOne').textContent = `Your ${lane} estimate request for ${company} has been sent into the email-first follow-up path.`;
-    document.getElementById('leadTwo').textContent = 'Someone from Midwest Managed IT will follow up by email. If you decide you would rather talk sooner, you can still schedule a chat below.';
+    document.getElementById('leadTwo').textContent = 'Someone from Midwest Managed IT will follow up by email. If you decide you would rather talk sooner, you can still contact us any time.';
     document.getElementById('meta').textContent = `Planning range captured: ${range}. This is still a planning number, not a contractual quote.`;
 
     const actions = document.getElementById('actions');
@@ -205,8 +205,8 @@ p{
 
     const primary = document.createElement('a');
     primary.className = 'btn btn-primary';
-    primary.href = carryParams.toString() ? `contact.html?${carryParams.toString()}#schedule-intake` : 'contact.html#schedule-intake';
-    primary.textContent = 'Schedule a Chat Instead';
+    primary.href = carryParams.toString() ? `contact.html?${carryParams.toString()}#contact-start` : 'contact.html#contact-start';
+    primary.textContent = 'Contact MMIT Instead';
     actions.appendChild(primary);
 
     const secondary = document.createElement('a');

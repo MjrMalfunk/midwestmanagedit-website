@@ -121,6 +121,57 @@
     scheduleStatus.className = 'form-status intake-status ' + (type === 'success' ? 'is-success' : 'is-error');
   }
 
+  const contactForm = document.getElementById('contactForm');
+  const contactStatus = document.getElementById('contactFormStatus');
+  const contactSubmitButton = document.getElementById('contactSubmitButton');
+
+  function setContactStatus(message, type) {
+    if (!contactStatus) return;
+    contactStatus.textContent = message;
+    contactStatus.className = 'form-status intake-status ' + (type === 'success' ? 'is-success' : 'is-error');
+  }
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      setContactStatus('', 'success');
+
+      if (!contactForm.checkValidity()) {
+        contactForm.reportValidity();
+        return;
+      }
+
+      const payload = Object.fromEntries(new FormData(contactForm).entries());
+      if (contactSubmitButton) contactSubmitButton.disabled = true;
+      contactForm.setAttribute('aria-busy', 'true');
+
+      try {
+        const response = await fetch(contactForm.dataset.contactEndpoint || 'api/contact-request.php', {
+          method: 'POST',
+          credentials: 'same-origin',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok || !data.ok) {
+          throw new Error(data.message || 'Your note could not be sent. Please email info@midwestmanagedit.com.');
+        }
+
+        const hiddenValues = Array.from(contactForm.querySelectorAll('input[type="hidden"]'))
+          .map((input) => [input, input.value]);
+        contactForm.reset();
+        hiddenValues.forEach(([input, value]) => { input.value = value; });
+        setContactStatus(data.message || 'Thanks. Your note is with Midwest Managed IT.', 'success');
+      } catch (error) {
+        setContactStatus(error?.message || 'Your note could not be sent. Please email info@midwestmanagedit.com.', 'error');
+      } finally {
+        if (contactSubmitButton) contactSubmitButton.disabled = false;
+        contactForm.removeAttribute('aria-busy');
+      }
+    });
+  }
+
+
   function openMenu() {
     if (!mobileMenu || !navToggle) return;
     body.classList.add('is-menu-open');
