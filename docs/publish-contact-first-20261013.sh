@@ -10,6 +10,7 @@ test -d "$repo/.git"
 files=(
   'about.html'
   'api/contact-request.php'
+# The API requires this shared loader; it reads secrets from the private home directory.
   'assets/css/site.css'
   'assets/js/site.js'
   'backup-recovery-readiness.html'
@@ -17,6 +18,7 @@ files=(
   'cybersecurity.html'
   'faq.html'
   'getting-started.html'
+  'includes/private-config.php'
   'help-desk-support.html'
   'index.html'
   'it-review.html'
@@ -41,11 +43,12 @@ git -C "$repo" cat-file -e "$approved^{commit}"
 stage=$(mktemp -d /home/mjrmstlj/mmit-contact-release.XXXXXX)
 git -C "$repo" archive "$approved" "${files[@]}" | tar -x -C "$stage"
 php -l "$stage/api/contact-request.php"
+php -l "$stage/includes/private-config.php"
 php -v | head -n 1
-php -d display_errors=1 -d log_errors=0 <<'PHP'
+MMIT_CONFIG_LOADER="$stage/includes/private-config.php" php -d display_errors=1 -d log_errors=0 <<'PHP'
 <?php
 echo "Runtime mode: " . PHP_SAPI . "\n";
-require "/home/mjrmstlj/public_html/includes/private-config.php";
+require getenv("MMIT_CONFIG_LOADER");
 try { $config = mmit_load_secrets_config(); }
 catch (Throwable $error) { echo "Production configuration could not load: " . $error->getMessage() . "\n"; exit(1); }
 $key = (string)($config["brevo"]["api_key"] ?? "");
@@ -111,3 +114,5 @@ test "$status" = 200
 grep -q '"ok":true' "$stage/contact-test.json"
 trap - ERR
 printf 'CONTACT_DEPLOY_OK\nApproved source: %s\nBackup: %s\nForm test accepted by Brevo.\n' "$approved" "$backup"
+
+
