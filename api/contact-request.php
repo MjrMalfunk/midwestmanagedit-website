@@ -11,10 +11,10 @@ function mmit_contact_json_response(int $status, string $message, array $extra =
     exit;
 }
 
-function mmit_contact_rate_limit(string $scope, int $maxRequests, int $windowSeconds): bool
+function mmit_contact_rate_limit(string $scope, int $maxRequests, int $windowSeconds, ?string $identity = null): bool
 {
-    $ip = trim((string)($_SERVER['REMOTE_ADDR'] ?? 'unknown'));
-    $key = hash('sha256', $scope . '|' . $ip);
+    $identity = $identity ?? trim((string)($_SERVER['REMOTE_ADDR'] ?? 'unknown'));
+    $key = hash('sha256', $scope . '|' . $identity);
     $path = sys_get_temp_dir() . '/mmit-rate-' . $key . '.json';
     $now = time();
     $state = ['window_start' => $now, 'count' => 0];
@@ -184,6 +184,25 @@ $emailResult = mmit_contact_brevo_post('smtp/email', $apiKey, [
 if ($emailResult['error'] !== '' || $emailResult['status'] < 200 || $emailResult['status'] >= 300) {
     error_log('MMIT contact email delivery failed: ' . ($emailResult['error'] !== '' ? $emailResult['error'] : 'HTTP ' . $emailResult['status']));
     mmit_contact_json_response(502, 'We could not send your note just now. Please email info@midwestmanagedit.com.');
+}
+
+// Send a transactional receipt after the inquiry reaches MMIT. Do not subscribe the visitor.
+// Suppress repeat receipts to the same address for ten minutes and skip the deployment probe.
+$isDeploymentProbe = $email === 'info@midwestmanagedit.com'
+    && $source === 'website_deployment_check'
+    && $campaign === 'internal_validation';
+if (!$isDeploymentProbe && mmit_contact_rate_limit('contact-receipt', 1, 600, strtolower($email))) {
+    $projectEmail = 'projectmanagement@midwestmanagedit.com';
+    $receipt = mmit_contact_brevo_post('smtp/email', $apiKey, [
+        'sender' => ['email' => $projectEmail, 'name' => 'MMIT Project Management'],
+        'to' => [['email' => $email, 'name' => $name]],
+        'replyTo' => ['email' => $projectEmail, 'name' => 'MMIT Project Management'],
+        'subject' => 'Thanks for reaching out to Midwest Managed IT',
+        'textContent' => "Hi {$name},\n\nThanks for reaching out to Midwest Managed IT. We received your note, and someone from our project management team will be in touch soon.\n\nIf there is anything else we should know, you can reply to this email.\n\nMidwest Managed IT",
+    ]);
+    if ($receipt['error'] !== '' || $receipt['status'] < 200 || $receipt['status'] >= 300) {
+        error_log('MMIT contact receipt failed: ' . ($receipt['error'] !== '' ? $receipt['error'] : 'HTTP ' . $receipt['status']));
+    }
 }
 
 // Contact requests are answered directly; they do not enroll visitors in campaigns.
